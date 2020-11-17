@@ -177,7 +177,7 @@ fn main() -> Result<()> {
   //for track in bgm.tracks {
   //  println!("{:02} - {}", track.track_number, track.name_jp);
   //}
-  let ip = Path::new("/mnt/f/Torrents/Touhou/10/Mountain of Faith/thbgm.dat");
+  let ip = Path::new("/mnt/e/Torrents/Touhou/10/Mountain of Faith/thbgm.dat");
   let op = Path::new("MoF/");
   extract_all(bgm, ip, op, 1)?;
 
