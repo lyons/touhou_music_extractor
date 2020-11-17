@@ -99,12 +99,27 @@ impl WavFile {
   }
 }
 
+use std::{
+  fs::File,
+  io::{Read, Seek},
+  path::Path,
+};
+
 fn main() -> Result<()> {
-  let data: Vec<u8> = vec![0, 0, 0, 0];
+  let start_offset: u64 = 0x18BC4930;
+  let rel_loop: usize = 0x00055500;
+  let rel_end: usize = 0x01C28000;
+  let loops = 1;
+
+  let mut infile = File::open("")?;
+  infile.seek(std::io::SeekFrom::Start(start_offset))?;
+  let mut data = vec![0; rel_end];
+  infile.read_exact(&mut data);
+  //let data: Vec<u8> = std::fs::read("")?;
   let rate: u32 = 441000;
 
-  let path = std::path::Path::new("test.wav");
-  let file = std::fs::File::create(&path)?;
+  let path = Path::new("op.wav");
+  let file = File::create(&path)?;
   let bw = BufWriter::new(file);
 
   let wave = WavFile::new(data, rate);
