@@ -114,7 +114,7 @@ fn main() -> Result<()> {
   infile.seek(std::io::SeekFrom::Start(start_offset))?;
   let mut data = vec![0; rel_end];
   infile.read_exact(&mut data)?;
-  let rate: u32 = 441000;
+  let rate: u32 = 44100;
 
   let path = Path::new("Necrofantasia.wav");
   let file = File::create(&path)?;
