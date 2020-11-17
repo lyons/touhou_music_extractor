@@ -1,0 +1,174 @@
+﻿# Music Room Interface Info
+# TH14 music extraction file made by ZDP123 (TS666 on MotK) <tracescarlet666@live.com> <zebesiano.alfa.123@gmail.com>
+# Info and music data obviously token from Touhou Wiki <en.touhouwiki.net>, lot of thanks to the translators.
+# Also special thanks to the users that helped me at MotK with positions trouble :) http://www.shrinemaiden.org/forum/index.php/topic,16863.0.html (link to ISC BGM thread)
+# And finally thanks to the creator of THCRAP.
+# Pastebin for BGM File: http://pastebin.com/ynJf96ya
+# Edit Order of Music
+
+[game]
+name = "東方輝針城　～ Double Dealing Character"
+name_en = "Touhou Kishinjou ~ Double Dealing Character"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2013
+gamenum = "14"
+ 
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x00
+zwavid_09 = 0x14
+ 
+tracks = 18
+ 
+[thvorbis]
+patchclass = "slow"
+ 
+[update]
+wikipage = "Double_Dealing_Character/Music"
+wikirev = 355642
+ 
+[01]
+name_jp = "不思議なお祓い棒"
+position = "0x00000010, 0x002BADD0, 0x013D2F60"
+frequency = 44100
+name_en = "Mysterious Purification Rod"
+comment_jp = "タイトル画面のテーマです。\n\nいつも通りですが、今回アップテンポの曲が多いので\n\nタイトル画面ではしっとりするように作るつもりでした。\n\nそれはどうかな？"
+comment_en = "The title screen theme.\n\nIt's the same as usual, but since there's so many up-tempo tracks this time,\nI intended to make the title screen more subdued.\n\nI wonder if it worked?"
+ 
+[02]
+name_jp = "ミストレイク"
+position = "0x013D2F70, 0x0015D8C0, 0x00F92900"
+frequency = 44100
+name_en = "Mist Lake"
+comment_jp = "１面のテーマです。\n\n１面という事で、ちょっとインパクトのある曲にしました。\n\nどういう原理で湖に常に霧が立ちこめているんでしょうねぇ。\n\n魚は棲んで無さそうですが、意外と色んな妖怪が棲んでいる\n\nみたいです。"
+comment_en = "The stage 1 theme.\n\nSince it's the stage 1 theme, I made it a track to leave a bit of an impact.\nThanks to some principle or other, there's always mist hanging over the lake.\nNo fish seem to live there, but there surprisingly seems to be various youkai\nliving there."
+ 
+[03]
+name_jp = "秘境のマーメイド"
+position = "0x02365870, 0x00065180, 0x00F13000"
+frequency = 44100
+name_en = "Mermaid from the Uncharted Land"
+comment_en = "Wakasagihime's theme.\n\nShe's a mermaid who's confident in her ability while underwater,\nbut unfortunately there's more land than water in Gensokyo.\nI made this battle music with a light feeling to it, rather than a serious one.\nI do love tempura."
+comment_jp = "わかさぎ姫のテーマです。\n\n水中なら腕に自信がある人魚ですが、残念ながら幻想郷は\n\n陸地の方が多いのです。\n\n本気さを感じないかるーい感じの戦闘曲にしました。\n\n天ぷら大好きです。"
+ 
+[04]
+name_jp = "運河を行き交う人妖"
+position = "0x03278870, 0x00292480, 0x01128A70"
+frequency = 44100
+name_en = "Humans and Youkai Traversing the Canal"
+comment_jp = "２面のテーマです。\n\n一面ののほほん感とはうって変わって中二っぽい\n\n妖怪なので少し意識しました。\n\n一定のビートで淡々と進む感じが出ているかなと。"
+comment_en = "The stage 2 theme.\n\nIn sharp contrast to the relaxed feeling of stage 1, the youkai here have a \"cooler-\nthan-thou\"  thing going on, which I kept in mind somewhat.\n\nDoes the constant beat give a feeling of indifferent progress?"
+ 
+[05]
+name_jp = "柳の下のデュラハン"
+position = "0x043A12E0, 0x0005A130, 0x012311E0"
+frequency = 44100
+name_en = "Dullahan Under the Willows"
+comment_en = "Sekibanki's theme.\n\nI don't really know whether rokurokubi are supposed to stretch their neck\nor send their head flying.\nBut when the head comes off and their body moves elsewhere,\nit seems like they can't go back to normal, right?"
+comment_jp = "赤蛮奇のテーマです。\n\nろくろ首って、首が伸びるんだか頭が飛ぶんだか\n\nよく判らないですよね。\n\nでも首が飛んでいるときに体を動かすと、元に\n\n戻れなくなるみたいですよ？"
+ 
+[06]
+name_jp = "満月の竹林"
+position = "0x055D24C0, 0x000F02F0, 0x0185C590"
+frequency = 44100
+name_en = "Bamboo Forest of the Full Moon"
+comment_jp = "３面のテーマです。\n\n竹林で満月ですよ。\n\nいつの間にか迷いの竹林は月を崇める妖怪の聖地に\n\nなっていたんですね。\n\n曲も永夜抄のアレを意識しました。"
+comment_en = "The stage 3 theme.\n\nIt's a full moon in the Bamboo Forest.\nAt some point, the Bamboo Forest of the Lost became a sacred place\nfor youkai who worship the moon.\n\nI kept that from Imperishable Night in mind for this track, too."
+ 
+[07]
+name_jp = "孤独なウェアウルフ"
+position = "0x06E2EA50, 0x0023CF40, 0x011D2280"
+frequency = 44100
+name_en = "Lonesome Werewolf"
+comment_en = "Kagerou Imaizumi's theme.\n\nI tried giving it a midboss-ish feeling.\nBecause it's stage 3 and all.\n\nBy the way, since this full moon is real, she can transform, too."
+comment_jp = "今泉 影狼のテーマです。\n\n中ボスっぽい感じを出しまくってみました。\n\nまあ三面ですしね。\n\nちなみに満月は本物ですので彼女も変身できます。"
+ 
+[08]
+name_jp = "マジカルストーム"
+position = "0x08000CD0, 0x006F17F0, 0x01F1DE50"
+frequency = 44100
+comment_en = "The stage 4 theme.\n\nIt's not quite \"eerie\", and not quite \"bright\".\n\nIt gives more of a feeling of \"mysterious floatiness\".\n\nEven though it's a storm, you float around calmly...\n\nIt gives a feeling of literally not having your feet on the ground."
+name_en = "Magical Storm"
+comment_jp = "４面のテーマです。\n\n\n不気味かと言えばそうでも無く、明るいかと言えばそうでも無い。\n\nちょっと不思議な浮遊感を出してます。\n\n嵐の割にはフワフワしているし……。\n\n文字通り足が地に着かない感じですね。"
+ 
+[09]
+name_jp = "幻想浄瑠璃"
+position = "0x09F1EB20, 0x005240E0, 0x01833240"
+frequency = 44100
+name_en = "Illusionary Joururi"
+comment_jp = "九十九 弁々　九十九 八橋のテーマです。\n\n\nもっとベタな伝統的な和風の曲にしようかとも思ったのですが、\n\n曲の技巧だけ走ってしまうとゲームの雰囲気が滅茶苦茶になるので\n\nグッとこらえました。\n\nでも何とかそれっぽくしたけど琵琶の音源が無くてしょんぼりです。"
+comment_en = "Benben Tsukumo's and Yatsuhashi Tsukumo's theme.\n\nI had wanted to make it a more clichéd kind of traditional Japanese song,\n\nbut if you let the songs be too technical, the atmosphere of the game is ruined.\n\nSo I held back.\n\nThough I did make it sort of like that, I didn't have a sample for a biwa, so that left me feeling a bit depressed."
+ 
+[10]
+name_jp = "空中に沈む輝針城"
+position = "0x0B751D60, 0x0037DEC8, 0x018C6020"
+frequency = 44100
+name_en = "The Shining Needle Castle Sinking in the Air"
+comment_jp = "５面のテーマです。\n\n\n大きな意味も無く、切ない感じの曲にしました。\n\n\n切ないメロディだけど軽快なリズム。\n\nこういう曲が流れると終盤だなーって感じます。"
+comment_en = "The stage 5 theme.\n\nI made it a song with no real meaning besides feeling sad.\n\nIt has a sorrowful melody, but a light-hearted rhythm.\n\nI feel like when this sort of song starts playing, you've entered the final part of the game."
+ 
+[11]
+name_jp = "リバースイデオロギー"
+position = "0x0D017D80, 0x000E2140, 0x01614750"
+frequency = 44100
+name_en = "Reverse Ideology"
+comment_en = "Seija Kijin's theme.\n\n\nI wrote this while thinking of the image of an extremely persnickety youkai.\n\nThe result is pretty mischievous... well, the mood's pretty boss-like, so I'm happy.\n\nThis is a fussy boss that would take the initiative in disliking others.\n\nEven so, she's the villain this round."
+comment_jp = "鬼人 正邪のテーマです。\n\n\n極めて小物臭のする妖怪をイメージして曲を作りました。\n\n結果、何だかやんちゃな曲に……まあボスっぽいノリで楽しいよね。\n\n他人が嫌がることを率先してやる小物なボスですが、\n\nそれでも今回の黒幕です。"
+ 
+[12]
+name_jp = "針小棒大の天守閣"
+position = "0x0E62C4D0, 0x0032A900, 0x01135500"
+frequency = 44100
+name_en = "The Exaggerated Castle Keep"
+comment_jp = "６面のテーマです。\n\n\n何だか少し焦る感じを出してます。\n\n\nここからラスボス、エンディングと３曲同じメロディにして、\n\n今作の共通のテーマっぽくしてみました。"
+comment_en = "The stage 6 theme.\n\n\nThis song creates a slight feeling of being in a hurry.\n\n\nTogether with the last boss after this and the ending theme, there are 3 songs with the same melody.\n\nSince I tried doing that this time around, it gives them all a sense of togetherness."
+ 
+[13]
+name_jp = "輝く針の小人族　～ Little Princess"
+position = "0x0F7619D0, 0x0011B800, 0x02687380"
+frequency = 44100
+name_en = "Inchlings of the Shining Needle ~ Little Princess"
+comment_en = "Shinmyoumaru Sukuna's theme.\n\nI made it a cool song fit for a small body.\n\nIt's not very heavy, but I think I gave it a nice expansion\n\nthat really makes her feel like a last boss.\n\nHuh? She's not small? Well, then please beat the game."
+comment_jp = "少名 針妙丸のテーマです。\n\n小さい身体なりの格好良い曲にしました。\n\n重厚さは少ないですが、如何にもラスボスっぽい気持ちの良い\n\n広がり方のする曲になってると思います。\n\nあれ？　小さくないって？　まあ是非クリアして下さいな。"
+ 
+[14]
+name_jp = "魔力の雷雲"
+position = "0x13915CF0, 0x001C0D60, 0x018C06C0"
+frequency = 44100
+name_en = "Thunderclouds of Magical Power"
+comment_en = "The extra stage theme.\n\nThis is the song for smoothly advancing down the royal road without resistance.\n\nActually, a very Touhou-ish \"essence\" is scattered here and there.\n\nThere's no deep meaning to it."
+comment_jp = "エキストラステージのテーマです。\n\n抵抗なくさらっと流れる感じの王道の道中曲です。\n\n実はあちこちに東方らしいエッセンスを散りばめてます。\n\nそれに深い意味はありません。"
+ 
+[15]
+name_jp = "始原のビート　～ Pristine Beat"
+position = "0x151D63B0, 0x0026D4C0, 0x02322D00"
+frequency = 44100
+name_en = "Primordial Beat ~ Pristine Beat"
+comment_jp = "堀川 雷鼓のテーマです。\n\nドラムメイン曲にしようかと思ってたのですが、流石に\n\nその勇気は無かったです。ゲームのイメージ的に。\n\n間奏はちょっとだけドラムが主役になります。\n\nちなみに靴の構造上、足をじたばたさせてバスドラムを\n\n叩くんでしょうね。"
+comment_en = "Raiko Horikawa's theme.\n\nI wanted to make the song feature drums prominently, but\n\nin the end I just didn't have the courage. In terms of the game's image.\n\nThe drums play a main part for a short interlude section of the song.\n\nAs a side note, her shoes are probably made so she can swing her feet\n\nto hit the bass drum."
+ 
+[16]
+name_jp = "小槌の魔力"
+position = "0x11DE8D50, 0x00080500, 0x00E3EBA0"
+frequency = 44100
+name_en = "Magical Power of the Mallet"
+comment_en = "The ending theme.\n\nI tried adding in parts of the last boss theme to the end.\n\nDoesn't that leave different impressions for each?"
+comment_jp = " エンディングのテーマです。\n\n\n終盤はラスボスのテーマで纏めてみました。\n\n\nそれぞれ違ったイメージになるんじゃないでしょうか？"
+ 
+[17]
+name_jp = "不思議な不思議な道具達"
+position = "0x12C278F0, 0x002FA840, 0x00CEE400"
+frequency = 44100
+name_en = "Strange, Strange Instruments"
+comment_jp = "スタッフロールのテーマです。\n\n\nタイトルの曲のバージョン違いです。\n\n正直最初から、どっちかっていうとタイトルじゃなくて\n\nエンディング寄りの曲だと思ってました。\n\nよく見るとスタッフの表示と曲のタイミングがぴったりですよ。"
+comment_en = "The staff roll theme.\n\n\nA different version of the title song.\n\nTo be honest, I was thinking it wouldn't be\n\nthe title, but a song for the ending.\n\nIf you look closely, the credits and the song are timed perfectly."
+ 
+[18]
+name_jp = "プレイヤーズスコア"
+position = "0x174F90B0, 0x001CACC8, 0x0066DCC0"
+frequency = 44100
+name_en = "Player's Score"
+comment_en = "The stage 5 theme.  Since we just came barreling through a narrow cave, I decided to write a nice, expansive song to contrast it. It's so stimulating to find such enormous spaces underground, isn't it? I wanted to compose something that would make you feel that kind of excitement."
+comment_jp = "５面のテーマです。\n\n狭い洞窟を駆け抜けてきたので、今度は対照的に空間的に広がりを感じる曲にしました。\n地底に大空間があったりすると興奮しますよね。\nそんな人間の高揚感を感じられるといいなあと思って作りました。"

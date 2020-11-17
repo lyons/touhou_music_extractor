@@ -1,0 +1,75 @@
+﻿# Music Room Interface Info
+
+[game]
+name = "東方文花帖　～ Shoot the Bullet"
+name_en = "Touhou Bunkachou ~ Shoot the Bullet"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2005
+gamenum = "09.5"
+
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x50
+zwavid_09 = 0x09
+
+tracks = 6
+
+[thvorbis]
+patchclass = "generic"
+
+[update]
+wikipage = "Shoot_the_Bullet/Music"
+wikirev = 360880
+
+[[track]]
+track_number = 1
+name_jp = "天狗の手帖　～ Mysterious Note"
+name_en = "Tengu's Notebook ~ Mysterious Note"
+# fixed
+position = [0x00000010, 0x001324E0, 0x010220A8]
+comment_jp = "タイトル、メニュー画面のテーマです。\n　いつもの曲です。\n　今回は少し暗くレトロな感じが出るようにして、妖怪らしさが出る\n　ようにしました。\n　ザーというノイズは妖怪のミステリアスな部分です。決してモニタ\n　とスピーカーが逝かれたわけでは無いのでご安心を。"
+comment_en = "The title and menu theme.\n\nThe same old piece.\nHowever, this time I tried to give it a bit more of a dark and retro feel, as well as a bit of youkai.\nThat raining noise is a youkai mystery. No, there's nothing wrong with your monitor or speakers, so relax."
+
+[[track]]
+track_number = 2
+name_jp = "風の循環　～ Wind Tour"
+name_en = "Wind Circulation ~ Wind Tour"
+position = [0x01038010, 0x0004CAE0, 0x00D4A420]
+comment_jp = "撮影曲１です。\n　今回のゲームは、通常のボス戦のような曲ではなく、もっと日常感\n　を出したかった為、こんな感じに。\n　随分と落ち着いた感じですが、実際文は余裕です。自分から被写体\n　をおちょくりに出かけている様なもんですし。"
+comment_en = "Photo theme 1.\n\nFor this game, instead of the usual boss battle music, I wanted it to be more casual, so I wrote this.\nIt has a very relaxed feel, because Aya is enjoying herself - as if she were teasing her target."
+
+[[track]]
+track_number = 3
+name_jp = "天狗が見ている　～ Black Eyes"
+name_en = "Tengu Is Watching ~ Black Eyes"
+position = [0x01D82430, 0x0006BA00, 0x014FE400]
+comment_jp = "撮影曲２です。\n　怖いような可愛らしいような奇妙なノリを持たせました。\n　人を攫ったり喰ったりが当たり前の妖怪なのに、どこか陽気で人当\n　たりも良さそうな所が、幻想の天狗のイメージ。\n　この曲には、ぞの怖さと陽気さ、暢気さを混ぜた感じになっている\n　かと思います。"
+comment_en = "Photo theme 2.\n\nIt's easygoing enough to seem scary and cute.\nThough kidnapping and eating people is a youkai thing to do, this cheerfulness that must have come from somewhere is also part of the fabled tengu image.\nI think this piece mixes that scariness, cuteness, cheerfulness, and carelessness together."
+
+[[track]]
+track_number = 4
+name_jp = "東の国の眠らない夜"
+name_en = "Sleepless Night of the Eastern Country"
+position = [0x03280830, 0x00100000, 0x01641800]
+comment_jp = "撮影曲３です。中盤以降に使う曲として用意しました。\n\n　ボスも文も楽しんでいる感じを出しつつ、ボスに威圧感を持たせる\n　のは難しい物です。\n　この曲はそれを意識して、軽決で明るいながらもボスが強そうに\n　見える様に格好つけ書きました。特にピアノ。"
+comment_en = "Photo theme 3. Written for the middle levels.\n\nWhile it feels like both the boss and Aya are having fun, it is hard to convey the feeling of the boss being coerced.\nThis tune is aware of that, so while being light and bright, it was written to also bring out the strength of the boss. Especially the piano."
+
+[[track]]
+track_number = 5
+name_jp = "レトロスペクティブ京都"
+name_en = "Retrospective Kyoto"
+position = [0x048C2030, 0x000FA800, 0x010A3900]
+comment_jp = "撮影曲４のテーマです。後半に使う曲として用意しました。\n\n　レトロな日本をイメージしたところ、私の中ではこんな感じに。\n　雪の降る京の都。人気の少ない夜の道。\n　でも、この曲のレトロさは私のレトロさでして……。\n　この曲を聴いていると何となく昔を思い出してしまう。"
+comment_en = "Photo theme 4. Written for the latter half of the game.\n\nI feel, deep inside, that this hints at retro Japan.\nSnow, falling in the capital. A deserted night road.\nBut, this retro is my idea of retro...\nListening to this might make you reminisce."
+
+[[track]]
+track_number = 6
+name_jp = "風神少女"
+name_en = "Wind God Girl"
+position = [0x05965930, 0x002AFD00, 0x01E11A00]
+comment_jp = "撮影曲５のテーマです。\n\n　この曲は文化帖のテーマ曲なので入れないわけにはいかないと思い\n　入っております。\n　本編では殆ど使われておりませんが:-)"
+comment_en = "Photo theme 5.\n\nThis is Bohemian Archive in Japanese Red's main theme, so I couldn't leave it out.\nThough this edit is hardly used :-)"
+comment2_jp = "(『東方文花帖』の『幻想の音覚』より)\n非常にノリの良い曲です。新しい曲という理由もありますが、自分の東方像にかなり近い曲です。自然、少女らしい可愛らしさ、酒脱した感じ、日本を思い浮かべる東洋風、ノリを損なわずシューティング向きな所、たまにこういう曲があると良いですね（他人事みたいですが）\nそう、私は昔はトランペットを吹いていたこともあったのでマイトランペットも持っている。こういう曲をトランペットで吹いたら格好良いだろうなぁとしきりに思う。\nちなみにこの曲がトランペットメインなのは、風を吹き込むから。"
+comment2_en = "(Bohemian Archive in Japanese Red Music Columns)\nThis is an extremely catchy song. While that may be because it is a new song, it is also very close to my own envisioning of Touhou. A naturally girly cuteness, a feeling of giddiness, an Japanese oriental style, and for a shooting game that also never lets up, I think a song like this every now and then is a good idea (Kind of like other people's problems.).\nYes, I used to play trumpet and I still own one now. I think trumpet-playing for this kind of song is pretty cool.\nBy the way, the trumpet has the main part because it's a wind instrument."

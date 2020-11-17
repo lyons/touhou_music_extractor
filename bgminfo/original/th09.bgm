@@ -1,0 +1,163 @@
+﻿# Music Room Interface Info
+
+[game]
+name = "東方花映塚　～ Phantasmagoria of Flower View"
+name_en = "Touhou Kaeidzuka ~ Phantasmagoria of Flower View"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2005
+gamenum = "09"
+
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x00
+zwavid_09 = 0x09
+
+tracks = 19
+
+[thvorbis]
+patchclass = "generic"
+
+[update]
+wikipage = "Phantasmagoria_of_Flower_View/Music"
+wikirev = 364024
+
+[01]
+name_jp = "花映塚 ～ Higan Retour"
+name_en = "Kaeidzuka ~ Higan Retour"
+position = "0x00000010, 0x000D5380, 0x00BF6300"
+comment_jp = "タイトル画面テーマです。\nいつもの曲ですね。 ええ。\nゲーム自体はここ暫くの間の中では一番バカになっているのに、この曲だけはいつものままです。\nちょっとバカ度が足りないかもしれない。ここだけは幻想郷に。"
+comment_en = "The title screen theme.\n\nIt's the same old tune, yep.\nThis is probably one of the silliest parts of the game itself, but it's remained constant over time.\nMaybe it's not silly enough. But this is Gensokyo."
+comment2_jp = "タイトル画面の曲は、もうお馴染みとしか言いようがない程同じテーマを持った曲。もう、初めて聴いても初めてとは思えない位です。でもアレンジという訳ではなく、メロディも完全に同じかというと同じでもなく、ただただ雰囲気だけが同じなんですよね。\n結構タイトル画面の曲って気を遣って、嫌な気分にならない、頭に残りすぎない様にしたいと思っています。必ずしもそう出来るわけではないのですが、静かにゲームを押している感じ、っていうものが欲しい。"
+comment2_en = "The title screen songs all have the same general theme, so saying that they all sound familiar is unnecessary. You don't even have to think about it the first time you hear them. But they aren't different arrangements, and they don't have the same melody note for note. It's simply just because the atmospheres they create are the same.\nTo get in the right frame of mind in creating a title theme, I think it's a good idea to avoid any unpleasant feelings and don't make the player lose their head. These aren't hard-and-fast rules, but I prefer to have a gentle push into the game."
+
+[02]
+name_jp = "春色小径　～ Colorful Path"
+name_en = "Spring Lane ~ Colorful Path"
+position = "0x02E77990, 0x00170A00, 0x01ADF000"
+comment_jp = "博麗霊夢のテーマです。\n　春っぽさと自然を感じられるように創って見ました。純和風にな\nりきれないところが東方風。\n\n　長期戦になっても疲れない位の方が良いのかとも思って、この位\nの激しさに押さえましたが、他の曲に激しすぎるのも混じっていて、\nちょっと大人しめ。霊夢、らしいのか？"
+comment_en = "Reimu Hakurei's theme.\n\nI tried to write this one so you would feel spring itself through the piece. Not purely Japanese, but more like Touhou style.\n\nI thought it'd be good to not have it wear down on people during long battles, so I controlled its intensity, but compared to other, more intense pieces, it seems pretty sedate. Like Reimu?"
+
+[03]
+name_jp = "オリエンタルダークフライト"
+name_en = "Oriental Dark Flight"
+position = "0x00BF6310, 0x001D5C00, 0x016A9C00"
+comment_jp = "霧雨魔理沙のテーマです。\n　何の気無しに書いたらちょっと悪役が入ってきたので、あわてて\n茶目っ気のあるサビを追加しました。\n\n　そしたら、サビがほんの僅か中東の香りが混ざってさあ大変。た\nだ、今回のゲームの性質上、止めどなく流れるような高速感と浮遊\n感を出したかったのでぞの辺はちゃんと出たかなぁと信じたい。"
+comment_en = "Marisa Kirisame's theme.\n\nThe way I first composed this one made Marisa sound like a bad guy, so I added on a bit of playful antiquity to it.\n\nIn doing so, that antiquity gave it a hint of Middle Eastern flair, which could be a problem. However, given the nature of this game, I'd like to believe this properly reflects the endless stream of action and suspense that happens."
+
+[04]
+name_jp = "フラワリングナイト"
+name_en = "Flowering Night"
+position = "0x04956990, 0x000CB640, 0x015E7540"
+comment_jp = "十六夜咲夜のテーマです。\n　咲夜の曲って紅魔郷のハードなのしか無いので、今回は人間らし\nいあるいはとぼけた一面を曲にしてみました。\n　私には妙な違和感を感じるメロティなんですがどうでしょう？\n何が妙って、東洋風だと思って聴けばそこはかとなく東洋風だし、\n西洋風だと思えば西洋風。子供っぽいと思えば子供っぽく、大人び\nていると思えば大人っぽい。そう思うの私だけですか？"
+comment_en = "Sakuya Izayoi's theme.\n\nSince all of Sakuya's pieces from Embodiment of Scarlet Devil were all very hard and driving, I tried to make this one more human, or more fitting for a first stage.\nI can't explain why I don't think this melody fits, but how about you? What's weird to me is that if you think it's going to be an Asian piece, it sounds like it, but treat it as Western and it sounds like that too. If you think it's childlike, it's childlike, and if you think it's more mature, it sounds that way. Am I the only one who thinks so?"
+
+[05]
+name_jp = "東方妖々夢　～ Ancient Temple"
+name_en = "Eastern Mystical Dream ~ Ancient Temple"
+position = "0x0ABF69D0, 0x00290800, 0x01AC2C00"
+comment_jp = "魂魄妖夢のテーマです。\n　妖々夢のバージョンではなく、連台野夜行に収録したアレンジバ\nージョンです。より冷たい冥界の空気が伝わります。\n　他のキャラはボスの曲を使っていますが、妖夢はこの曲の方が合\nうと思ってこれにしました。というかこの曲はお気に入り。"
+comment_en = "Youmu Konpaku's theme.\n\nIt's not the Perfect Cherry Blossom version, but the arranged version recorded in Ghostly Field Club. It draws out the coldness of the land of the dead.\nI used the boss themes for other characters, but here, I thought this one fit Youmu well, so I used it. Rather, I liked this one."
+comment2_jp = "(『東方文花帖』の『幻想の音覚』より)\n４面までの世界、この世と、５面以降のあの世という空気感の違いを何とかして曲で表したかった。この曲はその一つの結果ですが、結構満足しています。　この曲はストーリーと言うよりは場所をイメージした曲ですが、こういう曲を聴くと大抵はその場所に居たいと感じさせる。でも、この曲は「非常に美しい場所だが、ここには居たくない」と感じる。\nこの曲を聴くと、古い古い時代の日本を幻視する。あの世というのは既に亡くなったこの世でもあるので、この幻覚は偶然ではなく、これこそ幻覚だと考える。\n印象的な曲にはゲームタイトルを使うことが多いので、この曲もその一つ。"
+comment2_en = "(Bohemian Archive in Japanese Red Music Columns)\nI wanted a song in PCB to show that there was a different atmosphere between the worlds up to stage 4 and from stage 5 on. This is the result of that, and I'm rather satisfied with it. Rather than tell a story, this song helps establish the setting. When you listen to a song like this, you more or less feel like you're there. Although for this song, I was trying to create the image of \"An extremely beautiful place that does not exist here\".\nWhen I listen to this song, I see visions of ancient Japan as if it never changed and still existed today. I don't think this was by chance, but it is certainly an illusion.\nThere are many impressive songs that I name after the game it appears in. This is another of those songs."
+
+[06]
+name_jp = "狂気の瞳　～ Invisible Full Moon"
+name_en = "Lunatic Eyes ~ Invisible Full Moon"
+position = "0x101722D0, 0x000A4000, 0x01459800"
+comment_jp = "鈴仙・優曇華院・イナバのテーマです。\n　原曲より若干懐かしさが感じられるように調整し直しました。原\n曲の所為もあるんですが、今回のゲームにはちょっと激しすぎるか\nも。何をそんな真剣になっているんだ？的な激しさが。\n　と言うか永夜抄の曲が全体的にちょっと激しすぎるんですとね。\n夜と時間がテーマだったので、まあそれは理解できますが。今回は\n花とお馬鹿がテーマだからなぁ（違）"
+comment_en = "Reisen Udongein Inaba's theme.\nI made a few tweaks to the original to make it a little more nostalgic. I had my reasons for the original, but for this game, it may have been a little too much. Almost like \"why's it so serious?\" Well, Imperishable Night's pieces were all just a little too much.\nBecause it was about night and time...\nWell, maybe that doesn't make any sense. Could you say this one's about flowers and idiots... (oops)"
+
+[07]
+name_jp = "おてんば恋娘の冒険"
+name_en = "Adventure of the Lovestruck Tomboy"
+position = "0x05F3DED0, 0x001D3400, 0x01901C00"
+comment_jp = "チルノのテーマです。\n　古のバカ^H^H可愛い曲がかっこよくなりました。妙にかっこよく\nなってしまってどうかなぁ。\n　と言うつつも、メロディ自体は頭悪そうですよね。この曲は、東\n洋風で軽く激しく、少女風で悩みのない感じが詰まっています。こ\nうなると東洋風というよりは東方風といった感じで、いつの間にか\n私のお得意中のお得意パターンになってしまっています。"
+comment_en = "Cirno's theme.\nThe old stupid^H^H^H^H^H^H cute song has become cool. It's weird how that worked, and it makes you wonder. \nStill, the melody itself seems pretty dumb. I wrote this in an Asian style, light and intense, not worrying about whether it fits the image of a little girl. Instead of Asian, it feels more Touhou, and I seem to have developed a specialty pattern without realizing it."
+
+[08]
+name_jp = "幽霊楽団　～ Phantom Ensemble"
+name_en = "Ghostly Band ~ Phantom Ensemble"
+position = "0x09437AD0, 0x000B6300, 0x017BEF00"
+comment_jp = "プリズムリバーの三姉妹のテーマです。\n　この曲は原曲よりも演奏を楽しんでいる雰囲気を出せるようにリア\nレンジしました。またいつか、それぞれの楽器のソロ部分を目立\nたせたプリズムリバー三姉妹の曲が作りたいところ。\n　ヴァイオリンをルナサが、トランペットをメルランが、ピアノと\nアコーディオンをリリカが演奏していると考えると、ベースやドラ\nムは誰がやってるんでしょう？"
+comment_en = "The three Prismriver Sisters' theme.\n\nI rearranged this piece to exude a lighter atmosphere than the original. Some time later, I want to make a piece that showcases the sisters performing solo.\nLunasa on violin, Merlin on trumpet, piano and accordion for Lyrica makes sense in this piece, but if you think about it, who's playing the drums and keeping beat?"
+
+[09]
+name_jp = "もう歌しか聞こえない　～ Flower Mix"
+name_en = "Deaf to All but the Song ~ Flower Mix"
+position = "0x0783FAD0, 0x001B7000, 0x01BF8000"
+comment_jp = "鳥、もとい、ミスティア・ローレライのテーマです。\n　激しさ３割増になっています。\n　というか、途中から狂ったようなアップテンポになりますが、こ\nれは仕様です。ミスティアも花に浮かれてノリノリなのです。\n　ミスティアの歌は人を惑わすというけど、これを聴く限り、かな\nりハードな歌を歌っているみたい。こんな歌がきこえてきたらそり\nゃおかしくなる、三半規管も狂う。パンクな妖怪だな。"
+comment_en = "Bird, basis, Mystia Lorelei's theme.\n\nIt's now three strong 30% increase.\nIt sounds up-tempo enough to drive someone insane, but that's its purpose. Mystia is enjoying the flowers herself.\nMystia's song is said to bewilder people, but if you listen to this, it sounds like a pretty harsh song. Of course it'll drive people nuts. A punk youkai."
+
+[10]
+name_jp = "お宇佐さまの素い幡"
+name_en = "White Flag of Usa Shrine"
+position = "0x115CBAD0, 0x000F3000, 0x01272220"
+comment_jp = "因幡てゐのテーマです。\n　ちょっとお茶目な感じと、懐かしくも古くさい日本の様子を感じ\nられるように書いてみました。\n　どうですか？　結構ノリもよく可愛らしい曲になって、今回の花\n映塚にピッタリの曲になっていると思うんですが。\n　実際、音も音階も和風じゃないのに何処が日本なんだ？　と言わ\nれると良くは説明できないんですが、何か日本ぽくないですか？"
+comment_en = "Tewi Inaba's theme.\n\nI designed this to be a little playful, sentimental, and Japanese.\nHow is it? It came out fairly easygoing and cute, and I think it fits this kaeidzuka to a T. \nActually, the notes and scales used aren't Japanese. If you were to ask me \"where's the Japan in it?,\" I really couldn't tell you. But doesn't it seem Japanese?"
+
+[11]
+name_jp = "風神少女"
+name_en = "Wind God Girl"
+position = "0x0C6B95D0, 0x002AFD00, 0x01E11A00"
+comment_jp = "射命丸文のテーマです。\nこれは、「東方文花帖」の曲のショットバージョンです。原曲は６分程の長い曲ですが、このゲームそんなに長く対戦できないので、メインの部分だけのループになっています。\n天狗少女がトランペットを吹いている姿が格好よく吹いているのを想像して作曲しました。\n気持ちよく飛ぶ風の世界。花映塚のイメージそのものです。"
+comment_en = "Aya Shameimaru's theme.\n\nThis is the short version of the theme to Bohemian Archive in Japanese Red. The original piece was a long six minutes, but such long battles in this game cannot happen, so I took the main section and looped it.\nI imagined a wind god girl looking good playing the trumpet when I made this.\nA world where feelings fly on the winds. This is the image I had in mind for Phantasmagoria of Flower View."
+comment2_jp = "(『東方文花帖』の『幻想の音覚』より)\n非常にノリの良い曲です。新しい曲という理由もありますが、自分の東方像にかなり近い曲です。自然、少女らしい可愛らしさ、酒脱した感じ、日本を思い浮かべる東洋風、ノリを損なわずシューティング向きな所、たまにこういう曲があると良いですね（他人事みたいですが）\nそう、私は昔はトランペットを吹いていたこともあったのでマイトランペットも持っている。こういう曲をトランペットで吹いたら格好良いだろうなぁとしきりに思う。\nちなみにこの曲がトランペットメインなのは、風を吹き込むから。"
+comment2_en = "(Bohemian Archive in Japanese Red Music Columns)\nThis is an extremely catchy song. While that may be because it is a new song, it is also very close to my own envisioning of Touhou. A naturally girly cuteness, a feeling of giddiness, an Japanese oriental style, and for a shooting game that also never lets up, I think a song like this every now and then is a good idea (Kind of like other people's problems.).\nYes, I used to play trumpet and I still own one now. I think trumpet-playing for this kind of song is pretty cool.\nBy the way, the trumpet has the main part because it's a wind instrument."
+
+[12]
+name_jp = "ポイズンボディ　～ Forsaken Doll"
+name_en = "Poison Body ~ Forsaken Doll"
+position = "0x1530F0F0, 0x0010A500, 0x013CBA00"
+comment_jp = "メディスン・メランコリーのテーマです。\n　花映塚の中では最も異色な曲。ちょっと西洋風で暗いイメージを\n持たせようとかいてみました。\n　妙な高揚感を煽るボスっぽいこの曲は、懐かしいアーケードゲー\nムの香りがプンプンします。\n　曲の頭の鐘の音は、なんだか頭がおかしくなりそうな不安定な音を\n醸し出しています。ここが毒。"
+comment_en = "Medicine Melancholy's theme.\n\nPhantasmagoria of Flower View's most unique composition. I wrote it to be a little Western and fairly dark in image.\nThis boss-like and strangely uplifting piece hints at older arcade games.\nThe sound of bells at the beginning of the song is a strangely unsettling sound. This is poison."
+
+[13]
+name_jp = "今昔幻想郷　～ Flower Land"
+name_en = "Gensokyo, Past and Present ~ Flower Land"
+position = "0x166DAAF0, 0x001CF700, 0x01AEA800"
+comment_jp = "風見幽香のテーマです。\n　明るくて流れるように花の優雅さを感じさせる曲を書こうとおもっ\nて、そうでもなかった感じの曲です。\n　メインメロディはピアノ部分ですが、何かこの曲を作曲している特、懐\nかしい記憶が蘇る思いでした。\n　もっと長いピアノ部分を役けても良かったと思ったけど、ゲーム\nにピアノが合わないのでちょっと短くしました。"
+comment_en = "Yuuka Kazami's theme.\n\nI thought to create a piece bright and fluid, with the elegance of a flower. It didn't come out that way.\nThe main melody here is done on piano, and particularly as I was writing it, it brought back fond memories.\nI thought it'd be better to make the piano part longer, but piano doesn't seem to fit the game all that well, so it's shorter."
+
+[14]
+name_jp = "彼岸帰航　～ Riverside View"
+name_en = "Higan Retour ~ Riverside View"
+position = "0x0E4CAFD0, 0x00268900, 0x01CA7300"
+comment_jp = "小野塚小町のテーマです。\n　さらっと切れが良く、跡に何かを残さないのが中ボスの定め。こ\nの曲こそ定めに則って、さらっと感を出してみました。\n　東方では過去に何度かこういうさらっとした曲をかいていますが、\n初めて爽快さと哀愁を持つ極を書けた気がする。\n　彼岸に帰る時は、この曲を思い浮かべる位、未練の無いよう。"
+comment_en = "Komachi Onozuka's theme.\n\nTo sweep away everything, and see what remains is the destiny of the mid-boss. This one reflects that fate, as well as the feeling of sweeping away.\nTouhou has done this sweeping idea in the past, but I feel like this is the first time I've put so much exhilaration and pathos into a piece.\nOn the higan retour, that there would be no regrets as this piece..."
+
+[15]
+name_jp = "六十年目の東方裁判　～ Fate of Sixty Years"
+name_en = "Eastern Judgement in the Sixtieth Year ~ Fate of Sixty Years"
+position = "0x1283DCF0, 0x00106C00, 0x02AD1400"
+comment_jp = "四季映姫・ヤマザナドゥのテーマです。\n　明らかにラストっぽい曲です。ラストはメロディアスな曲が多い\nのが東方の特徴。今回はさらに日本＋再生＋桜の国、というイメー\nジを盛り込みました。\n　力強さとはかなさが同居するこの曲は、未だ見られない最も美しい桜\nの国のための曲です。\n　全体的にお馬鹿なこのゲームも、この曲だけは強い思いで。"
+comment_en = "Eiki Shiki, Yamaxanadu's theme.\nObviously, a theme for a last boss. A melodious last boss theme is a Touhou trademark. This time, Japan + rebirth + sakura country are the images I mixed together.\nThis song full of strength and ephemerality is a song for the as-yet unseen most beautiful land of sakura.\nAs silly as the whole game may be, this piece alone evokes strong feelings."
+
+[16]
+name_jp = "花の映る塚"
+name_en = "The Mound Where the Flowers Reflect"
+position = "0x0229FF10, 0x000B7900, 0x00BD7A80"
+comment_jp = "会話のテーマです。\n　タイトル曲の編曲ですが、試合前の緊張感を少し加えてみました。\nよりいっそう幻想的になったかもしれぬ。\n　ただ一つ問題があるとすれば、このゲームの試合前は緊張しない。\n最初から何か間違っている。"
+comment_en = "The conversation theme.\n\nThough it's an edit of the title theme, it adds a little to the nervousness before a match. Maybe it makes it all that much more illusionary.\nIf there was a problem, it's that there is no nervousness\nto speak of before a match. Something just seems wrong, from the beginning."
+
+[17]
+name_jp = "此岸の塚"
+name_en = "Mound of Shigan"
+position = "0x18A181F0, 0x0034D680, 0x00672F00"
+comment_jp = "会話のテーマ２です。\n　終盤にはちったぁ、焦りの様な盛り上がり\nも欲しいので用意しました。\n　すんごく短いし、これと言っていうことはありませんがな。まあ、\n一応東方らしさがプンプンする曲です。"
+comment_en = "The second conversation theme.\n\nAs it's the end of the game, I prepared an element of impatience.\nExceptionally short, it's not much to speak of. Well, at least it's a Touhou-sounding piece."
+
+[18]
+name_jp = "花は幻想のままに"
+name_en = "The Flowers Remain in Fantasy"
+position = "0x181C52F0, 0x00061680, 0x00852F00"
+comment_jp = "エンディングのテーマです。\n　どうなのかなぁ。東方のエンディング曲は、全体的にいつもバッ\nドエンドの香りがプンプンするですよね。\n　もしかして、シューティングをクリアしてしまうこと自体、人生\nのバッドエンドなのかも知れない（いやそんな事は無い）"
+comment_en = "The ending theme.\n\nI don't know... Touhou ending themes, in their entirety, always sound like bad endings.\nCould it be that clearing shooting games itself gives humanity a bad ending? (nah, no way)"
+
+[19]
+name_jp = "魂の花　～ Another Dream..."
+name_en = "Flower of Soul ~ Another Dream..."
+position = "0x1908B0F0, 0x000D8E00, 0x012EAB80"
+comment_jp = "スタッフロールの曲です。\n　いつものスタッフロールとは違う楽しげな曲を作ろうと思って、\n楽しくもなんともない感じになってちょっと後悔。もっとどっちが\nに強く偏らせるべきなのかも。\n　まあ、これで終わり感は出ているかな。と言うか始まり感の様な\n気もする。曲は悪くはないですよね？"
+comment_en = "The staff roll theme.\n\nI thought about making a lighter staff roll than normal, but I regret making it both light and almost empty. Like I should have made one of those two stand out.\nWell, I hope it has a sense of closure. But, it also feels like a beginning to me. It's not bad, right?"
