@@ -77,7 +77,7 @@ impl WavFile {
 
     WavFile {
       riff_header: RiffHeader {chunkID: [0x52, 0x49, 0x46, 0x46], 
-                               chunkSize: 32 + data_size, 
+                               chunkSize: 36 + data_size, 
                                format: [0x57, 0x41, 0x56, 0x45]},
       wave_format: WavFormat {chunkID: [0x66, 0x6D, 0x74, 0x20],
                               chunkSize: 16,
