@@ -137,6 +137,8 @@ fn extract_demo() -> Result<()> {
 }
 
 fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) -> Result<()> {
+  let mut infile = File::open(source)?;
+
   for track in bgm_info.tracks {
     let start_offset: u64 = track.position[0];
     let rel_loop: usize = track.position[1] as usize;
@@ -144,8 +146,7 @@ fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) ->
 
     //let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
     //let mut infile = File::open(inpath)?;
-    let mut infile = File::open(source)?;
-
+  
     infile.seek(std::io::SeekFrom::Start(start_offset))?;
     let mut data = vec![0; rel_end];
     infile.read_exact(&mut data)?;
@@ -172,7 +173,7 @@ fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) ->
 fn main() -> Result<()> {
   let data = std::fs::read_to_string("th10.bgm")?;
   let bgm: bgminfo::BgmInfo = toml::from_str(&data)?;
-  //println!("{:?}", bgm);
+  println!("{:?}", bgm);
   //for track in bgm.tracks {
   //  println!("{:02} - {}", track.track_number, track.name_jp);
   //}
