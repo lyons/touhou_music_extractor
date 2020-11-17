@@ -36,6 +36,8 @@ use std::{
   io::{BufWriter, Write},
 };
 
+mod bgminfo;
+
 pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
@@ -100,10 +102,11 @@ impl WavFile {
 use std::{
   fs::File,
   io::{Read, Seek},
-  path::Path,
+  path::{Path, PathBuf},
 };
+use crate::bgminfo::BgmInfo;
 
-fn main() -> Result<()> {
+fn extract_demo() -> Result<()> {
   let start_offset: u64 = 0x18BC4930;
   let rel_loop: usize = 0x00055500;
   let rel_end: usize = 0x01C28000;
@@ -129,6 +132,54 @@ fn main() -> Result<()> {
   for _ in 0..loops {
     bw.write(&data[rel_loop..])?;
   }
+
+  Ok(())
+}
+
+fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) -> Result<()> {
+  let mut infile = File::open(source)?;
+
+  for track in bgm_info.tracks {
+    let start_offset: u64 = track.position[0];
+    let rel_loop: usize = track.position[1] as usize;
+    let rel_end: usize = track.position[2] as usize;
+    let loops = 3;
+
+    //let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
+    //let mut infile = File::open(inpath)?;
+    infile.seek(std::io::SeekFrom::Start(start_offset))?;
+    let mut data = vec![0; rel_end];
+    infile.read_exact(&mut data)?;
+    let rate: u32 = 44100;
+
+    let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
+    let file = File::create(dest_path)?;
+    let mut bw = BufWriter::new(file);
+
+    let intro_length = rel_loop;
+    let loop_length = rel_end - rel_loop;
+    let length = intro_length + loops * loop_length;
+    let wave = WavFile::new(length, rate);
+    wave.into_buf_writer(&mut bw)?;
+    bw.write(&data[..rel_loop])?;
+    for _ in 0..loops {
+      bw.write(&data[rel_loop..])?;
+    }
+  }
+
+  Ok(())
+}
+
+fn main() -> Result<()> {
+  let data = std::fs::read_to_string("th10.bgm")?;
+  let bgm: bgminfo::BgmInfo = toml::from_str(&data)?;
+  //println!("{:?}", bgm);
+  //for track in bgm.tracks {
+  //  println!("{:02} - {}", track.track_number, track.name_jp);
+  //}
+  let ip = Path::new("/mnt/f/Torrents/Touhou/10/Mountain of Faith/thbgm.dat");
+  let op = Path::new("MoF/");
+  extract_all(bgm, ip, op, 1)?;
 
   Ok(())
 }
