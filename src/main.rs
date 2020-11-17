@@ -107,7 +107,7 @@ fn main() -> Result<()> {
   let start_offset: u64 = 0x18BC4930;
   let rel_loop: usize = 0x00055500;
   let rel_end: usize = 0x01C28000;
-  let loops = 1;
+  let loops = 3;
 
   let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
   let mut infile = File::open(inpath)?;
@@ -120,9 +120,15 @@ fn main() -> Result<()> {
   let file = File::create(&path)?;
   let mut bw = BufWriter::new(file);
 
-  let wave = WavFile::new(data.len(), rate);
+  let intro_length = rel_loop;
+  let loop_length = rel_end - rel_loop;
+  let length = intro_length + loops * loop_length;
+  let wave = WavFile::new(length, rate);
   wave.into_buf_writer(&mut bw)?;
-  bw.write(data.as_slice())?;
+  bw.write(&data[..rel_loop])?;
+  for _ in 0..loops {
+    bw.write(&data[rel_loop..])?;
+  }
 
   Ok(())
 }
