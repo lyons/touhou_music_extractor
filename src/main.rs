@@ -143,7 +143,6 @@ fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) ->
     let start_offset: u64 = track.position[0];
     let rel_loop: usize = track.position[1] as usize;
     let rel_end: usize = track.position[2] as usize;
-    let loops = 3;
 
     //let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
     //let mut infile = File::open(inpath)?;
@@ -158,7 +157,7 @@ fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) ->
 
     let intro_length = rel_loop;
     let loop_length = rel_end - rel_loop;
-    let length = intro_length + loops * loop_length;
+    let length = intro_length + (loops as usize) * loop_length;
     let wave = WavFile::new(length, rate);
     wave.into_buf_writer(&mut bw)?;
     bw.write(&data[..rel_loop])?;
