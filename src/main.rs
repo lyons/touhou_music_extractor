@@ -39,7 +39,7 @@ use std::{
 pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
-struct WavHeader {
+struct RiffHeader {
   chunkID: [u8; 4],   // 'RIFF'
   chunkSize: u32,     // 32 + WavData chunk size
   format: [u8; 4],    // 'WAVE'
@@ -65,21 +65,20 @@ struct DataHeader {
 
 #[derive(Debug, Serialize, Deserialize)]
 struct WavFile {
-  riff_header: WavHeader,
+  riff_header: RiffHeader,
   wave_format: WavFormat,
   data_header: DataHeader,
-  data: Vec<u8>,
 }
 
 impl WavFile {
-  fn new(data: Vec<u8>, sample_rate: u32) -> WavFile {
+  fn new(length: usize, sample_rate: u32) -> WavFile {
     let byte_rate = sample_rate * 4;
-    let data_size = data.len() as u32;
+    let data_size = length as u32;
 
     WavFile {
-      riff_header: WavHeader {chunkID: [0x52, 0x49, 0x46, 0x46], 
-                              chunkSize: 32 + data_size, 
-                              format: [0x57, 0x41, 0x56, 0x45]},
+      riff_header: RiffHeader {chunkID: [0x52, 0x49, 0x46, 0x46], 
+                               chunkSize: 32 + data_size, 
+                               format: [0x57, 0x41, 0x56, 0x45]},
       wave_format: WavFormat {chunkID: [0x66, 0x6D, 0x74, 0x20],
                               chunkSize: 16,
                               audioFormat: 1,
@@ -90,11 +89,10 @@ impl WavFile {
                               bitsPerSample: 16},
       data_header: DataHeader {chunkId: [0x64, 0x61, 0x74, 0x61],
                                chunkSize: data_size},
-      data: data,
     }
   }
 
-  fn into_buf_writer<W: Write>(&self, writer: BufWriter<W>) -> Result<()> {
+  fn into_buf_writer<W: Write>(&self, writer: &mut BufWriter<W>) -> Result<()> {
     bincode::serialize_into(writer, self).map_err(|e| e.into())
   }
 }
@@ -111,19 +109,19 @@ fn main() -> Result<()> {
   let rel_end: usize = 0x01C28000;
   let loops = 1;
 
-  let mut infile = File::open("")?;
+  let mut infile = File::open("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat")?;
   infile.seek(std::io::SeekFrom::Start(start_offset))?;
   let mut data = vec![0; rel_end];
-  infile.read_exact(&mut data);
-  //let data: Vec<u8> = std::fs::read("")?;
+  infile.read_exact(&mut data)?;
   let rate: u32 = 441000;
 
   let path = Path::new("op.wav");
   let file = File::create(&path)?;
-  let bw = BufWriter::new(file);
+  let mut bw = BufWriter::new(file);
 
-  let wave = WavFile::new(data, rate);
-  wave.into_buf_writer(bw)?;
+  let wave = WavFile::new(data.len(), rate);
+  wave.into_buf_writer(&mut bw)?;
+  bw.write(data.as_slice())?;
 
   Ok(())
 }
