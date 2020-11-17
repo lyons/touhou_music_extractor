@@ -53,8 +53,8 @@ struct WavFormat {
   numChannels: u16,   // 2 (Stereo)
   sampleRate: u32,    // 44100, except for spirit world themes in Ten Desires which are 22050
   byteRate: u32,      // sampleRate * 2 * 16/8
-  blockAlign: u32,    // 2 * 16/8
-  bitsPerSample: u32, // 16
+  blockAlign: u16,    // 2 * 16/8
+  bitsPerSample: u16, // 16
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
