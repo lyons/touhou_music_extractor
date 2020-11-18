@@ -22,7 +22,7 @@ patchclass = "slow"
 wikipage = "Hidden_Star_in_Four_Seasons/Music"
 wikirev = 369944
 
-[[track]]
+[[tracks]]
 track_number = 1
 name_jp = "桜舞い散る天空"
 name_en = "The Sky Where Cherry Blossoms Flutter Down"
@@ -32,7 +32,7 @@ frequency = 44100
 comment_en = "This is the title screen theme.\n\nA theme with a \"we're about to begin\" sort of feeling.\n\nIt ended up having a Japanese, light-hearted and somewhat serious feel to it."
 comment_jp = "タイトル画面のテーマです。\n\nこれから始まるよーという感じの曲です。\n\n和風と軽快さとちょっぴりのシリアスという感じになりました。"
 
-[[track]]
+[[tracks]]
 track_number = 2
 name_jp = "希望の星は青霄に昇る"
 name_en = "A Star of Hope Rises in the Blue Sky"
@@ -42,7 +42,7 @@ frequency = 44100
 comment_en = "This is the Stage 1 theme.\n\nI tried to bring out an \"introductory\" feeling, and the exhilaration of summer.\n\nIt's a pretty light theme, even by Touhou standards. Did I manage to express a\n\nfeeling of speed, I wonder?\n\nWith all said and done, it goes well with beer."
 comment_jp = "１面のテーマです。\n\n導入らしさと夏の爽快感を出してみました。\n\n東方の中でもかなり軽めな曲で、スピード感が出たかなぁ\n\nと思います。\n\n\n何といってもビールが進む奴ですね。"
 
-[[track]]
+[[tracks]]
 track_number = 3
 name_jp = "真夏の妖精の夢"
 name_en = "A Midsummer Fairy's Dream"
@@ -52,7 +52,7 @@ frequency = 44100
 comment_en = "This is Eternity Larva's theme.\n\nI went for a feeling of a fairy with something mysterious hidden within her.\n\nI think butterflies that appear in video games are definitely a symbol\n\nof mysteriousness.\n\n\nI mean, she's just a fairy so her head's empty, but still."
 comment_jp = "エタニティラルバのテーマです。\n\n何か謎めいたものを秘めた妖精という感じを目指しました。\n\nゲームに出てくる蝶々って、やっぱりミステリアスの象徴だと\n\n思うんですよね。\n\n\nまあ中身は妖精なんで頭は空っぽですが。"
 
-[[track]]
+[[tracks]]
 track_number = 4
 name_jp = "色無き風は妖怪の山に"
 name_en = "The Colorless Wind on Youkai Mountain"
@@ -62,7 +62,7 @@ frequency = 44100
 comment_en = "This is the stage 2 theme.\n\nIn contrast to Stage 1's unending cheer, I added a sort of melancholy to this one\n\nand brought out an autumnal feel.\n\nTailoring the music to sound uniform across the whole game, even as the seasons\n\nchange, is kind of fun."
 comment_jp = "２面のテーマです。\n\n一面の底抜けの軽快さとは対照的に、何かもの悲しさを入れて \n\n秋っぽさを出しました。\n\n季節が変わっても、ゲーム全体では同じ系統な曲になるように\n\n\n調整するのも面白いですね。"
 
-[[track]]
+[[tracks]]
 track_number = 5
 name_jp = "山奥のエンカウンター"
 name_en = "Deep-Mountain Encounter"
@@ -72,7 +72,7 @@ frequency = 44100
 comment_en = "This is Nemuno Sakata's theme.\n\nI think this theme turned out particularly video-gamey.\n\nYikes, it's a yamanba. They show up often in folk tales, but in spite of that\n\nthey're a pretty hard creature to pin down.\n\n\nUsing eerieness and hot-blooded fervor as my base, I made a Touhou-style theme."
 comment_jp = "坂田 ネムノのテーマです。\n\n非常にゲームらしい曲になったと思います。\n\nいやー、山姥ですよ。昔話に頻繁に出てくる割には\n\n正体不明な存在ですよねぇ。\n\n\n不気味さ、血気盛んな様子、そんな感じを東方風に仕上げました。"
 
-[[track]]
+[[tracks]]
 track_number = 6
 name_jp = "桜色の海を泳いで"
 name_en = "Swim in a Cherry Blossom-Colored Sea"
@@ -82,7 +82,7 @@ frequency = 44100
 comment_en = "This is the stage 3 theme.\n\nThe concept for this one is flying high in the night sky,\n\nwhere only the cherry blossoms are shining in the moonlight.\n\n\n\nCherry blossoms always have a sense of fleetingness about them, and this time is no different."
 comment_jp = "３面のテーマです。\n\n月光に照らされて桜だけが光っている夜の上空を飛んでいる\n\nイメージです。\n\n\n\n桜はどうしても儚さが付きまとうのですが、今回もそんな感じで。"
 
-[[track]]
+[[tracks]]
 track_number = 7
 name_jp = "一対の神獣"
 name_en = "A Pair of Divine Beasts"
@@ -92,7 +92,7 @@ frequency = 44100
 comment_en = "This is Aunn Komano's theme.\n\nA feeling of spring, bravery, and a somewhat-strong opponent, as well as that of a Yuru-chara.\n\nIt's an all-over-the-place theme with all those things crammed into it.\n\nHer character concept is \"a single divine beast acting as a pair\", but she doesn't have a split personality or anything.\n\n\n\nAlso, you can't see it, but she's got herself a tail!"
 comment_jp = "高麗野 あうんのテーマです。\n\n春らしさと勇敢さと、そこそこの強敵感。そしてゆるキャラ感。\n\nそんなのをごちゃごちゃ詰め込んだ無節操な曲です。\n\n彼女は一人で一対の神獣という設定ですが、多重人格という訳では\n\n\nありません。見えないけど尻尾もあるんやでー。"
 
-[[track]]
+[[tracks]]
 track_number = 8
 name_jp = "プレイヤーズスコア"
 name_en = "Player's Score"

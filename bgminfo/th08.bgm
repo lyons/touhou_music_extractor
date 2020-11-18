@@ -25,7 +25,7 @@ wikirev = 360480
 
 # comment2 is taken from Bohemian Archive in Japanese Red Music Columns, where available
 
-[[track]]
+[[tracks]]
 track_number = 1
 name_jp = "永夜抄　～ Eastern Night"
 name_en = "Eternal Night Vignette ~ Eastern Night"
@@ -37,7 +37,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　東方�
 comment2_en = "(Music Room)\nThis is the title screen theme.\n\nI envisioned this song with the same atmosphere as the previous games.\n\nI feel it's more \"genso-like\", but it's very Gensokyo.\n\nCan we really say \"genso-like\" really an abbreviation for \"Gensokyo-like\"?\n\nWell, as far as title themes go, this is one of my favorites."
 comment2_jp = "(Music Room)\nタイトル画面テーマです。\nタイトル曲のイメージは前作から継続して同じ雰囲気になる様に。\nより幻想的になってきた感じがしますが、何せ幻想郷だし。\n幻想的、って幻想郷的の略なんですか？\nまぁ、タイトルの曲にしてはお気に入りだったり。"
 
-[[track]]
+[[tracks]]
 track_number = 2
 name_jp = "幻視の夜　～ Ghostly Eyes"
 name_en = "Illusionary Night ~ Ghostly Eyes"
@@ -49,7 +49,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　霊の�
 comment2_en = "(Music Room)\nThis is the Stage 1 theme.\n\nI think it's a good idea to give the first stage a catchy little number, but while it's pretty upbeat, it is rather dark.\n\nBut Imperishable Night is about night and youkai, so its darkness fits.\n\nThis song is part of \"Ghostly Field Club\", so many of you might know it.\n\nThe darkness in Stage 1 doesn't bode very well."
 comment2_jp = "(Music Room)\n１面テーマです。\n一面は軽快でノリのいい物が良いよなぁと思ってるんですが、これ、軽快かもしれないけどかなり暗いですよねぇ。\nでも永夜抄は夜と妖怪のお話なので、暗く暗く。\nこの曲は蓮台野夜行にも収録したので、知っている方も多いかも。\n１面からこの暗さじゃ先が思いやられるなぁと。"
 
-[[track]]
+[[tracks]]
 track_number = 3
 name_jp = "蠢々秋月　～ Mooned Insect"
 name_en = "Stirring an Autumn Moon ~ Mooned Insect"
@@ -61,7 +61,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　月形�
 comment2_en = "(Music Room)\nThis is Wriggle Nightbug's theme.\n\nIt feels so explosively Eastern as always.\n\nI created it with the innocence of an energetic child mixed\nwith the images of night and insects. 40 small, wriggling insects.\n\nAll the MIDI versions are extras, not just this song. Please listen to the WAV if possible. There's an element of fantasy that just isn't in the MIDI."
 comment2_jp = "(Music Room)\nリグル・ナイトバグのテーマです。\nいつもの東方炸裂な感じで。\n表情豊かな子供の無邪気さと、夜と蟲のイメージをミックスさせたイメージで創りました。蠢く小さな蟲40。\nこの曲に限らず、今回のMIDI版は完全におまけです。Wavがあったら絶対にWavで聞いてください。Midiでは出せない幻想が含まれてます。"
 
-[[track]]
+[[tracks]]
 track_number = 4
 name_jp = "夜雀の歌声　～ Night Bird"
 name_en = "Song of the Night Sparrow ~ Night Bird"
@@ -73,7 +73,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　夜雀�
 comment2_en = "(Music Room)\nThis is the stage 2 theme.\n\nIt moves quickly, but the franticness leaves a lingering little something.\n\nThat's the kind of atmosphere this song creates.\n\nIt was meant to be my ultimate blend of Japanese and Western styles.\n\nOn an unrelated note, the girls in Gensokyo have no sense of danger. They are just enjoying their lives to the fullest..."
 comment2_jp = "(Music Room)\n２面テーマです。\n先を急いでるんだけど、焦燥感は余り無く余裕すら漂っている感じ。\nそんな雰囲気を出そうとした曲です。\nこの曲は私なりに最大限の和洋折衷を目指した曲です。\n関係無いけど、どうも幻想郷の彼女達には危機感という物が無い。心底生きている事を楽しんでいる様な……。"
 
-[[track]]
+[[tracks]]
 track_number = 5
 name_jp = "もう歌しか聞こえない"
 name_en = "Deaf to All but the Song"
@@ -85,7 +85,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　勿論�
 comment2_en = "(Music Room)\nThis is Mystia Lorelei's theme.\n\nShe's just the Stage 2 boss, but this song makes her sound like a powerful foe.\n\nThe theme has nothing to do with mystery or birds or night or anything weird like that. I just made this song to be cute and awesome.\n\nAnd it doesn't make her seem too evil."
 comment2_jp = "(Music Room)\nミスティア・ローラレイのテーマです。\nなんか２面ボスなのに強敵っぽい曲。\nミステリアスな部分と鳥っぽい部分と夜っぽい部分を……、ってよく分からないテーマは置かないで、可愛い格好良さが出るように創ったもの。\nこの曲は、敵があんまり悪役っぽ過ぎないでまったり。"
 
-[[track]]
+[[tracks]]
 track_number = 6
 name_jp = "懐かしき東方の血　～ Old World"
 name_en = "Nostalgic Blood of the East ~ Old World"
@@ -97,7 +97,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　古の�
 comment2_en = "(Music Room)\nThis is the Stage 3 theme.\n\nThis one is so nostalgic... I'm sure those who are familiar with Touhou's older works will recognize it, but it sounds like a song I did a few years ago.\n\nI made it in the same way, so it's very nostalgic, but what good is it if it's only nostalgic to me? (Haha)\n\nThis theme is a bit out of place. It has some of the 80s flavor in it."
 comment2_jp = "(Music Room)\n３面テーマです。\nこれは懐かしい感じがする……、東方を古くから知っている人には判るかも知れないけど、数年前の私の曲みたいな曲です。\n創り方も同じテーマは懐かしい感じのする曲、ですが私だけが懐かしく思う曲を創ってどうする（笑）\nかなりテーマを勘違いしてますね。人生80年代テイスト。"
 
-[[track]]
+[[tracks]]
 track_number = 7
 name_jp = "プレインエイジア"
 name_en = "Plain Asia"
@@ -109,7 +109,7 @@ comment2_en = "(Music Room)\nThis is Keine Kamishirasawa's theme.\n\nIt's both s
 comment3_en = "(Afterword　Shanghai Alice Correspondence vol. 4)\nThe east, unchanged.\n\nThe song title itself is plain, too."
 comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　ままの東方。\n　　　曲名もかざりっけが無い。"
 
-[[track]]
+[[tracks]]
 track_number = 8
 name_jp = "永夜の報い　～ Imperishable Night"
 name_en = "Retribution for the Eternal Night ~ Imperishable Night"
@@ -121,7 +121,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　終わ�
 comment2_en = "(Music Room)\nThis is the Stage 4 theme.\n\nThis song is an arrangement of the game's title screen theme. It's a nice tune with a very quick tempo.\n\nFor the end, I put in a laughing sound, like that of a youkai. However, it's unnatural to hear it where it it should not be creepy.\n\nAltogether, the rhythm is odd. I feel there's a hint of encroaching madness in it."
 comment2_jp = "(Music Room)\n４面のテーマです。\nこの曲はこのゲームのテーマ曲でもあるタイトル画面曲の編曲となっています。非常に短くテンポが良い曲です。\n終盤、妖怪の鳴き声の様な笑い声の様な音も入っていますが、おどろおどろしくならない所が普通ではない。\n全体的に拍子もおかしい。少しずつ狂気が見えて来る気がする。"
 
-[[track]]
+[[tracks]]
 track_number = 9
 name_jp = "少女綺想曲　～ Dream Battle"
 name_en = "Maiden's Capriccio ~ Dream Battle"
@@ -133,7 +133,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　夢想�
 comment2_en = "(Music Room)\nThis is Reimu Hakurei's theme.\n\nIf you're wondering why this theme is nostalgic, it's an arrangement of a song from a few years ago. It's an arranged version of Reimu's Stage 4 boss theme from the fourth game, Lotus Land Story.\n\nThe patterns in Stage 4 closely resembles those of Lotus Land Story, so I thought I'd do a similar song and give some people deja vu.\n\nThe other theme for this game is \"An Old Memory Called Fantasy\"."
 comment2_jp = "(Music Room)\n博麗霊夢のテーマです。\n懐かしさをテーマに、って何故懐かしいかといえば、数年前の曲のアレンジだからです。第４弾、東方幻想郷の４面ボス（霊夢）の曲のアレンジバージョンです。\n４面のパターンが幻想郷と酷似しているので曲も同じにして一部の人だけに完全なデ・ジャヴ感を与えようと（ぉ\n今回のゲームの裏テーマは「幻想と言う名の古き記憶」です。"
 
-[[track]]
+[[tracks]]
 track_number = 10
 name_jp = "恋色マスタースパーク"
 name_en = "Love-Colored Master Spark"
@@ -145,7 +145,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　もは�
 comment2_en = "(Music Room)\nThis is Marisa Kirisame's Theme.\n\nAt this point, this song isn't all nostalgic or anything. It's an arrange of an old tune from the second game, Story of Eastern Wonderland.\n\nI was wondering if this theme still suited Marisa, and what shocked me is that it totally did. It's rare to see someone so unchanged.\n\nMarisa has 5 themes, but I think this one suits her best."
 comment2_jp = "(Music Room)\n霧雨魔理沙のテーマです。\nここまで行くと懐かしいもへったくれも無い曲です。封魔録は第２弾ですからねぇ。そんな昔の曲のアレンジです。\n今の魔理沙でこの曲だと違和感あるかな、と思ったら何にも違和感無くてびっくり。こんなに変わらない人間も珍しいです。\n魔理沙のテーマ曲は５曲あるんですけどこれが一番それっぽいかな。"
 
-[[track]]
+[[tracks]]
 track_number = 11
 name_jp = "シンデレラケージ　～ Kagome-Kagome"
 name_en = "Cinderella Cage ~ Kagome-Kagome"
@@ -157,7 +157,7 @@ comment2_en = "(Music Room)\nThis is the Stage 5 theme.\n\nAsian, Western, old, 
 comment3_en = "(Afterword　Shanghai Alice Correspondence vol. 4)\nThe Japanese Cinderella's hidden cage is such that no matter how hard you try, you\n\ncannot force the princess out. That's the fault of the Kagome.\n\nHowever, one word from a celestial opens all the doorways."
 comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　日本のシンデレラを隠す檻は、無理に連れ出そうとしても、絶対に姫\n　　は出て来ない。それは篭目の所為である。\n　　しかし、天人の一言で全ての扉が開かれてしまう。"
 
-[[track]]
+[[tracks]]
 track_number = 12
 name_jp = "狂気の瞳　～ Invisible Full Moon"
 name_en = "Lunatic Eyes ~ Invisible Full Moon"
@@ -169,7 +169,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　不可�
 comment2_en = "(Music Room)\nThis is Reisen U. Inaba's theme.\n\nWhen you think of a boss in the final stages of Touhou, this is what comes to mind. Guess some things never change. (Haha)\n\nAfter the wild intro, there's a mournful melody in the middle before the hook breaks through.\n\nAh, all the characters look like they're having so much fun."
 comment2_jp = "(Music Room)\n鈴仙・Ｕ・イナバのテーマです。\n東方で終盤ボスっぽい曲って言えばこんな感じ。ほんと、変わりばえしないなぁ（笑）\n激しいイントロから、途中ちょっと切なさのあるメロディを挿んで、サビで吹っ切れる。\nああみんな楽しそうだなぁ。"
 
-[[track]]
+[[tracks]]
 track_number = 13
 name_jp = "ヴォヤージュ1969"
 name_en = "Voyage 1969"
@@ -181,7 +181,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　旅人�
 comment2_en = "(Music Room)\nThis is the Stage 6 theme.\n\nThe 20th century voyagers--\n\nThe Noah's Ark of the 20th century flew into space, carrying with it hopes and fears. However, it seems that just its hopes were left behind on the moon.\n\nHere in the \"future\", in the 21st century, only fears and a handful of illusions seem to be all that remain."
 comment2_jp = "(Music Room)\n６面のテーマです。\n二十世紀の旅人。 二十世紀のノアの箱舟は、期待と不安を乗せて宙を飛んだ。だが、期待だけを月に置き忘れてきてしまったのだろうか。\n未来と言われていた二十一世紀には、不安とほんの少しの幻想だけしか残されていなかった。"
 
-[[track]]
+[[tracks]]
 track_number = 14
 name_jp = "千年幻想郷　～ History of the Moon"
 name_en = "Gensokyo Millennium ~ History of the Moon"
@@ -193,7 +193,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　月の�
 comment2_en = "(Music Room)\nThis is Eirin Yagokoro's theme.\n\nImpossible courage, ferocity, and vigor--\n\nThis theme combines all of those, making for a ridiculously foolish and energetic song.\n\nAll the energy and foolishness culminates in the final boss (really?), so the act itself of putting this song in a shmup is lunacy.\n\nI didn't want to get caged in on a theme for this one."
 comment2_jp = "(Music Room)\n八意 永琳のテーマです。\nありえない程勇ましかったり、激しかったり、爽やかだったり。\n一つだけ共通しているテーマは、物凄く馬鹿みたいに元気である事。\n元気と馬鹿だけがラスボスの取得なんですから（えー）というか、こんな曲でＳＴＧって言う事自体がルナティック。\n表現のテーマは檻に囚われてはいけないと思う。"
 
-[[track]]
+[[tracks]]
 track_number = 15
 name_jp = "竹取飛翔　～ Lunatic Princess"
 name_en = "Flight in the Bamboo Cutter ~ Lunatic Princess"
@@ -205,7 +205,7 @@ comment2_en = "(Music Room)\nThis is Kaguya Houraisan's theme.\n\nBoy, she reall
 comment3_en = "(Afterword　Shanghai Alice Correspondence vol. 4)\nThe princess of the moon.\n\nBut this princess sure has done some bad things. And a lifestyle of hiding herself on Earth.\n\nBy the way, this has nothing to do with an old man flying through the sky. Just making sure."
 comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　月のお姫様。\n　　　でもこの姫は結構悪い事してんのよ。そして地上で身を隠す生活。\n　　ちなみに翁が空を飛んでいる訳ではない。念のため。"
 
-[[track]]
+[[tracks]]
 track_number = 16
 name_jp = "ヴォヤージュ1970"
 name_en = "Voyage 1970"
@@ -217,7 +217,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　旅人�
 comment2_en = "(Music Room)\nThis is the Last Spell theme.\n\nAll it inspires is a frantic feeling. It's seriously fast.\n\nIt's the constant repetition of a short phrase that makes it so fast.\n\nThat doesn't sound like my kind of morning. (Haha)\n\nOf course, it is fast, but it also has a mysterious kind of nostalgia."
 comment2_jp = "(Music Room)\nファイナルスペルのテーマです。\n焦燥感だけをあおる曲。この曲は本格的に焦る。\n物凄く短いフレーズの繰り返しが本能的の焦らせる。\nそんなに朝になるのが嫌かねぇ（笑）\nでもまぁ、焦るはずなのに何処かしら懐かしさのあるのは不思議。"
 
-[[track]]
+[[tracks]]
 track_number = 17
 name_jp = "エクステンドアッシュ　～ 蓬莱人"
 name_en = "Extend Ash ~ Person of Hourai"
@@ -229,7 +229,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　蓬莱�
 comment2_en = "(Music Room)\nThis is the Extra Stage theme.\n\nIt's kind of relaxed for one, huh?\n\nIt feels like a test of courage that wouldn't scare anybody. (No, it doesn't.)\n\nI'm actually a little unsure about it, but it's extended. I collected E, X, T, E, N and D and extended it. (Note: Reference to Bubble Bobble and other games that used similar 1-up methods.)"
 comment2_jp = "(Music Room)\nエキストラステージのテーマです。\nエキストラにしては落ち着いた曲、か？\n誰も怖がらない肝試し、っていうとこんな感じかな（嘘）\nちょっと心もとないところもあったりなんかしちゃって、でもエクステンド。 ＥＸＴＥＮＤを集めてエクステンド。"
 
-[[track]]
+[[tracks]]
 track_number = 18
 name_jp = "月まで届け、不死の煙"
 name_en = "Reach for the Moon, Immortal Smoke"
@@ -241,7 +241,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　富士�
 comment2_en = "(Music Room)\nThis is Mokou Fujiwara's theme.\n\nI tried to bring out as much intimidation, power and coolness I could that some shadiness came out. But even if the song isn't shady, the character certainly is.\n\nI always like kicking it old school for the Extra Boss song. This time around I really kicked it."
 comment2_jp = "(Music Room)\n藤原 妹紅のテーマです。\n\n出来るだけ格好よさや威圧感、パワフルさを抑えて、如何わしさが出るようしました。いやまぁ曲で如何わしくしなくても、キャラだけで十分如何わしいんですが。\nエキストラボスはいつも昔のゲームっぽい曲にしている所があります\n今回は大昔のゲームっぽい曲に（ぉ"
 
-[[track]]
+[[tracks]]
 track_number = 19
 name_jp = "月見草"
 name_en = "Evening Primrose"
@@ -253,7 +253,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　月を�
 comment2_en = "(Music Room)\nThis is the ending theme.\n\nIt's still the same. All laid back.\n\nThe ending song is never all that upbeat. And this one is no exception."
 comment2_jp = "(Music Room)\nエンディングのテーマです。\nいつものです。ああまったり。\nいつも、エンディング曲はあんまり元気じゃないんだよなぁ。\nそれもなんだかアレです。"
 
-[[track]]
+[[tracks]]
 track_number = 20
 name_jp = "Eternal Dream　～ 幽玄の槭樹"
 name_en = "Eternal Dream ~ Mystical Maple"
@@ -265,7 +265,7 @@ comment3_jp = "(Afterword　Shanghai Alice Correspondence vol. 4)\n　　勿論�
 comment2_en = "(Music Room)\nThis is the credits theme.\n\nI added a little nostalgia to this one.\n\n\"Maple\", such an old memory. This theme is loaded with old memories. But there's far too few staff."
 comment2_jp = "(Music Room)\nスタッフロールのテーマです。\nこれも懐かしい物を混ぜて入れておきました。\n槭樹(Maple)ですね。古い記憶です。今回は古い記憶が全体的なテーマにあるので。というか、スタッフ少なすぎ。"
 
-[[track]]
+[[tracks]]
 track_number = 21
 name_jp = "東方妖怪小町"
 name_en = "Eastern Youkai Beauty"

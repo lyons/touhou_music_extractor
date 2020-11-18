@@ -12,7 +12,7 @@ function processBgmFile(filename) {
 
   lines.forEach((line) => {
     if ((captures = line.match(track_number_re)) !== null) {
-      result.push("[[track]]");
+      result.push("[[tracks]]");
       result.push("track_number = " + Number(captures[1]));
     }
     else if ((captures = line.match(offsets_re)) !== null) {

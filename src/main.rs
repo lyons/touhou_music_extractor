@@ -1,34 +1,3 @@
-// use nom::{
-//     IResult,
-//     bytes::complete::take,
-//     multi::many0,
-//     number::complete::be_u32,
-// };
-
-// #[derive(Debug)]
-// struct BgmRecord {
-//     wav_name: Vec<u8>,
-//     start_offset: u32,
-//     intro_length: u32,
-//     total_length: u32,
-//     riff_header: Vec<u8>,
-// }
-
-// fn bgm_record(input: &[u8]) -> IResult<&[u8], BgmRecord> {
-//     let (input, wav_name)     = take(16usize)(input)?;
-//     let (input, start_offset) = be_u32(input)?;
-//     let (input, _)            = take(4usize)(input)?;
-//     let (input, intro_length) = be_u32(input)?;
-//     let (input, total_length) = be_u32(input)?;
-//     let (input, riff_header)  = take(18usize)(input)?;
-
-//     Ok((input, BgmRecord {wav_name: wav_name.to_owned(), start_offset, intro_length, total_length, riff_header: riff_header.to_owned()}))
-// }
-
-// fn bgm_records(input: &[u8]) -> IResult<&[u8], Vec<BgmRecord>> {
-//     many0(bgm_record)(input)
-// }
-
 use bincode;
 use serde::{Serialize, Deserialize};
 use std::{
@@ -104,6 +73,7 @@ use std::{
   io::{Read, Seek},
   path::{Path, PathBuf},
 };
+use structopt::StructOpt;
 use crate::bgminfo::BgmInfo;
 
 fn extract_demo() -> Result<()> {
@@ -136,21 +106,24 @@ fn extract_demo() -> Result<()> {
   Ok(())
 }
 
-fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) -> Result<()> {
+fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32) -> Result<()> {
+  if !dest_dir.exists() {
+    std::fs::create_dir_all(dest_dir)?;
+  }
+  if !dest_dir.is_dir() {
+    return Err(format!("Destination path {:?} exists and is not a directory", dest_dir))
+  }
+
   let mut infile = File::open(source)?;
 
   for track in bgm_info.tracks {
     let start_offset: u64 = track.position[0];
     let rel_loop: usize = track.position[1] as usize;
     let rel_end: usize = track.position[2] as usize;
-
-    //let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
-    //let mut infile = File::open(inpath)?;
   
     infile.seek(std::io::SeekFrom::Start(start_offset))?;
     let mut data = vec![0; rel_end];
     infile.read_exact(&mut data)?;
-    let rate: u32 = 44100;
 
     let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
     let file = File::create(dest_path)?;
@@ -159,7 +132,7 @@ fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) ->
     let intro_length = rel_loop;
     let loop_length = rel_end - rel_loop;
     let length = intro_length + (loops as usize) * loop_length;
-    let wave = WavFile::new(length, rate);
+    let wave = WavFile::new(length, track.frequency);
     wave.into_buf_writer(&mut bw)?;
     bw.write(&data[..rel_loop])?;
     for _ in 0..loops {
@@ -170,16 +143,33 @@ fn extract_all(bgm_info: BgmInfo, source: &Path, dest_dir: &Path, loops: u32) ->
   Ok(())
 }
 
+#[derive(StructOpt)]
+struct Options {
+  #[structopt(parse(from_os_str))]
+  bgminfo: PathBuf,
+  #[structopt(parse(from_os_str), default_value = "thbgm.dat")]
+  source: PathBuf,
+  #[structopt(parse(from_os_str))]
+  dest: PathBuf,
+}
+
 fn main() -> Result<()> {
-  let data = std::fs::read_to_string("th10.bgm")?;
+  let options = Options::from_args();
+
+  let data = std::fs::read_to_string(options.bgminfo)?;
   let bgm: bgminfo::BgmInfo = toml::from_str(&data)?;
-  println!("{:?}", bgm);
+
+  if !bgm.game.packmethod == 2 {
+    panic!("Unsupported pack method: {}", bgm.game.packmethod);
+  }
+  
   //for track in bgm.tracks {
   //  println!("{:02} - {}", track.track_number, track.name_jp);
   //}
-  let ip = Path::new("/mnt/e/Torrents/Touhou/10/Mountain of Faith/thbgm.dat");
-  let op = Path::new("MoF/");
-  extract_all(bgm, ip, op, 1)?;
+  //let ip = Path::new("/mnt/e/Torrents/Touhou/10/Mountain of Faith/thbgm.dat");
+  //let op = Path::new("MoF/");
+  //extract_all(bgm, ip, op, 1)?;
+  extract_all(bgm, options.source, options.dest, 1)?;
 
   Ok(())
 }

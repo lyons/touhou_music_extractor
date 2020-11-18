@@ -23,7 +23,7 @@ patchclass = "generic"
 wikipage = "Shoot_the_Bullet/Music"
 wikirev = 360880
 
-[[track]]
+[[tracks]]
 track_number = 1
 name_jp = "天狗の手帖　～ Mysterious Note"
 name_en = "Tengu's Notebook ~ Mysterious Note"
@@ -32,7 +32,7 @@ position = [0x00000010, 0x001324E0, 0x010220A8]
 comment_jp = "タイトル、メニュー画面のテーマです。\n　いつもの曲です。\n　今回は少し暗くレトロな感じが出るようにして、妖怪らしさが出る\n　ようにしました。\n　ザーというノイズは妖怪のミステリアスな部分です。決してモニタ\n　とスピーカーが逝かれたわけでは無いのでご安心を。"
 comment_en = "The title and menu theme.\n\nThe same old piece.\nHowever, this time I tried to give it a bit more of a dark and retro feel, as well as a bit of youkai.\nThat raining noise is a youkai mystery. No, there's nothing wrong with your monitor or speakers, so relax."
 
-[[track]]
+[[tracks]]
 track_number = 2
 name_jp = "風の循環　～ Wind Tour"
 name_en = "Wind Circulation ~ Wind Tour"
@@ -40,7 +40,7 @@ position = [0x01038010, 0x0004CAE0, 0x00D4A420]
 comment_jp = "撮影曲１です。\n　今回のゲームは、通常のボス戦のような曲ではなく、もっと日常感\n　を出したかった為、こんな感じに。\n　随分と落ち着いた感じですが、実際文は余裕です。自分から被写体\n　をおちょくりに出かけている様なもんですし。"
 comment_en = "Photo theme 1.\n\nFor this game, instead of the usual boss battle music, I wanted it to be more casual, so I wrote this.\nIt has a very relaxed feel, because Aya is enjoying herself - as if she were teasing her target."
 
-[[track]]
+[[tracks]]
 track_number = 3
 name_jp = "天狗が見ている　～ Black Eyes"
 name_en = "Tengu Is Watching ~ Black Eyes"
@@ -48,7 +48,7 @@ position = [0x01D82430, 0x0006BA00, 0x014FE400]
 comment_jp = "撮影曲２です。\n　怖いような可愛らしいような奇妙なノリを持たせました。\n　人を攫ったり喰ったりが当たり前の妖怪なのに、どこか陽気で人当\n　たりも良さそうな所が、幻想の天狗のイメージ。\n　この曲には、ぞの怖さと陽気さ、暢気さを混ぜた感じになっている\n　かと思います。"
 comment_en = "Photo theme 2.\n\nIt's easygoing enough to seem scary and cute.\nThough kidnapping and eating people is a youkai thing to do, this cheerfulness that must have come from somewhere is also part of the fabled tengu image.\nI think this piece mixes that scariness, cuteness, cheerfulness, and carelessness together."
 
-[[track]]
+[[tracks]]
 track_number = 4
 name_jp = "東の国の眠らない夜"
 name_en = "Sleepless Night of the Eastern Country"
@@ -56,7 +56,7 @@ position = [0x03280830, 0x00100000, 0x01641800]
 comment_jp = "撮影曲３です。中盤以降に使う曲として用意しました。\n\n　ボスも文も楽しんでいる感じを出しつつ、ボスに威圧感を持たせる\n　のは難しい物です。\n　この曲はそれを意識して、軽決で明るいながらもボスが強そうに\n　見える様に格好つけ書きました。特にピアノ。"
 comment_en = "Photo theme 3. Written for the middle levels.\n\nWhile it feels like both the boss and Aya are having fun, it is hard to convey the feeling of the boss being coerced.\nThis tune is aware of that, so while being light and bright, it was written to also bring out the strength of the boss. Especially the piano."
 
-[[track]]
+[[tracks]]
 track_number = 5
 name_jp = "レトロスペクティブ京都"
 name_en = "Retrospective Kyoto"
@@ -64,7 +64,7 @@ position = [0x048C2030, 0x000FA800, 0x010A3900]
 comment_jp = "撮影曲４のテーマです。後半に使う曲として用意しました。\n\n　レトロな日本をイメージしたところ、私の中ではこんな感じに。\n　雪の降る京の都。人気の少ない夜の道。\n　でも、この曲のレトロさは私のレトロさでして……。\n　この曲を聴いていると何となく昔を思い出してしまう。"
 comment_en = "Photo theme 4. Written for the latter half of the game.\n\nI feel, deep inside, that this hints at retro Japan.\nSnow, falling in the capital. A deserted night road.\nBut, this retro is my idea of retro...\nListening to this might make you reminisce."
 
-[[track]]
+[[tracks]]
 track_number = 6
 name_jp = "風神少女"
 name_en = "Wind God Girl"
