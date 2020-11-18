@@ -108,10 +108,10 @@ fn extract_demo() -> Result<()> {
 
 fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32) -> Result<()> {
   if !dest_dir.exists() {
-    std::fs::create_dir_all(dest_dir)?;
+    std::fs::create_dir_all(dest_dir.clone())?;
   }
-  if !dest_dir.is_dir() {
-    return Err(Box::new(format!("Destination path {:?} exists and is not a directory", dest_dir)))
+  else if !dest_dir.is_dir() {
+    return Err(format!("Destination path {:?} exists and is not a directory", dest_dir).into())
   }
 
   let mut infile = File::open(source)?;
