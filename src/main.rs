@@ -149,7 +149,7 @@ struct Options {
   bgminfo: PathBuf,
   #[structopt(parse(from_os_str), default_value = "thbgm.dat")]
   source: PathBuf,
-  #[structopt(parse(from_os_str))]
+  #[structopt(parse(from_os_str), default_value = "output/")]
   dest: PathBuf,
 }
 
