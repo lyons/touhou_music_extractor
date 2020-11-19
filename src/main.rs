@@ -76,35 +76,35 @@ use std::{
 use structopt::StructOpt;
 use crate::bgminfo::BgmInfo;
 
-fn extract_demo() -> Result<()> {
-  let start_offset: u64 = 0x18BC4930;
-  let rel_loop: usize = 0x00055500;
-  let rel_end: usize = 0x01C28000;
-  let loops = 3;
+// fn extract_demo() -> Result<()> {
+//   let start_offset: u64 = 0x18BC4930;
+//   let rel_loop: usize = 0x00055500;
+//   let rel_end: usize = 0x01C28000;
+//   let loops = 3;
 
-  let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
-  let mut infile = File::open(inpath)?;
-  infile.seek(std::io::SeekFrom::Start(start_offset))?;
-  let mut data = vec![0; rel_end];
-  infile.read_exact(&mut data)?;
-  let rate: u32 = 44100;
+//   let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
+//   let mut infile = File::open(inpath)?;
+//   infile.seek(std::io::SeekFrom::Start(start_offset))?;
+//   let mut data = vec![0; rel_end];
+//   infile.read_exact(&mut data)?;
+//   let rate: u32 = 44100;
 
-  let path = Path::new("Necrofantasia.wav");
-  let file = File::create(&path)?;
-  let mut bw = BufWriter::new(file);
+//   let path = Path::new("Necrofantasia.wav");
+//   let file = File::create(&path)?;
+//   let mut bw = BufWriter::new(file);
 
-  let intro_length = rel_loop;
-  let loop_length = rel_end - rel_loop;
-  let length = intro_length + loops * loop_length;
-  let wave = WavFile::new(length, rate);
-  wave.into_buf_writer(&mut bw)?;
-  bw.write(&data[..rel_loop])?;
-  for _ in 0..loops {
-    bw.write(&data[rel_loop..])?;
-  }
+//   let intro_length = rel_loop;
+//   let loop_length = rel_end - rel_loop;
+//   let length = intro_length + loops * loop_length;
+//   let wave = WavFile::new(length, rate);
+//   wave.into_buf_writer(&mut bw)?;
+//   bw.write(&data[..rel_loop])?;
+//   for _ in 0..loops {
+//     bw.write(&data[rel_loop..])?;
+//   }
 
-  Ok(())
-}
+//   Ok(())
+// }
 
 fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32) -> Result<()> {
   if !dest_dir.exists() {
@@ -117,11 +117,10 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
   let mut infile = File::open(source)?;
 
   for track in bgm_info.tracks {
-    let start_offset: u64 = track.position[0];
-    let rel_loop: usize = track.position[1] as usize;
-    let rel_end: usize = track.position[2] as usize;
+    let rel_loop: usize = track.relative_loop_offset as usize;
+    let rel_end: usize = track.relative_end_offset as usize;
   
-    infile.seek(std::io::SeekFrom::Start(start_offset))?;
+    infile.seek(std::io::SeekFrom::Start(track.start_offset))?;
     let mut data = vec![0; rel_end];
     infile.read_exact(&mut data)?;
 
@@ -132,7 +131,7 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
     let intro_length = rel_loop;
     let loop_length = rel_end - rel_loop;
     let length = intro_length + (loops as usize) * loop_length;
-    let wave = WavFile::new(length, track.frequency);
+    let wave = WavFile::new(length, track.sample_rate);
     wave.into_buf_writer(&mut bw)?;
     bw.write(&data[..rel_loop])?;
     for _ in 0..loops {
@@ -155,16 +154,15 @@ struct Options {
 
 fn main() -> Result<()> {
   let options = Options::from_args();
-
-  let data = std::fs::read_to_string(options.bgminfo)?;
-  let rewritten_data = bgminfo::rewrite_bgm_info(data);
-  let bgm: bgminfo::BgmInfo = toml::from_str(&rewritten_data)?;
-
-  if !bgm.game.packmethod == 2 {
-    panic!("Unsupported pack method: {}", bgm.game.packmethod);
-  }
   
-  extract_all(bgm, options.source, options.dest, 1)?;
+  let bgm = bgminfo::load(options.bgminfo)?;
 
-  Ok(())
+  match bgm.game.pack_method {
+    bgminfo::PackMethod::Two(_, _, _) => {
+      extract_all(bgm, options.source, options.dest, 1)
+    },
+    _ => {
+      Err(format!("Unsupported pack method: {:?}", bgm.game.pack_method))
+    },
+  }
 }
