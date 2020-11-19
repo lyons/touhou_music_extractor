@@ -1,4 +1,6 @@
+use regex::Regex;
 use serde::{Serialize, Deserialize};
+use crate::Result;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Game {
@@ -29,4 +31,28 @@ pub struct Track {
 pub struct BgmInfo {
   pub game: Game,
   pub tracks: Vec<Track>,
+}
+
+pub fn rewrite_bgm_info(bgm: String) -> String {
+  let track_number_re = Regex::new(r#"^\[(\d+)\]"#).unwrap();
+  let position_re = Regex::new(r#"^position = \"(.*)\""#).unwrap();
+
+  let mut result = Vec::new();
+
+  for line in bgm.split("\n") {
+    if track_number_re.is_match(line) {
+      result.push(String::from("[[tracks]]"));
+      let temp = track_number_re.replace(line, "track_number = $1").into_owned();
+      result.push(temp);
+    }
+    else if position_re.is_match(line) {
+      let temp = position_re.replace(line, "position = [$1]").into_owned();
+      result.push(temp);
+    }
+    else {
+      result.push(line.to_string());
+    }
+  }
+
+  result.join("\n")
 }

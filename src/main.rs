@@ -157,18 +157,13 @@ fn main() -> Result<()> {
   let options = Options::from_args();
 
   let data = std::fs::read_to_string(options.bgminfo)?;
-  let bgm: bgminfo::BgmInfo = toml::from_str(&data)?;
+  let rewritten_data = bgminfo::rewrite_bgm_info(data);
+  let bgm: bgminfo::BgmInfo = toml::from_str(&rewritten_data)?;
 
   if !bgm.game.packmethod == 2 {
     panic!("Unsupported pack method: {}", bgm.game.packmethod);
   }
   
-  //for track in bgm.tracks {
-  //  println!("{:02} - {}", track.track_number, track.name_jp);
-  //}
-  //let ip = Path::new("/mnt/e/Torrents/Touhou/10/Mountain of Faith/thbgm.dat");
-  //let op = Path::new("MoF/");
-  //extract_all(bgm, ip, op, 1)?;
   extract_all(bgm, options.source, options.dest, 1)?;
 
   Ok(())
