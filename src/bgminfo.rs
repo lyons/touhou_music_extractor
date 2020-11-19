@@ -142,7 +142,7 @@ fn bar(game: RawGame) -> Result<Game> {
       else if !game.zwavid_08.is_some() { Err("Missing required field `zwavid_08`") }
       else if !game.zwavid_09.is_some() { Err("Missing required field `zwavid_09`") }
       else {
-        Ok(PackMethod::Two(game.bgmdir.unwrap(), game.zwavid_08.unwrap(), game.zwavid_09.unwrap()))
+        Ok(PackMethod::Two(game.bgmfile.unwrap(), game.zwavid_08.unwrap(), game.zwavid_09.unwrap()))
       }
     },
     _ => {
