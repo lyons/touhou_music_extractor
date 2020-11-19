@@ -162,7 +162,7 @@ fn main() -> Result<()> {
       extract_all(bgm, options.source, options.dest, 1)
     },
     _ => {
-      Err(format!("Unsupported pack method: {:?}", bgm.game.pack_method))
+      Err(format!("Unsupported pack method: {:?}", bgm.game.pack_method).into())
     },
   }
 }
