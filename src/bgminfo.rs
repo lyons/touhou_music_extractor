@@ -35,7 +35,7 @@ pub struct BgmInfo {
 
 pub fn rewrite_bgm_info(bgm: String) -> String {
   let track_number_re = Regex::new(r#"^\[(\d+)\]"#).unwrap();
-  let position_re = Regex::new(r#"^position = \"(.*)\""#).unwrap();
+  let position_re = Regex::new(r#"^position = "(.*)""#).unwrap();
 
   let mut result = Vec::new();
 
