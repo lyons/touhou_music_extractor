@@ -134,7 +134,7 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
     
     {
       let mut fadeout_buffer = vec![0_u16; fadeout_samples];
-      let mut c = Cursor::new(&data[rel_loop..(fadeout_samples * 2)]);
+      let mut c = Cursor::new(&data[rel_loop..(rel_loop + fadeout_samples * 2)]);
       c.read_u16_into::<LittleEndian>(&mut fadeout_buffer)?;
       
       let mut fade_volume = 1.0;
