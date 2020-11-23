@@ -75,7 +75,10 @@ use std::{
   path::{PathBuf},
 };
 use structopt::StructOpt;
-use crate::bgminfo::BgmInfo;
+use crate::bgminfo::{
+  BgmInfo,
+  Track,
+};
 
 fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32) -> Result<()> {
   if !dest_dir.exists() {
@@ -87,68 +90,82 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
 
   let mut infile = File::open(source)?;
 
-  for track in bgm_info.tracks {
-    // Recalculate offsets in terms of numbers of 16-bit samples rather than bytes
-    // Or not
-    let rel_loop = track.relative_loop_offset as usize;
-    let rel_end = track.relative_end_offset as usize;
-  
+  for track in bgm_info.tracks {  
     infile.seek(std::io::SeekFrom::Start(track.start_offset))?;
-    let mut data = vec![0; rel_end];
+    let mut data = vec![0; track.relative_end_offset as usize];
     infile.read_exact(&mut data)?;
-    //infile.read_u16_into::<LittleEndian>(&mut data)?;
 
     let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
     let file = File::create(dest_path)?;
-    let mut bw = BufWriter::new(file);
+    let bw = BufWriter::new(file);
 
-    // fadeout
-    // fadeout_samples = duration (seconds) * sample rate -> round down to nearest thousand
-    // allocate fadeout buffer
+    process_track(&track, data, bw)?;
+  }
 
-    let fadeout_duration = 10;
-    let fadeout_block = ((fadeout_duration * track.sample_rate / 1000) * 2) as usize;
-    let fadeout_samples = fadeout_block * 1000;
+  Ok(())
+}
 
-    // fadeout during last loop
-    // write [rel_loop..(rel_end - fadeout_samples)] from data to bufwriter
-    // copy [(rel_end - fadeout_samples)..] into fadeout buffer
+fn process_track<W: Write>(track: &Track, data: Vec<u8>, mut bw: BufWriter<W>) -> Result<()> {
+  let rel_loop = track.relative_loop_offset as usize;
+  let rel_end = track.relative_end_offset as usize;
 
-    // fadeout after last loop
-    // write last loop of data to bufwriter
-    // copy [..fadeout_samples] to fadeout buffer
+  let looped = true;
+  let loops = 2;
+  // fadeout
+  // fadeout_samples = duration (seconds) * sample rate -> round down to nearest thousand
+  // allocate fadeout buffer
 
-    // start fadelevel at 1.000
-    // every fadeout_samples / 1000, decrease fadelevel by 0.001
-    // write sample * fadelevel to bufwriter
+  let fadeout_duration = 10;
+  let fadeout_block = ((fadeout_duration * track.sample_rate / 1000) * 2) as usize;
+  let fadeout_samples = fadeout_block * 1000;
 
-    let intro_length = rel_loop;
-    let loop_length = rel_end - rel_loop;
-    let length = intro_length + (loops as usize) * loop_length + fadeout_samples * 2;
-    let wave = WavFile::new(length, track.sample_rate);
-    wave.into_buf_writer(&mut bw)?;
-    bw.write(&data[..rel_loop])?;
-    for _ in 0..loops {
-      bw.write(&data[rel_loop..])?;
-    }
+  // fadeout during last loop
+  // write [rel_loop..(rel_end - fadeout_samples)] from data to bufwriter
+  // copy [(rel_end - fadeout_samples)..] into fadeout buffer
+
+  // fadeout after last loop
+  // write last loop of data to bufwriter
+  // copy [..fadeout_samples] to fadeout buffer
+
+
+  // FIXED DURATION
+  // Calculate total number of samples for timespan
+  // Calculate number of samples needed for introduction
+  // Caclulate number of samples needed for fadeout
+  // Calculate number of unfaded samples
+  // Caclulate whole number of loops required
+  // Calculate end offset of partial unfaded loop
+  // Determine if fadeout split across loops
+  // Fill fadeout buffer
+
+  let intro_length = rel_loop;
+  let loop_length = rel_end - rel_loop;
+  let length = intro_length + (loops as usize) * loop_length + fadeout_samples * 2;
+
+
+  let wave = WavFile::new(length, track.sample_rate);
+  wave.into_buf_writer(&mut bw)?;
+  bw.write(&data[..rel_loop])?;
+  for _ in 0..loops {
+    bw.write(&data[rel_loop..])?;
+  }
+  
+  {
+    let mut fadeout_buffer = vec![0_i16; fadeout_samples];
+    let mut c = Cursor::new(&data[rel_loop..(rel_loop + fadeout_samples * 2)]);
+    c.read_i16_into::<LittleEndian>(&mut fadeout_buffer)?;
     
-    {
-      let mut fadeout_buffer = vec![0_i16; fadeout_samples];
-      let mut c = Cursor::new(&data[rel_loop..(rel_loop + fadeout_samples * 2)]);
-      c.read_i16_into::<LittleEndian>(&mut fadeout_buffer)?;
-      
-      let mut fade_volume = 1.0;
-      let mut start_offset = 0;
+    let mut fade_volume = 1.0;
+    let mut start_offset = 0;
 
-      for _ in 0..1000 {
-        for index in start_offset..(start_offset + fadeout_block) {
-          let sample = ((fadeout_buffer[index] as f64) * fade_volume).round() as i16;
-          bw.write_i16::<LittleEndian>(sample)?;
-        }
-
-        fade_volume = fade_volume - 0.001;
-        start_offset = start_offset + fadeout_block;
+    for _ in 0..1000 {
+      for index in start_offset..(start_offset + fadeout_block) {
+        let sample = ((fadeout_buffer[index] as f64) * fade_volume).round() as i16;
+        bw.write_i16::<LittleEndian>(sample)?;
       }
+
+      fade_volume = fade_volume - 0.001;
+      start_offset = start_offset + fadeout_block;
     }
   }
 
