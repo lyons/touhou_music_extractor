@@ -255,6 +255,7 @@ name = "touhou_music_extractor"
 version = "0.1.0"
 dependencies = [
  "bincode",
+ "byteorder",
  "regex",
  "serde",
  "structopt",

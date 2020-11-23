@@ -1,8 +1,9 @@
 use bincode;
+use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use serde::{Serialize, Deserialize};
 use std::{
   error::Error,
-  io::{BufWriter, Write},
+  io::{BufWriter, Cursor, Write},
 };
 
 mod bgminfo;
@@ -71,40 +72,10 @@ impl WavFile {
 use std::{
   fs::File,
   io::{Read, Seek},
-  path::{Path, PathBuf},
+  path::{PathBuf},
 };
 use structopt::StructOpt;
 use crate::bgminfo::BgmInfo;
-
-// fn extract_demo() -> Result<()> {
-//   let start_offset: u64 = 0x18BC4930;
-//   let rel_loop: usize = 0x00055500;
-//   let rel_end: usize = 0x01C28000;
-//   let loops = 3;
-
-//   let inpath = Path::new("/mnt/e/Torrents/Touhou/7/Perfect Cherry Blossom/Thbgm.dat");
-//   let mut infile = File::open(inpath)?;
-//   infile.seek(std::io::SeekFrom::Start(start_offset))?;
-//   let mut data = vec![0; rel_end];
-//   infile.read_exact(&mut data)?;
-//   let rate: u32 = 44100;
-
-//   let path = Path::new("Necrofantasia.wav");
-//   let file = File::create(&path)?;
-//   let mut bw = BufWriter::new(file);
-
-//   let intro_length = rel_loop;
-//   let loop_length = rel_end - rel_loop;
-//   let length = intro_length + loops * loop_length;
-//   let wave = WavFile::new(length, rate);
-//   wave.into_buf_writer(&mut bw)?;
-//   bw.write(&data[..rel_loop])?;
-//   for _ in 0..loops {
-//     bw.write(&data[rel_loop..])?;
-//   }
-
-//   Ok(())
-// }
 
 fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32) -> Result<()> {
   if !dest_dir.exists() {
@@ -117,16 +88,39 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
   let mut infile = File::open(source)?;
 
   for track in bgm_info.tracks {
-    let rel_loop: usize = track.relative_loop_offset as usize;
-    let rel_end: usize = track.relative_end_offset as usize;
+    // Recalculate offsets in terms of numbers of 16-bit samples rather than bytes
+    // Or not
+    let rel_loop = track.relative_loop_offset as usize;
+    let rel_end = track.relative_end_offset as usize;
   
     infile.seek(std::io::SeekFrom::Start(track.start_offset))?;
     let mut data = vec![0; rel_end];
     infile.read_exact(&mut data)?;
+    //infile.read_u16_into::<LittleEndian>(&mut data)?;
 
     let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
     let file = File::create(dest_path)?;
     let mut bw = BufWriter::new(file);
+
+    // fadeout
+    // fadeout_samples = duration (seconds) * sample rate -> round down to nearest thousand
+    // allocate fadeout buffer
+
+    let fadeout_duration = 10;
+    let fadeout_block = ((fadeout_duration * track.sample_rate / 1000) * 2) as usize;
+    let fadeout_samples = fadeout_block * 1000;
+
+    // fadeout during last loop
+    // write [rel_loop..(rel_end - fadeout_samples)] from data to bufwriter
+    // copy [(rel_end - fadeout_samples)..] into fadeout buffer
+
+    // fadeout after last loop
+    // write last loop of data to bufwriter
+    // copy [..fadeout_samples] to fadeout buffer
+
+    // start fadelevel at 1.000
+    // every fadeout_samples / 1000, decrease fadelevel by 0.001
+    // write sample * fadelevel to bufwriter
 
     let intro_length = rel_loop;
     let loop_length = rel_end - rel_loop;
@@ -136,6 +130,28 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
     bw.write(&data[..rel_loop])?;
     for _ in 0..loops {
       bw.write(&data[rel_loop..])?;
+    }
+    
+    {
+      let mut fadeout_buffer = vec![0_u16; fadeout_samples];
+      let mut c = Cursor::new(&data[..fadeout_samples]);
+      c.read_u16_into::<LittleEndian>(&mut fadeout_buffer)?;
+      
+      let mut fade_volume = 1.0;
+      let mut start_offset = 0;
+
+      for _ in 0..1000 {
+        for index in start_offset..(start_offset + fadeout_block) {
+          fadeout_buffer[index] = ((fadeout_buffer[index] as f32) * fade_volume) as u16;
+        }
+
+        fade_volume = fade_volume - 0.001;
+        start_offset = start_offset + fadeout_block;
+      }
+
+      for sample in fadeout_buffer {
+        bw.write_u16::<LittleEndian>(sample)?;
+      }
     }
   }
 
