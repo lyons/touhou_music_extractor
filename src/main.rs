@@ -124,7 +124,7 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
 
     let intro_length = rel_loop;
     let loop_length = rel_end - rel_loop;
-    let length = intro_length + (loops as usize) * loop_length;
+    let length = intro_length + (loops as usize) * loop_length + fadeout_samples * 2;
     let wave = WavFile::new(length, track.sample_rate);
     wave.into_buf_writer(&mut bw)?;
     bw.write(&data[..rel_loop])?;
