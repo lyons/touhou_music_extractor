@@ -133,24 +133,21 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
     }
     
     {
-      let mut fadeout_buffer = vec![0_u16; fadeout_samples];
+      let mut fadeout_buffer = vec![0_i16; fadeout_samples];
       let mut c = Cursor::new(&data[rel_loop..(rel_loop + fadeout_samples * 2)]);
-      c.read_u16_into::<LittleEndian>(&mut fadeout_buffer)?;
+      c.read_i16_into::<LittleEndian>(&mut fadeout_buffer)?;
       
       let mut fade_volume = 1.0;
       let mut start_offset = 0;
 
       for _ in 0..1000 {
         for index in start_offset..(start_offset + fadeout_block) {
-          fadeout_buffer[index] = ((fadeout_buffer[index] as f32) * fade_volume).round() as u16;
+          let sample = ((fadeout_buffer[index] as f64) * fade_volume).round() as i16;
+          bw.write_i16::<LittleEndian>(sample)?;
         }
 
         fade_volume = fade_volume - 0.001;
         start_offset = start_offset + fadeout_block;
-      }
-
-      for sample in fadeout_buffer {
-        bw.write_u16::<LittleEndian>(sample)?;
       }
     }
   }
