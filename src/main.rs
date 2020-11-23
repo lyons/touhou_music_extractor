@@ -142,7 +142,7 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
 
       for _ in 0..1000 {
         for index in start_offset..(start_offset + fadeout_block) {
-          fadeout_buffer[index] = ((fadeout_buffer[index] as f64) * fade_volume) as u16;
+          fadeout_buffer[index] = ((fadeout_buffer[index] as f32) * fade_volume).round() as u16;
         }
 
         fade_volume = fade_volume - 0.001;
