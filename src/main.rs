@@ -9,7 +9,7 @@ mod bgminfo;
 mod core;
 mod wavheader;
 
-use crate::core::{OutputOptions, OutputMode, LoopedFadeMode, extract_all};
+use crate::core::{OutputOptions, OutputMode, LoopedFadeMode};
 
 pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
@@ -24,6 +24,9 @@ struct Options {
   // loops: Option<u32>,
   // #[structopt(long, parse(try_from_str = parse_duration::parse), default_value = "10")]
   // fadeout_length: Duration,
+
+  #[structopt(long)]
+  track_number: Option<usize>,
 
   #[structopt(parse(from_os_str))]
   bgminfo: PathBuf,
@@ -49,7 +52,7 @@ fn main() -> Result<()> {
 
   match bgm.game.pack_method {
     bgminfo::PackMethod::Two(_, _, _) => {
-      extract_all(bgm, options.source, options.dest, &opts)
+      core::extract(&bgm, options.track_number, options.source, options.dest, &opts)
     },
     _ => {
       Err(format!("Unsupported pack method: {:?}", bgm.game.pack_method).into())

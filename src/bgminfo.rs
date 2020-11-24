@@ -62,7 +62,7 @@ pub fn load(path: PathBuf) -> Result<BgmInfo> {
   let raw_bgm: RawBgmInfo = toml::from_str(&rewritten_data)?;
 
   let game = bar(raw_bgm.game)?;
-  let tracks = raw_bgm.tracks.into_iter().map(foo).collect::<Result<Vec<Track>>>()?;
+  let tracks = raw_bgm.tracks.into_iter().map(|x| foo(x, &game)).collect::<Result<Vec<Track>>>()?;
 
   let result = BgmInfo {game, tracks};
 
@@ -164,9 +164,12 @@ fn bar(game: RawGame) -> Result<Game> {
   Ok(result)
 }
 
-fn foo(track: RawTrack) -> Result<Track> {
+fn foo(track: RawTrack, game: &Game) -> Result<Track> {
   let start = if let Some(position) = track.position.clone() {
     position.get(0).map(|&n| n)
+  }
+  else if let PackMethod::One(_, header_size) = game.pack_method {
+    Some(header_size)
   }
   else {
     track.start

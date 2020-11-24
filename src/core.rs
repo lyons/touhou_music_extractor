@@ -7,7 +7,7 @@ use std::{
 };
 
 use crate::Result;
-use crate::bgminfo::{BgmInfo, Track};
+use crate::bgminfo::{BgmInfo, PackMethod, Track};
 use crate::wavheader::WavHeader;
 
 pub enum LoopedFadeMode {
@@ -117,43 +117,52 @@ pub fn process_track<W: Write>
   Ok((0x28, length))
 }
 
-// pub fn extract_track<R: Read + Seek, W: Write>
-// (track: &Track, source: &mut BufReader<R>, dest: BufWriter<W>, opts: &OutputOptions) -> Result<()> {
-//   let mut data = vec![0; track.relative_end_offset as usize];
-//   source.seek(std::io::SeekFrom::Start(track.start_offset))?;
-//   source.read_exact(&mut data)?;
+pub fn extract(bgm_info: &BgmInfo,
+               track_number: Option<usize>,
+               source: PathBuf,
+               dest_dir: PathBuf,
+               opts: &OutputOptions) -> Result<()> {
+  match track_number {
+    Some(n) => {
+      if let Some(track) = bgm_info.tracks.get(n) {
+        extract_track(bgm_info, track, source, dest_dir, opts)
+      }
+      else {
+        Err(format!("Track number `{}` does not exist.", n))
+      }
+    },
+    None => extract_all(bgm_info, source, dest_dir, opts),
+  }
+}
 
-//   process_track(track, data, dest, opts)?;
-//   Ok(())
-// }
+fn extract_track
+(bgm_info: &BgmInfo, track: &Track, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+  match bgm_info.game.pack_method {
+    PackMethod::One(_, _) => {
+      extract_track_1(track, source, dest_dir, opts)
+    },
+    PackMethod::Two(_, _, _) => {
+      extract_track_to_file(track, source, dest_dir, opts)
+    },
+    _ => Err("Unsupported pack method.".into()),
+  }
+}
 
-// pub fn e_a(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
-//   if !dest_dir.exists() {
-//     std::fs::create_dir_all(dest_dir.clone())?;
-//   }
-//   else if !dest_dir.is_dir() {
-//     return Err(format!("Destination path {:?} exists and is not a directory", dest_dir).into())
-//   }
+fn extract_all
+(bgm_info: &BgmInfo,source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+  match bgm_info.game.pack_method {
+    PackMethod::One(_, _) => {
+      extract_all_to_files_1(bgm_info, source, dest_dir, opts)
+    },
+    PackMethod::Two(_, _, _) => {
+      extract_all_to_files_2(bgm_info, source, dest_dir, opts)
+    },
+    _ => Err("Unsupported pack method.".into()),
+  }
+}
 
-//   let mut infile = File::open(source)?;
-//   let mut source = BufReader::new(infile);
-
-//   for track in bgm_info.tracks {  
-//     // infile.seek(std::io::SeekFrom::Start(track.start_offset))?;
-//     // let mut data = vec![0; track.relative_end_offset as usize];
-//     // infile.read_exact(&mut data)?;
-
-//     let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
-//     let file = File::create(dest_path)?;
-//     let bw = BufWriter::new(file);
-
-//     extract_track(&track, &mut source, bw, opts)?;
-//   }
-
-//   Ok(())
-// }
-
-pub fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+fn extract_track_to_file
+(track: &Track, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !dest_dir.exists() {
     std::fs::create_dir_all(dest_dir.clone())?;
   }
@@ -161,13 +170,68 @@ pub fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: 
     return Err(format!("Destination path {:?} exists and is not a directory", dest_dir).into())
   }
 
-  let mut infile = File::open(source)?;
-  let mut source = BufReader::new(infile);
+  let infile = File::open(source)?;
+  let mut br = BufReader::new(infile);
+
+  br.seek(std::io::SeekFrom::Start(track.start_offset))?;
+  let mut data = vec![0; track.relative_end_offset as usize];
+  br.read_exact(&mut data)?;
+
+  let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
+  let file = File::create(dest_path)?;
+  let bw = BufWriter::new(file);
+
+  process_track(&track, data, bw, opts)?;
+
+  Ok(())
+}
+
+fn extract_track_1
+(track: &Track, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+  if !source_dir.is_dir() {
+    return Err(format!("Source path {:?} is not a directory", source_dir))
+  }
+  let filename = track.filename.ok_or_else(
+    || format!("Track {} is missing required field `filename`", track.track_number)
+  )?;
+  let filepath = source_dir.join(filename);
+
+  extract_track_to_file(track, filepath, dest_dir, opts)
+}
+
+fn extract_all_to_files_1
+(bgm_info: &BgmInfo, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+  if !source_dir.is_dir() {
+    return Err(format!("Source path {:?} is not a directory", source_dir))
+  }
+  for track in bgm_info.tracks {
+    let filename = track.filename.ok_or_else(
+      || format!("Track {} is missing required field `filename`", track.track_number)
+    )?;
+    let filepath = source_dir.join(filename);
+
+    extract_track_to_file(&track, filepath, dest_dir, opts)?;
+  }
+
+  Ok(())
+}
+
+fn extract_all_to_files_2
+(bgm_info: &BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+  if !dest_dir.exists() {
+    std::fs::create_dir_all(dest_dir.clone())?;
+  }
+  else if !dest_dir.is_dir() {
+    return Err(format!("Destination path {:?} exists and is not a directory", dest_dir).into())
+  }
+
+  let infile = File::open(source)?;
+  let mut br = BufReader::new(infile);
 
   for track in bgm_info.tracks {  
-    source.seek(std::io::SeekFrom::Start(track.start_offset))?;
+    br.seek(std::io::SeekFrom::Start(track.start_offset))?;
     let mut data = vec![0; track.relative_end_offset as usize];
-    source.read_exact(&mut data)?;
+    br.read_exact(&mut data)?;
 
     let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
     let file = File::create(dest_path)?;
