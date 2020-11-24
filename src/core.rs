@@ -7,7 +7,7 @@ use std::{
 };
 
 use crate::Result;
-use crate::bgminfo::{BgmInfo, PackMethod, Track};
+use crate::bgminfo::{BgmInfo, Game, PackMethod, Track};
 use crate::wavheader::WavHeader;
 
 pub enum LoopedFadeMode {
@@ -117,7 +117,7 @@ pub fn process_track<W: Write>
   Ok((0x28, length))
 }
 
-pub fn extract(bgm_info: &BgmInfo,
+pub fn extract(bgm_info: BgmInfo,
                track_number: Option<usize>,
                source: PathBuf,
                dest_dir: PathBuf,
@@ -125,10 +125,10 @@ pub fn extract(bgm_info: &BgmInfo,
   match track_number {
     Some(n) => {
       if let Some(track) = bgm_info.tracks.get(n) {
-        extract_track(bgm_info, track, source, dest_dir, opts)
+        extract_track(&bgm_info.game, track, source, dest_dir, opts)
       }
       else {
-        Err(format!("Track number `{}` does not exist.", n)).into()
+        Err(format!("Track number `{}` does not exist.", n).into())
       }
     },
     None => extract_all(bgm_info, source, dest_dir, opts),
@@ -136,8 +136,8 @@ pub fn extract(bgm_info: &BgmInfo,
 }
 
 fn extract_track
-(bgm_info: &BgmInfo, track: &Track, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
-  match bgm_info.game.pack_method {
+(game: &Game, track: &Track, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+  match game.pack_method {
     PackMethod::One(_, _) => {
       extract_track_1(track, source, dest_dir, opts)
     },
@@ -149,7 +149,7 @@ fn extract_track
 }
 
 fn extract_all
-(bgm_info: &BgmInfo,source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: BgmInfo,source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   match bgm_info.game.pack_method {
     PackMethod::One(_, _) => {
       extract_all_to_files_1(bgm_info, source, dest_dir, opts)
@@ -189,9 +189,9 @@ fn extract_track_to_file
 fn extract_track_1
 (track: &Track, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
-    return Err(format!("Source path {:?} is not a directory", source_dir)).into()
+    return Err(format!("Source path {:?} is not a directory", source_dir).into())
   }
-  let filename = track.filename.ok_or_else(
+  let filename = track.filename.clone().ok_or_else(
     || format!("Track {} is missing required field `filename`", track.track_number)
   )?;
   let filepath = source_dir.join(filename);
@@ -200,24 +200,24 @@ fn extract_track_1
 }
 
 fn extract_all_to_files_1
-(bgm_info: &BgmInfo, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: BgmInfo, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
-    return Err(format!("Source path {:?} is not a directory", source_dir)).into()
+    return Err(format!("Source path {:?} is not a directory", source_dir).into())
   }
   for track in bgm_info.tracks {
-    let filename = track.filename.ok_or_else(
+    let filename = track.filename.clone().ok_or_else(
       || format!("Track {} is missing required field `filename`", track.track_number)
     )?;
     let filepath = source_dir.join(filename);
 
-    extract_track_to_file(&track, filepath, dest_dir, opts)?;
+    extract_track_to_file(&track, filepath, dest_dir.clone(), opts)?;
   }
 
   Ok(())
 }
 
 fn extract_all_to_files_2
-(bgm_info: &BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !dest_dir.exists() {
     std::fs::create_dir_all(dest_dir.clone())?;
   }

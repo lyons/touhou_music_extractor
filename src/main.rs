@@ -42,20 +42,9 @@ fn main() -> Result<()> {
   let bgm = bgminfo::load(options.bgminfo)?;
 
   let opts =  OutputOptions {
-    mode: OutputMode::Loops(1, LoopedFadeMode::After),
+    mode: OutputMode::Loops(2, LoopedFadeMode::After),
     fadeout_duration: 10,
   };
 
-  //println!("Duration: {:?}", options.length);
-
-  //Ok(())
-
-  match bgm.game.pack_method {
-    bgminfo::PackMethod::Two(_, _, _) => {
-      core::extract(&bgm, options.track_number, options.source, options.dest, &opts)
-    },
-    _ => {
-      Err(format!("Unsupported pack method: {:?}", bgm.game.pack_method).into())
-    },
-  }
+  core::extract(bgm, options.track_number, options.source, options.dest, &opts)
 }
