@@ -80,7 +80,7 @@ use crate::bgminfo::{
   Track,
 };
 
-fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32) -> Result<()> {
+fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !dest_dir.exists() {
     std::fs::create_dir_all(dest_dir.clone())?;
   }
@@ -99,7 +99,7 @@ fn extract_all(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, loops: u32
     let file = File::create(dest_path)?;
     let bw = BufWriter::new(file);
 
-    process_track(&track, data, bw)?;
+    process_track(&track, data, bw, opts)?;
   }
 
   Ok(())
@@ -120,14 +120,9 @@ struct OutputOptions {
   fadeout_duration: u32,
 }
 
-fn process_track<W: Write>(track: &Track, data: Vec<u8>, mut bw: BufWriter<W>) -> Result<()> {
+fn process_track<W: Write>(track: &Track, data: Vec<u8>, mut bw: BufWriter<W>, opts: &OutputOptions) -> Result<()> {
   let rel_loop = track.relative_loop_offset as usize;
   let rel_end = track.relative_end_offset as usize;
-
-  let opts =  OutputOptions {
-    mode: OutputMode::Loops(2, LoopedFadeMode::FadeAfter),
-    fadeout_duration: 10,
-  };
 
   let fadeout_duration = opts.fadeout_duration;
   let fadeout_block = ((fadeout_duration * track.sample_rate / 1000) * 2) as usize;
@@ -246,9 +241,14 @@ fn main() -> Result<()> {
   
   let bgm = bgminfo::load(options.bgminfo)?;
 
+  let opts =  OutputOptions {
+    mode: OutputMode::Loops(1, LoopedFadeMode::FadeBefore),
+    fadeout_duration: 10,
+  };
+
   match bgm.game.pack_method {
     bgminfo::PackMethod::Two(_, _, _) => {
-      extract_all(bgm, options.source, options.dest, 1)
+      extract_all(bgm, options.source, options.dest, &opts)
     },
     _ => {
       Err(format!("Unsupported pack method: {:?}", bgm.game.pack_method).into())
