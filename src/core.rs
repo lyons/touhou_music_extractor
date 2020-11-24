@@ -128,7 +128,7 @@ pub fn extract(bgm_info: &BgmInfo,
         extract_track(bgm_info, track, source, dest_dir, opts)
       }
       else {
-        Err(format!("Track number `{}` does not exist.", n))
+        Err(format!("Track number `{}` does not exist.", n)).into()
       }
     },
     None => extract_all(bgm_info, source, dest_dir, opts),
@@ -189,7 +189,7 @@ fn extract_track_to_file
 fn extract_track_1
 (track: &Track, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
-    return Err(format!("Source path {:?} is not a directory", source_dir))
+    return Err(format!("Source path {:?} is not a directory", source_dir)).into()
   }
   let filename = track.filename.ok_or_else(
     || format!("Track {} is missing required field `filename`", track.track_number)
@@ -202,7 +202,7 @@ fn extract_track_1
 fn extract_all_to_files_1
 (bgm_info: &BgmInfo, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
-    return Err(format!("Source path {:?} is not a directory", source_dir))
+    return Err(format!("Source path {:?} is not a directory", source_dir)).into()
   }
   for track in bgm_info.tracks {
     let filename = track.filename.ok_or_else(
