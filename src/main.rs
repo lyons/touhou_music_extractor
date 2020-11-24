@@ -139,7 +139,7 @@ fn process_track<W: Write>(track: &Track, data: Vec<u8>, mut bw: BufWriter<W>) -
       (n - 1, rel_end - fadeout_samples * 2)
     },
     OutputMode::Duration(duration) => {
-      let total_samples = duration * track.sample_rate as usize;
+      let total_samples = duration * track.sample_rate as usize * 2;
       let intro_samples = rel_loop / 2;
       let unfaded_looped_samples = total_samples - intro_samples - fadeout_samples;
       let loop_duration_in_samples = (rel_end - rel_loop) / 2;
@@ -206,11 +206,11 @@ fn process_track<W: Write>(track: &Track, data: Vec<u8>, mut bw: BufWriter<W>) -
       let head = rel_loop + fadeout_bytes - tail;
       {
         let mut c = Cursor::new(&data[rel_fade_start..rel_end]);
-        c.read_i16_into::<LittleEndian>(&mut fadeout_buffer[0..tail])?;
+        c.read_i16_into::<LittleEndian>(&mut fadeout_buffer[..(tail / 2)])?;
       }
       {
         let mut c = Cursor::new(&data[rel_loop..head]);
-        c.read_i16_into::<LittleEndian>(&mut fadeout_buffer[tail..])?;
+        c.read_i16_into::<LittleEndian>(&mut fadeout_buffer[(tail / 2)..])?;
       }
     }
     
