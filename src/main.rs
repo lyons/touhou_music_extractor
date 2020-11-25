@@ -29,7 +29,7 @@ struct Options {
   #[structopt(long)]
   track_number: Option<usize>,
 
-  #[structopt(parse(from_os_str), default_value = "{name}/")]
+  #[structopt(long, parse(from_os_str), default_value = "{name}/")]
   output_dir: PathBuf,
 
   #[structopt(parse(from_os_str))]
@@ -43,7 +43,7 @@ fn main() -> Result<()> {
 
   let mut tt = TinyTemplate::new();
   let output_dir = options.output_dir.to_str().unwrap();
-  tt.add_template("dest", output_dir);
+  tt.add_template("dest", output_dir)?;
   
   let bgm = bgminfo::load_from_file(options.bgminfo)?;
 
