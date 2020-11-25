@@ -15,7 +15,7 @@ pub struct BgmInfo {
   pub tracks: Vec<Track>,
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Game {
   pub name_jp: String,
   pub name_en: String,
@@ -26,6 +26,7 @@ pub struct Game {
   pub tracks: u32,
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone, PartialEq)]
 pub enum PackMethod {
   One(String, u64),
@@ -35,13 +36,14 @@ pub enum PackMethod {
   Five(String),
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone, PartialEq)]
 pub enum Encryption {
   Simple(u64),
   MersenneTwister,
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Track {
   pub track_number: u32,
 
@@ -56,7 +58,7 @@ pub struct Track {
   pub filename: Option<String>, // Not used with pack method 2
 }
 
-pub fn load(path: PathBuf) -> Result<BgmInfo> {
+pub fn load_from_file(path: PathBuf) -> Result<BgmInfo> {
   let data = std::fs::read_to_string(path)?;
   let rewritten_data = rewrite_bgm_info(data);
   let raw_bgm: RawBgmInfo = toml::from_str(&rewritten_data)?;
@@ -98,14 +100,14 @@ struct RawGame {
   artist_en: Option<String>,
   
   packmethod: u32,
-  bgmdir: Option<String>, // Pack method 1
+  bgmdir: Option<String>,  // Pack method 1
   bgmfile: Option<String>, // Pack methods 2, 3, 4, 5
   #[serde(default = "default_header_size")]
-  headersize: u64, // Pack methods 1, 3, 4
-  zwavid_08: Option<u8>, // Pack method 2
-  zwavid_09: Option<u8>, // Pack method 2
+  headersize: u64,         // Pack methods 1, 3, 4
+  zwavid_08: Option<u8>,   // Pack method 2
+  zwavid_09: Option<u8>,   // Pack method 2
   encryption: Option<u32>, // Pack method 3/4
-  entrysize: Option<u64>, // Pack method 3/4 encryption method 1
+  entrysize: Option<u64>,  // Pack method 3/4 encryption method 1
   
   tracks: u32,
 }
