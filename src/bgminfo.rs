@@ -27,7 +27,7 @@ pub struct Game {
 }
 
 #[allow(dead_code)]
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub enum PackMethod {
   One(String, u64),
   Two(String, u8, u8),
@@ -37,7 +37,7 @@ pub enum PackMethod {
 }
 
 #[allow(dead_code)]
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub enum Encryption {
   Simple(u64),
   MersenneTwister,
