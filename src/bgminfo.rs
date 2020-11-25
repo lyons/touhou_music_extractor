@@ -208,7 +208,7 @@ fn foo(track: RawTrack, game: &Game) -> Result<Track> {
 }
 
 fn rewrite_bgm_info(bgm: String) -> String {
-  let track_number_re = Regex::new(r#"^\[(0?\d+)\]"#).unwrap();
+  let track_number_re = Regex::new(r#"^\[0?(\d+)\]"#).unwrap();
   let position_re = Regex::new(r#"^position = "(.*)""#).unwrap();
 
   let mut result = Vec::new();
