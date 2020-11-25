@@ -124,7 +124,7 @@ pub fn extract(bgm_info: BgmInfo,
                opts: &OutputOptions) -> Result<()> {
   match track_number {
     Some(n) => {
-      if let Some(track) = bgm_info.tracks.get(n) {
+      if let Some(track) = bgm_info.tracks.get(n - 1) {
         extract_track(&bgm_info.game, track, source, dest_dir, opts)
       }
       else {
