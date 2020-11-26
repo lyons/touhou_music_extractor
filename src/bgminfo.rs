@@ -154,7 +154,7 @@ fn bar(game: RawGame) -> Result<Game> {
   }?;
 
   let result = Game {
-    name_jp: game.name,
+    name_jp: game.name.replace("\u{3000}", " "),
     name_en: game.name_en,
     year: game.year,
     game_number: game.gamenum,
@@ -201,7 +201,7 @@ fn foo(track: RawTrack, game: &Game) -> Result<Track> {
     relative_loop_offset: rel_loop,
     relative_end_offset: rel_end,
     sample_rate: track.frequency,
-    name_jp: track.name_jp,
+    name_jp: track.name_jp.map(|s| s.replace("\u{3000}", " ")),
     name_en: track.name_en,
     filename: track.filename,
   };
