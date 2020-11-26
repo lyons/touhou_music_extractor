@@ -209,7 +209,7 @@ fn extract_all_to_files_1
   if !source_dir.is_dir() {
     return Err(format!("Source path {:?} is not a directory", source_dir).into())
   }
-  for track in bgm_info.tracks {
+  for track in &bgm_info.tracks {
     let filename = track.filename.clone().ok_or_else(
       || format!("Track {} is missing required field `filename`", track.track_number)
     )?;
@@ -234,7 +234,7 @@ fn extract_all_to_files_2
   let infile = File::open(source)?;
   let mut br = BufReader::new(infile);
 
-  for track in bgm_info.tracks {  
+  for track in &bgm_info.tracks {  
     br.seek(std::io::SeekFrom::Start(track.start_offset))?;
     let mut data = vec![0; track.relative_end_offset as usize];
     br.read_exact(&mut data)?;
@@ -271,9 +271,10 @@ fn render_dest_dir(format_string: &str, game: &Game) -> PathBuf {
 fn render_filename(format_string: &str, track: &Track) -> String {
   let mut h = HashMap::<&str, &str>::new();
   let empty_string = String::new();
+  let track_number = format!("{:02}", track.track_number);
   h.insert("name_jp", track.name_jp.as_ref().unwrap_or(&empty_string));
   h.insert("name_en", track.name_en.as_ref().unwrap_or(&empty_string));
-  h.insert("track_number", format!("{:02}", track.track_number).as_str());
+  h.insert("track_number", &track_number);
 
   let template = Template::new(format_string);
   template.render(&h)
