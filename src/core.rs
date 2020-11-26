@@ -11,23 +11,20 @@ use crate::Result;
 use crate::bgminfo::{BgmInfo, Game, PackMethod, Track};
 use crate::wavheader::WavHeader;
 
-pub enum LoopedFadeMode {
-  Before,
-  After,
+pub enum FadeMode {
+  BeforeLoopPoint,
+  AfterLoopPoint,
 }
 
 pub enum OutputMode {
-  Loops(usize, LoopedFadeMode),
-  Duration(usize),
-}
-
-pub struct OutfileOptions {
-  pub directory_format: String,
-  pub filename_format: String,
+  FixedLoops(usize, FadeMode),
+  FixedDuration(usize),
 }
 
 pub struct OutputOptions {
-  pub mode: OutputMode,
+  pub directory_format: String,
+  pub filename_format: String,
+  pub output_mode: OutputMode,
   pub fadeout_duration: u32,
 }
 
@@ -49,10 +46,10 @@ pub fn process_track<W: Write>
   let fadeout_samples  = fadeout_step_samples * 1000;
   let fadeout_bytes    = fadeout_samples * 2;
 
-  let (loops, rel_fade_start) = match opts.mode {
-    OutputMode::Loops(n, LoopedFadeMode::After)  => (n, rel_loop),
-    OutputMode::Loops(n, LoopedFadeMode::Before) => (n - 1, rel_end - fadeout_bytes),
-    OutputMode::Duration(duration) => {
+  let (loops, rel_fade_start) = match opts.output_mode {
+    OutputMode::FixedLoops(n, FadeMode::AfterLoopPoint)  => (n, rel_loop),
+    OutputMode::FixedLoops(n, FadeMode::BeforeLoopPoint) => (n - 1, rel_end - fadeout_bytes),
+    OutputMode::FixedDuration(duration) => {
       let total_samples = duration * track.sample_rate as usize * 2;
       let intro_samples = rel_loop / 2;
       let unfaded_loop_samples  = total_samples - intro_samples - fadeout_samples;
