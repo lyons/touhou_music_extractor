@@ -1,17 +1,15 @@
 use std::{
-  collections::HashMap,
   error::Error,
   path::{PathBuf},
   time::Duration,
 };
-use string_template::Template;
 use structopt::StructOpt;
 
 mod bgminfo;
 mod core;
 mod wavheader;
 
-use crate::core::{OutputOptions, OutputMode, LoopedFadeMode};
+use crate::core::{OutputOptions, OutputMode, FadeMode};
 
 pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
@@ -30,8 +28,10 @@ struct Options {
   #[structopt(long)]
   track_number: Option<usize>,
 
-  #[structopt(long, parse(from_os_str), default_value = "{{name_jp}}/")]
-  output_dir: PathBuf,
+  #[structopt(long, default_value = "{{name_jp}}/")]
+  output_dir: String,
+  #[structopt(long, default_value = "{{track_number}} - {name_jp}}/")]
+  filename_format: String,
 
   #[structopt(parse(from_os_str))]
   bgminfo: PathBuf,
@@ -41,26 +41,15 @@ struct Options {
 
 fn main() -> Result<()> {
   let options = Options::from_args();
-
-  let output_dir = options.output_dir.to_str().unwrap();
   
   let bgm = bgminfo::load_from_file(options.bgminfo)?;
 
   let opts =  OutputOptions {
-    mode: OutputMode::Loops(2, LoopedFadeMode::After),
+    directory_format: options.output_dir,
+    filename_format: options.filename_format,
+    output_mode: OutputMode::FixedLoops(2, FadeMode::AfterLoopPoint),
     fadeout_duration: 10,
   };
 
-
-  let template = Template::new(options.output_dir.to_str().unwrap());
-  let mut args = HashMap::new();
-  args.insert("name_jp", "東方紅魔郷　～ the Embodiment of Scarlet Devil");
-  args.insert("name_en", "EoSD");
-
-  let result = template.render(&args);
-  println!("Path: {}", result);
-
-  Ok(())
-
-  //core::extract(bgm, options.track_number, options.source, dest, &opts)
+  core::extract(&bgm, options.track_number, options.source, &opts)
 }

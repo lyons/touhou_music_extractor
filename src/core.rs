@@ -6,6 +6,7 @@ use std::{
   io::{BufReader, BufWriter, Cursor, Read, Seek, Write},
   path::{PathBuf},
 };
+use string_template::Template;
 
 use crate::Result;
 use crate::bgminfo::{BgmInfo, Game, PackMethod, Track};
@@ -120,52 +121,52 @@ pub fn process_track<W: Write>
   Ok((0x28, length))
 }
 
-pub fn extract(bgm_info: BgmInfo,
+pub fn extract(bgm_info: &BgmInfo,
                track_number: Option<usize>,
                source: PathBuf,
-               dest_dir: PathBuf,
                opts: &OutputOptions) -> Result<()> {
   match track_number {
     Some(n) => {
       if let Some(track) = bgm_info.tracks.get(n - 1) {
-        extract_track(&bgm_info.game, track, source, dest_dir, opts)
+        extract_track(track, bgm_info, source, opts)
       }
       else {
         Err(format!("Track number `{}` does not exist.", n).into())
       }
     },
-    None => extract_all(bgm_info, source, dest_dir, opts),
+    None => extract_all(bgm_info, source, opts),
   }
 }
 
 fn extract_track
-(game: &Game, track: &Track, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
-  match game.pack_method {
+(track: &Track, bgm_info: &BgmInfo, source: PathBuf, opts: &OutputOptions) -> Result<()> {
+  match bgm_info.game.pack_method {
     PackMethod::One(_, _) => {
-      extract_track_1(track, source, dest_dir, opts)
+      extract_track_1(track, bgm_info, source, opts)
     },
     PackMethod::Two(_, _, _) => {
-      extract_track_to_file(track, source, dest_dir, opts)
+      extract_track_to_file(track, bgm_info, source, opts)
     },
     _ => Err("Unsupported pack method.".into()),
   }
 }
 
 fn extract_all
-(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: &BgmInfo, source: PathBuf, opts: &OutputOptions) -> Result<()> {
   match bgm_info.game.pack_method {
     PackMethod::One(_, _) => {
-      extract_all_to_files_1(bgm_info, source, dest_dir, opts)
+      extract_all_to_files_1(bgm_info, source, opts)
     },
     PackMethod::Two(_, _, _) => {
-      extract_all_to_files_2(bgm_info, source, dest_dir, opts)
+      extract_all_to_files_2(bgm_info, source, opts)
     },
     _ => Err("Unsupported pack method.".into()),
   }
 }
 
 fn extract_track_to_file
-(track: &Track, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(track: &Track, bgm_info: &BgmInfo, source: PathBuf, opts: &OutputOptions) -> Result<()> {
+  let dest_dir = render_dest_dir(&opts.directory_format, &bgm_info.game);
   if !dest_dir.exists() {
     std::fs::create_dir_all(dest_dir.clone())?;
   }
@@ -180,7 +181,8 @@ fn extract_track_to_file
   let mut data = vec![0; track.relative_end_offset as usize];
   br.read_exact(&mut data)?;
 
-  let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
+  let filename = render_filename(&opts.filename_format, &track);
+  let dest_path = dest_dir.join(format!("{}.wav", filename));
   let file = File::create(dest_path)?;
   let bw = BufWriter::new(file);
 
@@ -190,7 +192,7 @@ fn extract_track_to_file
 }
 
 fn extract_track_1
-(track: &Track, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(track: &Track, bgm_info: &BgmInfo, source_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
     return Err(format!("Source path {:?} is not a directory", source_dir).into())
   }
@@ -199,11 +201,11 @@ fn extract_track_1
   )?;
   let filepath = source_dir.join(filename);
 
-  extract_track_to_file(track, filepath, dest_dir, opts)
+  extract_track_to_file(track, bgm_info, filepath, opts)
 }
 
 fn extract_all_to_files_1
-(bgm_info: BgmInfo, source_dir: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: &BgmInfo, source_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
     return Err(format!("Source path {:?} is not a directory", source_dir).into())
   }
@@ -213,14 +215,15 @@ fn extract_all_to_files_1
     )?;
     let filepath = source_dir.join(filename);
 
-    extract_track_to_file(&track, filepath, dest_dir.clone(), opts)?;
+    extract_track_to_file(&track, bgm_info, filepath, opts)?;
   }
 
   Ok(())
 }
 
 fn extract_all_to_files_2
-(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: &BgmInfo, source: PathBuf, opts: &OutputOptions) -> Result<()> {
+  let dest_dir = render_dest_dir(&opts.directory_format, &bgm_info.game);
   if !dest_dir.exists() {
     std::fs::create_dir_all(dest_dir.clone())?;
   }
@@ -236,7 +239,8 @@ fn extract_all_to_files_2
     let mut data = vec![0; track.relative_end_offset as usize];
     br.read_exact(&mut data)?;
 
-    let dest_path = dest_dir.join(format!("{:02}.wav", track.track_number));
+    let filename = render_filename(&opts.filename_format, &track);
+    let dest_path = dest_dir.join(format!("{}.wav", filename));
     let file = File::create(dest_path)?;
     let bw = BufWriter::new(file);
 
@@ -246,28 +250,30 @@ fn extract_all_to_files_2
   Ok(())
 }
 
-fn format_hash_from_game(game: &Game) -> HashMap<&str, String> {
-  let mut h = HashMap::new();
-  let name_en = game.name_en.clone();
-  let name_short = name_en.split(" ~ ")
-                    .collect::<Vec<&str>>()
-                    .pop()
-                    .unwrap_or("")
-                    .to_string();
+fn render_dest_dir(format_string: &str, game: &Game) -> PathBuf {
+  let mut h = HashMap::<&str, &str>::new();
+  let name_short = game.name_en.split(" ~ ")
+                               .collect::<Vec<&str>>()
+                               .pop()
+                               .unwrap_or("");
 
-  h.insert("name_jp", game.name_jp.clone());
-  h.insert("name_en", name_en);
+  h.insert("name_jp", &game.name_jp);
+  h.insert("name_en", &game.name_en);
   h.insert("name_short", name_short);
-  h.insert("number", game.game_number.clone());
+  h.insert("number", &game.game_number);
 
-  h
+  let template = Template::new(format_string);
+  let result = template.render(&h);
+
+  PathBuf::from(result)
 }
 
-fn format_hash_from_track(track: &Track) -> HashMap<&str, String> {
-  let mut h = HashMap::new();
-  h.insert("name_jp", track.name_jp.clone().unwrap_or_else(|| String::new()));
-  h.insert("name_en", track.name_en.clone().unwrap_or_else(|| String::new()));
-  h.insert("track_number", format!("{:02}", track.track_number).to_owned());
+fn render_filename(format_string: &str, track: &Track) -> String {
+  let mut h = HashMap::<&str, &str>::new();
+  h.insert("name_jp", &(track.name_jp.unwrap_or_else(|| String::new())));
+  h.insert("name_en", &(track.name_en.unwrap_or_else(|| String::new())));
+  h.insert("track_number", format!("{:02}", track.track_number));
 
-  h
+  let template = Template::new(format_string);
+  template.render(&h)
 }
