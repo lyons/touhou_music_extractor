@@ -272,6 +272,7 @@ fn render_filename(format_string: &str, track: &Track) -> String {
   let mut h = HashMap::<&str, &str>::new();
   let empty_string = String::new();
   let track_number = format!("{:02}", track.track_number);
+  
   h.insert("name_jp", track.name_jp.as_ref().unwrap_or(&empty_string));
   h.insert("name_en", track.name_en.as_ref().unwrap_or(&empty_string));
   h.insert("track_number", &track_number);
