@@ -1,10 +1,11 @@
 use std::{
+  collections::HashMap,
   error::Error,
   path::{PathBuf},
   time::Duration,
 };
+use string_template::Template;
 use structopt::StructOpt;
-use tinytemplate::TinyTemplate;
 
 mod bgminfo;
 mod core;
@@ -29,7 +30,7 @@ struct Options {
   #[structopt(long)]
   track_number: Option<usize>,
 
-  #[structopt(long, parse(from_os_str), default_value = "{name}/")]
+  #[structopt(long, parse(from_os_str), default_value = "{{name_jp}}/")]
   output_dir: PathBuf,
 
   #[structopt(parse(from_os_str))]
@@ -41,19 +42,25 @@ struct Options {
 fn main() -> Result<()> {
   let options = Options::from_args();
 
-  let mut tt = TinyTemplate::new();
   let output_dir = options.output_dir.to_str().unwrap();
-  tt.add_template("dest", output_dir)?;
   
   let bgm = bgminfo::load_from_file(options.bgminfo)?;
-
-  let dest = tt.render("dest", &bgm.game)?;
-  let dest = PathBuf::from(dest);
 
   let opts =  OutputOptions {
     mode: OutputMode::Loops(2, LoopedFadeMode::After),
     fadeout_duration: 10,
   };
 
-  core::extract(bgm, options.track_number, options.source, dest, &opts)
+
+  let template = Template::new(options.output_dir.to_str().unwrap());
+  let mut args = HashMap::new();
+  args.insert("name_jp", "東方紅魔郷　～ the Embodiment of Scarlet Devil");
+  args.insert("name_en", "EoSD");
+
+  let result = template.render(&args);
+  println!("Path: {}", result);
+
+  Ok(())
+
+  //core::extract(bgm, options.track_number, options.source, dest, &opts)
 }

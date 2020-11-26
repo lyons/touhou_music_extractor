@@ -1,6 +1,7 @@
 use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use std::{
   cmp::min,
+  collections::HashMap,
   fs::File,
   io::{BufReader, BufWriter, Cursor, Read, Seek, Write},
   path::{PathBuf},
@@ -18,6 +19,11 @@ pub enum LoopedFadeMode {
 pub enum OutputMode {
   Loops(usize, LoopedFadeMode),
   Duration(usize),
+}
+
+pub struct OutfileOptions {
+  pub directory_format: String,
+  pub filename_format: String,
 }
 
 pub struct OutputOptions {
@@ -149,7 +155,7 @@ fn extract_track
 }
 
 fn extract_all
-(bgm_info: BgmInfo,source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
+(bgm_info: BgmInfo, source: PathBuf, dest_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   match bgm_info.game.pack_method {
     PackMethod::One(_, _) => {
       extract_all_to_files_1(bgm_info, source, dest_dir, opts)
@@ -241,4 +247,30 @@ fn extract_all_to_files_2
   }
 
   Ok(())
+}
+
+fn format_hash_from_game(game: &Game) -> HashMap<&str, String> {
+  let mut h = HashMap::new();
+  let name_en = game.name_en.clone();
+  let name_short = name_en.split(" ~ ")
+                    .collect::<Vec<&str>>()
+                    .pop()
+                    .unwrap_or("")
+                    .to_string();
+
+  h.insert("name_jp", game.name_jp.clone());
+  h.insert("name_en", name_en);
+  h.insert("name_short", name_short);
+  h.insert("number", game.game_number.clone());
+
+  h
+}
+
+fn format_hash_from_track(track: &Track) -> HashMap<&str, String> {
+  let mut h = HashMap::new();
+  h.insert("name_jp", track.name_jp.clone().unwrap_or_else(|| String::new()));
+  h.insert("name_en", track.name_en.clone().unwrap_or_else(|| String::new()));
+  h.insert("track_number", format!("{:02}", track.track_number).to_owned());
+
+  h
 }
