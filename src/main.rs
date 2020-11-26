@@ -30,7 +30,7 @@ struct Options {
 
   #[structopt(long, default_value = "{{name_jp}}/")]
   output_dir: String,
-  #[structopt(long, default_value = "{{track_number}} - {name_jp}}/")]
+  #[structopt(long, default_value = "{{track_number}} - {name_jp}}")]
   filename_format: String,
 
   #[structopt(parse(from_os_str))]
