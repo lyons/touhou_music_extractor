@@ -270,9 +270,10 @@ fn render_dest_dir(format_string: &str, game: &Game) -> PathBuf {
 
 fn render_filename(format_string: &str, track: &Track) -> String {
   let mut h = HashMap::<&str, &str>::new();
-  h.insert("name_jp", &(track.name_jp.unwrap_or_else(|| String::new())));
-  h.insert("name_en", &(track.name_en.unwrap_or_else(|| String::new())));
-  h.insert("track_number", format!("{:02}", track.track_number));
+  let empty_string = String::new();
+  h.insert("name_jp", track.name_jp.as_ref().unwrap_or(&empty_string));
+  h.insert("name_en", track.name_en.as_ref().unwrap_or(&empty_string));
+  h.insert("track_number", format!("{:02}", track.track_number).as_str());
 
   let template = Template::new(format_string);
   template.render(&h)
