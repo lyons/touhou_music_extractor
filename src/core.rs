@@ -26,7 +26,7 @@ pub struct OutputOptions {
   pub directory_format: String,
   pub filename_format: String,
   pub output_mode: OutputMode,
-  pub fadeout_duration: u32,
+  pub fadeout_duration: usize,
 }
 
 pub fn process_track<W: Write>
@@ -38,12 +38,12 @@ pub fn process_track<W: Write>
 
   let intro_length  = rel_loop;
   let loop_length   = rel_end - rel_loop;
-  let loop_duration = loop_length as u32 / (track.sample_rate * channels);
+  let loop_duration = loop_length / (track.sample_rate as usize* channels);
 
   // Fadeout duration is limited to the length of one full looped portion of the track. The number
   // of samples faded out is rounded down to the nearest 1000 for convenience of implementation.
   let fadeout_duration = min(opts.fadeout_duration, loop_duration);
-  let fadeout_step_samples = (fadeout_duration * track.sample_rate * channels / 1000) as usize;
+  let fadeout_step_samples = fadeout_duration * track.sample_rate as usize * channels / 1000;
   let fadeout_samples  = fadeout_step_samples * 1000;
   let fadeout_bytes    = fadeout_samples * 2;
 
