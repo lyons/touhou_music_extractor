@@ -1,6 +1,8 @@
 use regex::Regex;
 use serde::{Serialize, Deserialize};
 use std::{
+  convert::TryFrom,
+  error::Error,
   path::PathBuf,
 };
 
@@ -58,17 +60,28 @@ pub struct Track {
   pub filename: Option<String>, // Not used with pack method 2
 }
 
-pub fn load_from_file(path: PathBuf) -> Result<BgmInfo> {
-  let data = std::fs::read_to_string(path)?;
-  let rewritten_data = rewrite_bgm_info(data);
-  let raw_bgm: RawBgmInfo = toml::from_str(&rewritten_data)?;
+impl BgmInfo {
+  pub fn load_from_file(path: PathBuf) -> Result<BgmInfo> {
+    let data = std::fs::read_to_string(path)?;
+    
+    BgmInfo::try_from(data.as_ref())
+  }
+}
 
-  let game = bar(raw_bgm.game)?;
-  let tracks = raw_bgm.tracks.into_iter().map(|x| foo(x, &game)).collect::<Result<Vec<Track>>>()?;
+impl TryFrom<&str> for BgmInfo {
+  type Error = Box<dyn Error + Send + Sync>;
 
-  let result = BgmInfo {game, tracks};
+  fn try_from(value: &str) -> Result<Self> {
+    let rewritten_data = rewrite_bgm_info(value);
+    let raw_bgm: RawBgmInfo = toml::from_str(&rewritten_data)?;
 
-  Ok(result)
+    let game = bar(raw_bgm.game)?;
+    let tracks = raw_bgm.tracks.into_iter().map(|x| foo(x, &game)).collect::<Result<Vec<Track>>>()?;
+
+    let result = BgmInfo {game, tracks};
+
+    Ok(result)
+  }
 }
 
 // ---------------------------------------------------------------------------------------------------
@@ -209,7 +222,7 @@ fn foo(track: RawTrack, game: &Game) -> Result<Track> {
   Ok(result)
 }
 
-fn rewrite_bgm_info(bgm: String) -> String {
+fn rewrite_bgm_info(bgm: &str) -> String {
   let track_number_re = Regex::new(r#"^\[0?(\d+)\]"#).unwrap();
   let position_re = Regex::new(r#"^position = "(.*)""#).unwrap();
 
