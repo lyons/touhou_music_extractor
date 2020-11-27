@@ -1,0 +1,166 @@
+# Music Room Interface Info
+ 
+[game]
+name = "東方紺珠伝　～ Legacy of Lunatic Kingdom"
+name_en = "Touhou Kanjuden ~ Legacy of Lunatic Kingdom"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2015
+gamenum = "15"
+ 
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x00
+zwavid_09 = 0x15
+ 
+tracks = 18
+ 
+[thvorbis]
+patchclass = "slow"
+ 
+[update]
+wikipage = "Legacy_of_Lunatic_Kingdom/Music"
+wikirev = 343728
+ 
+[01]
+name_jp = "宇宙巫女現る"
+position = "0x00000010, 0x00124B00, 0x018D3B50"
+frequency = 44100
+name_en = "The Space Shrine Maiden Appears"
+comment_jp = "タイトル画面のテーマです。\n\nちょっとスペーシーで和風な曲になりました。\n\n今回のゲームは一筋縄ではいかないというテンションです。"
+comment_en = "The title screen theme.\nThis theme turned out a bit spacey and Japanese.\nFor this game, the excitement factor could be described as \"unconventional.\""
+ 
+[02]
+name_jp = "忘れがたき、よすがの緑"
+position = "0x018D3B60, 0x000C7280, 0x012B8E80"
+frequency = 44100
+name_en = "Unforgettable, the Nostalgic Greenery"
+comment_jp = "１面のテーマです。\n\n１面から若干長いです。\n今回は全体的にゲームが長いですからそれに合わせてです。\n\n暫く美しい緑の大地から離れる事を覚悟しているノリです。"
+comment_en = "The first stage theme.\n\nThis song is a bit long for the first stage. \nThe game is pretty long as a whole, so I designed it to match.\n\nIt feels like they are making up their mind to leave their beautiful green earth for a while."
+ 
+[03]
+name_jp = "兎は舞い降りた"
+position = "0x02B8C9E0, 0x00263790, 0x01180390"
+frequency = 44100
+name_en = "The Rabbit Has Landed"
+comment_en = "Seiran's theme.\n\nI brought out the feeling of having fun with a really light-hearted battle.\nRabbits don't seem to have it in their nature to be serious.\n\nYou can't see it, but she does have a tail."
+comment_jp = "清蘭のテーマです。\n\nかるーく戦闘を楽しんでいる感じを出しました。\n兎には真剣さが足りないようです。\n\n見えないけど尻尾もあるんやで。"
+ 
+[04]
+name_jp = "湖は浄めの月光を映して"
+position = "0x03D0CD70, 0x00076100, 0x01397940"
+frequency = 44100
+name_en = "The Lake Reflects the Cleansed Moonlight"
+comment_jp = "２面のテーマです。\n\n展開の早さに不穩さを覚えつつ、曲も後半でもおかしくない\n感じになりました。\n\n月から浴びせられてる波動は一部の者にしか見えていない様です。"
+comment_en = "The second stage theme.\n\nMaking us feel uneasy with the changing situation, this song became one\nthat wouldn't feel out-of-place in the latter half of the game.\n\nIt seems like only a select few can see the pulse given off by the moon."
+ 
+[05]
+name_jp = "九月のパンプキン"
+position = "0x050A46B0, 0x0030A480, 0x0148D180"
+frequency = 44100
+name_en = "September Pumpkin"
+comment_en = "Ringo's theme.\n\nUnlike Seiran, she's a rabbit who works in the background rather than a soldier.\nOn top of being a powerful opponent, this song depicts her doubts as to whether or not\nfighting is really the right thing to do.\n\nAll those dango were enjoyed by the TV staff afterward, of course.\"This food was enjoyed by the TV staff afterwards\" is a phrase used on some shows in Japan to prevent viewer complaints when food is shown being tossed around or otherwise wasted."
+comment_jp = "鈴瑚のテーマです。\n\n同じ兎でもこっちは裏方系です、\n強敵である上に、戦う事が本当に正しいのか迷っているような\n感じの曲です。\nもちろん、団子はスタッフが美味しく頂きました。"
+ 
+[06]
+name_jp = "宇宙を飛ぶ不思議な巫女"
+position = "0x06531830, 0x00095100, 0x01A411C0"
+frequency = 44100
+name_en = "The Mysterious Shrine Maiden Flying Through Space"
+comment_jp = "３面のテーマです。\n\n宇宙に見えて、実は精神世界という、ある種夢オチ。\nあそこにいる妖精や幽霊は、それぞれの夢なんですね。\n\n夢のなかでも弾幕はっちゃうお茶目な輩です。"
+comment_en = "The third stage theme.\n\nIt looks like space, but it's actually the mental world. So it is an 'all just a dream' twist, in a sense.\nThe fairies and ghosts wandering around are the dreams of said creatures in reality.\n\nIt's mischievous of them to spread barrages of danmaku even in dreams."
+ 
+[07]
+name_jp = "永遠の春夢"
+position = "0x07F729F0, 0x0040103C, 0x01D44200"
+frequency = 44100
+name_en = "Eternal Spring Dream"
+comment_en = "Doremy Sweet's theme.\n\nIt gives off a strong sense of foreboding.\nI wrote this with thoughts of \"I want you to be wary from here on out,\"\n\"I want you to have a nightmare,\" and so on.\nEven if you have a nightmare, it'll be fine if you pray to change it. Pray to Doremy."
+comment_jp = "ドレミー・スイートのテーマです。\n\nかなりの強敵感を出してます。\nこれから先が思いやられて欲しい、悪夢にうなされて欲しい\nという思いで書きました。\nうなされても夢違えっちゃえば良いんです。ドレミーにお願いして。"
+
+[08]
+name_jp = "凍り付いた永遠の都"
+position = "0x09CB6BF0,0x0042B080,0x01D4EE80"
+frequency = 44100
+name_en = "Frozen Capital of Eternity"
+comment_jp = "４面のテーマです。\n\n月の都です。でもある理由でゴーストタウンと化しています。\n穏やかな雰囲気の曲が、逆に狂気をイメージさせます。\n\nＳＴＧよりＲＰＧ終盤の様な曲ですね。まあ終盤ですし。"
+comment_en = "The fourth stage theme.\n\nIt's the Lunar Capital. For a particular reason, however, it's now a ghost town.\n\nIt's a song with a calm atmosphere, but on the contrary, it evokes an image of madness.\n\nIt's music more befitting the endgame of an RPG than a shooting game. Well, it is the endgame."
+
+[09]
+name_jp = "逆転するホイールオブフォーチュン"
+position = "0x0BA05A70,0x00102B80,0x01D280C0"
+frequency = 44100
+name_en = "The Wheel of Fortune Turning Over"
+comment_jp = "稀神　サグメのテーマです。\n\n敵なのか味方なのか、神なのか鬼なのか、謎の人物のテーマです。\nミステリアスな雰囲気の曲になりました。\n\n実はこいつも天邪鬼の一種なんですけよね。まさかの天邪鬼二人目。"
+comment_en = "Kishin Sagume's theme.\n\nA theme song for a mysterious person who's not quite an enemy or an ally, a god or an oni.\n\nHence, I composed it with a rather mysterious mood.\n\nActually, she's a type of amanojaku too. That makes two so far! Who would've thought?"
+
+[10]
+name_jp = "遥か38万キロのボヤージュ"
+position = "0x0D72DB30,0x00131D80,0x02331D80"
+frequency = 44100
+name_en = "Faraway Voyage of 380 000 Kilometers"
+comment_jp = "５面のテーマです。\n\nちょっと雰囲気を変えて、スピード感あふれるロマンチックな曲です。\n道中がテンポ良く進むような（しかも稼げる）気持ちいいステージ\nです。\n飛翔感と、遠くまで来た覚悟を感じてください。"
+comment_en = "The fifth stage theme.\n\nSome minor variations to the mood make this a fast-paced, romantic tune.\n\nIt's a stage where you can move forward (and rack up a huge score) at a good pace.\n\nFeels real nice.\n\nI hope you feel a sense of flight, and the resolve to travel far."
+
+[11]
+name_jp = "星条旗のピエロ"
+position = "0x0FA5F8B0,0x0047C400,0x0285FC00"
+frequency = 44100
+name_en = "Pierrot of the Star-Spangled Banner"
+comment_jp = "クラウンピースのテーマです。\n\n過去最狂レベルの妖精です。おつむの方は並の様ですが。\nゴシックとも和風ともスペーシーともとれる、奇妙な曲です。\n世の中にはピエロ恐怖症ってあるみたいですね。\nでもこの妖精ピエロはそんなに怖くない……よね？"
+comment_en = " Clownpiece's theme.\n\nShe's the most crazy-strong fairy seen yet. Although she's pretty ordinary in the head.\n\nHaving made it gothic, Japanese, and spacey at the same time, this is a pretty odd song.\n\nThe fear of clowns is pretty widespread these days.\n\nBut this fairy clown isn't all that scary... right?"
+
+[12]
+name_jp = "故郷の星が映る海"
+position = "0x122BF4B0,0x008FA300,0x019E0C00"
+frequency = 44100
+name_en = "The Sea Where One's Home Planet Reflects"
+comment_jp = "６面のテーマです。\n\n海ですねぇ。夏ですねぇ。\n\nこの曲はラスボスの曲のサブセットです。\n海に行ってみたいですねぇ。海の家でビールかぁ。"
+comment_en = "The sixth stage theme.\n\nIt's the seaaa. It's summeeerr.\n\nThis song is a subset of the final boss' theme.\n\nI want to go to the seaaa. I want to drink beer in a beach huuut."
+
+[13]
+name_jp = "ピュアヒューリーズ　～　心の在処"
+position = "0x13CA00B0,0x00107800,0x02FD3F00"
+frequency = 44100
+name_en = "Pure Furies ~ Whereabouts of the Heart"
+comment_jp = "純狐のテーマです。\n\nこれぞ、まごう事なき、ザ・ラスボスって曲だと思います。\n余り捻ったり、恰好付けたり、考えすぎたりするのを止めました。\n\nシンプルに、ピュアーに弾幕を楽しんでくださいな。"
+comment_en = "Junko's theme.\n\nI think this song says, \"now this is unmistakably the final boss!\"\n\nI didn't try to make it too complicated, or to add cool parts, or just overthink it in general.\n\nI hope you can enjoy her danmaku simply and purely."
+
+[14]
+name_jp = "見た事も無い悪夢の世界"
+position = "0x16C73FB0,0x001F2600,0x023F2200"
+frequency = 44100
+name_en = "A World of Nightmares Never Seen Before"
+comment_jp = "エキストラステージのテーマです。\n\n不気味なイントロから続いて、淡々と流れるいつもの東方っぽさ。\nいかにもエキストラって感じです。\nそれにしてもドレミーは敵なんでしょうか？\nそれとも味方なんでしょうか？"
+comment_en = "The Extra Stage theme.\n\nFirst the eerie intro, then it flows into the simple and usual Touhou style.\n\nIt really does have that Extra feel.\n\nNonetheless, is Doremy your foe this time?\n\nOr is she your friend?"
+
+[15]
+name_jp = "パンデモニックプラネット"
+position = "0x190661B0,0x001F0280,0x025BF600"
+frequency = 44100
+name_en = "Pandemonic Planet"
+comment_jp = "ヘカーティア・ラピスラズリのテーマです。\n\n何とも悪魔的な曲です。\n本当はメタルっぽいものを考えてましたが、自分がそっちの造詣が\n深くないし、世界感に合わなさそうなので結果こんな感じに。\n地獄－＞死神－＞デス－＞デスメタル、という貧困な発想です。"
+comment_en = "Hecatia Lapislazuli's theme.\n\nThis is quite a demonic piece of music.\n\nI actually thought about making a metal song, but I'm not well-versed in that area\nand it felt like it wouldn't fit the setting, so I made it like this in the end.\nMy thought process was Hell -> Shinigami -> Death -> Death Metal. Pretty poor idea."
+
+[16]
+name_jp = "神社から見える月"
+position = "0x1B6257B0,0x00076B90,0x00889C90"
+frequency = 44100
+name_en = "The Moon as Seen from the Shrine"
+comment_jp = "エンディングのテーマです。\n\nまあ、いつものテーマです。\n\nいつもアップテンポな曲ばっか作っているので\nノベルゲーの曲とか大変そうに思います。"
+comment_en = "The ending theme.\n\nWell, it's the usual theme.\n\nBecause I usually write songs that are always upbeat,\n\nI feel like novel game music and such must be a real challenge."
+
+[17]
+name_jp = "宇宙巫女帰還する"
+position = "0x1BEAF440,0x001B0600,0x00E9BB00"
+frequency = 44100
+name_en = "The Space Shrine Maiden Returns Home"
+comment_jp = "スタッフロールのテーマです。\n\nタイトル画面の別バージョンです。\n\nさらにスペーシーな雰囲気にしました。"
+comment_en = "The staff roll theme.\n\nIt's an alternate version of the title screen song.\n\nI gave it an even spacier mood than before."
+
+[18]
+name_jp = "プレイヤーズスコア"
+name_en = "Player's Score"
+position = "0x1CD4AF40,0x001CACC8,0x0066DCC0"
+frequency = 44100

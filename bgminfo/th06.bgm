@@ -72,7 +72,7 @@ comment2_en = "(Afterword Shanghai Alice Correspondence vol. 1)\nThe elf that's 
 
 [05]
 name_jp = "おてんば恋娘"
-name_en = "Tomboyish Girl in Love"
+name_en = "Beloved Tomboyish Daughter"
 filename = "th06_05.wav"
 rel_loop = 0x000F966C
 rel_end = 0x00F10790

@@ -1,0 +1,80 @@
+# Music Room Interface Info
+
+[game]
+name = "秘封ナイトメアダイアリー　〜 Violet Detector"
+name_en = "Secret Sealing Nightmare Diary ~ Violet Detector"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2018
+gamenum = "16.5"
+
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x00 # These two values are incorrect
+zwavid_09 = 0x10 # Need to verify against thbgm.dat
+
+tracks = 8
+
+[thvorbis]
+patchclass = "generic"
+
+[update]
+wikipage = "Violet_Detector/Music"
+wikirev = 409907
+
+[01]
+name_jp = "悪夢日記"
+name_en = "Nightmare Journal"
+position = "0x00000010, 0x0066DC80, 0x00B50B80"
+comment_jp = "タイトル画面のテーマです。\n\n夢がテーマになると大体ホラー展開になりがちな気がします。\n行きすぎない程度にホラー風味を入れてみました。"
+comment_en = "This is the Title theme.\n\nI feel like most stories about dreams end up going in a horror-esque direction.\nI tried putting in just enough horror flavor as to not take it too far."
+
+[02]
+name_jp = "ルーシッドドリーマー"
+name_en = "Lucid Dreamer"
+position = "0x01DA6210, 0x000A8580, 0x01133580"
+comment_jp = "　一週目のテーマです。\n\n空を飛ぶ夢を見る事ってあります？\n僕は定期的に急斜面を飛ぶようにスキーで滑る夢を見ます。\nそれを見たときは、大体調子の良いときですね。"
+comment_en = "This is the First Week theme.\n\nHave you ever dreamed about flying?\nI regularly have dreams where I'm skiing down a steep slope as if I'm flying.\nWhenever I have that dream, it's usually when I'm feeling in pretty good shape."
+
+[03]
+name_jp = "ルナティックドリーマー"
+name_en = "Lunatic Dreamer"
+position = "0x04251E50, 0x001EB2C0, 0x011F1980"
+comment_jp = "　二週目のテーマです。\n\n夢の内容が現実味が無くなって、ただ単に疲労感だけが残る\nそういった焦るような夢をイメージしました。\nたまに見ますよね。何があったか忘れたけど疲れる夢。"
+comment_en = "This is the Second Week theme.\n\nSometimes you have dreams where the events have no sense of reality, and you're left with nothing\nbut a feeling of fatigue afterward. That irritating sort of dream is what I envisioned here.\nYou have those sometimes, right? Dreams that exhaust you even though you forget what happened."
+
+[04]
+name_jp = "ナイトメアダイアリー"
+name_en = "Nightmare Diary"
+position = "0x0562EA90, 0x00096700, 0x01688600"
+comment_jp = "　三週目のテーマです。\n\nいつもの東方っぽい感じで曲を作りました。\n放って置けば延々と続きそうな終盤ってイメージです。\nホラーな夢って、最高に気持ちいいのは自分だけ？\nいつもホラーな妄想をしながら寝ますが、たまにしか見られません。"
+comment_en = "This is the Third Week theme.\n\nA song with the usual Touhou-ness to it.\nI made it with the image of a finale that could stretch on forever if you left it alone.\nAm I the only one who thinks that horror dreams feel extremely nice?\nI'm always fantasizing about horror stuff as I fall asleep, but I only get those dreams sometimes."
+
+[05]
+name_jp = "バー・オールドアダム"
+name_en = "\"Old Adam\" Bar"
+position = "0x011BE810, 0x00081300, 0x00B66700"
+comment_jp = "　ストーリーのテーマ１です。\n\n　＊旧約酒場　～ Dateless Bar \"Old Adam\" より"
+comment_en = "This is Story Theme 1.\n\n*From Old Testament Tavern ~ Dateless Bar \"Old Adam\"."
+
+[06]
+name_jp = "燕石博物誌が連れてきた闇"
+name_en = "The Darkness Brought in by Swallowstone Naturalis Historia"
+position = "0x02F81D10, 0x00437AC0, 0x00E98680"
+comment_jp = "　ストーリーのテーマ２です。\n\n　＊旧約酒場　～ Dateless Bar \"Old Adam\" より"
+comment_en = "This is Story Theme 2.\n\n*From Old Testament Tavern ~ Dateless Bar \"Old Adam\"."
+
+[07]
+name_jp = "永遠の春夢"
+name_en = "Eternal Spring Dream"
+position = "0x06D4D790, 0x0040103C, 0x019431C4"
+comment_jp = "　ストーリーのテーマ３です。\n\n　東方紺珠伝より"
+comment_en = "This is Story Theme 3.\n\nFrom Legacy of Lunatic Kingdom."
+
+[08]
+name_jp = "秘匿されたフォーシーズンズ"
+name_en = "The Concealed Four Seasons"
+position = "0x08A91990, 0x0011B160, 0x01EEF8C0"
+comment_jp = "　ストーリーのテーマ４です。\n\n　東方天空璋より"
+comment_en = "This is Story Theme 4.\n\nFrom Hidden Star in Four Seasons."

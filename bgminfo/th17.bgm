@@ -1,0 +1,166 @@
+# Music Room Interface Info
+ 
+[game]
+name = "東方鬼形獣　～ Wily Beast and Weakest Creature"
+name_en = "Touhou Kikeijuu ~ Wily Beast and Weakest Creature"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2019
+gamenum = "17"
+ 
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x00
+zwavid_09 = 0x17
+ 
+tracks = 18
+ 
+[thvorbis]
+patchclass = "generic"
+ 
+[update]
+wikipage = "Wily_Beast_and_Weakest_Creature/Music"
+wikirev = 406286
+ 
+[01]
+name_jp = "物言わぬ獣の霊"
+position = "0x00000010, 0x00489F40, 0x00EE2E80"
+comment_en = "This is the title screen theme.\n\nA title theme to which I gave some dark and mysterious vibes.\n\nSince our destination is ostensibly Hell, it feels like you've got a tough road ahead of you."
+comment_jp = "タイトル画面のテーマです。\n\nダークさとミステリアスさを入れたタイトル画面です。\n\n行き先が地獄だと言われているので、先が思いやられる感じです。"
+name_en = "Silent Beast Spirits"
+filename = "th17_01.wav"
+ 
+[02]
+name_jp = "地蔵だけが知る哀嘆"
+position = "0x00EE2E90, 0x0028E780, 0x0165E580"
+comment_en = "This is the Stage 1 theme.\n\nA theme for the Sai-no-Kawara, famous for children's ghosts getting bullied.\n\nStage 1 has featured a lot of bright, cheery songs up until now, but if I had to say\n\none way or another, the melody I composed this time has a feeling of melancholy.\n\nI think it displays a rather Touhou-esque perspective on life and death."
+comment_jp = "１面のテーマです。\n\n子供の霊イジメで有名な賽の河原の曲です。\n\n今まで１面というと明るめの曲が多かったのですが、今回は\n\nどちらかというと哀愁を感じるようなメロディにしてみました。\n\n東方らしい死生観が出ているかと思います。"
+name_en = "The Lamentations Known Only by Jizo"
+filename = "th17_03.wav"
+ 
+[03]
+name_jp = "ジェリーストーン"
+position = "0x02541410, 0x001209E8, 0x00E5B058"
+comment_en = "This is Eika Ebisu's theme.\n\nA theme for a stillborn child with a talent for stacking stones.\n\nIt's a pretty cute song, starting with a dark intro but continuing\n\ninto a jaunty, childlike melody.\n\nI also tried giving it a floaty, jellyfish-like feeling."
+comment_jp = "戎 瓔花 （えびす えいか） のテーマです。\n\n石を積むのがとても得意な水子の曲です。\n\nダークなイントロから、子供らしい軽快なメロディへと続ける\n\nかわいらしい曲です。\n\nクラゲらしいホワホワ感も入れてみています。"
+name_en = "Jelly Stone"
+filename = "th17_04.wav"
+ 
+[04]
+name_jp = "ロストリバー"
+position = "0x0339C468, 0x0036C000, 0x018BE900"
+comment_en = "This is the Stage 2 theme.\n\nThe theme of everyone's favorite place: the Sanzu River.\n\nRather than a river, I envisioned more of an ocean battle while composing this.\n\nThe fish living in it are extinct prehistoric fish, and there might even be things\n\nlike plesiosaurs in there too. It really gets your imagination running."
+comment_jp = "２面のテーマです。\n\nみんな大好き三途の河のテーマです。\n\n河と言うよりは海での戦闘をイメージして作りました。\n\n住んでいる魚も、絶滅した古代魚や、首長竜なんかもいるかも\n\nしれません。夢が膨らみます。"
+name_en = "Lost River"
+filename = "th17_05.wav"
+ 
+[05]
+name_jp = "石の赤子と水中の牛"
+position = "0x04C5AD68, 0x00206680, 0x01465EC0"
+comment_en = "This is Urumi Ushizaki's theme.\n\nI aimed for a song that's dark, but not horrifically dark.\n\nAs you can see, she's a \"big sister\" sort of character,\n\nso I added just a touch of laid-back atmosphere too.\n\nI think it turned out to be very appropriate for this game's atmosphere."
+comment_jp = "牛崎 潤美 （うしざき　うるみ） のテーマです。\n\nホラーにならないダークさを目指した曲です。\n\n彼女は見た感じお姉さんキャラなので、ほんの少しだけ落ち着いた\n\n感じを入れてみました。\n\nこのゲームらしい曲になったと思います。"
+name_en = "The Stone Baby and the Submerged Bovine"
+filename = "th17_06.wav"
+ 
+[06]
+name_jp = "不朽の曼珠沙華"
+position = "0x060C0C28, 0x00261ED0, 0x01C9FBE0"
+comment_en = "This is the Stage 3 theme.\n\nOnce you cross the Sanzu River, the world of the dead lies beyond.\n\nI tried to portray a Touhou-esque view of the next world. A fantastical afterlife\n\nworld, not quite Japanese nor Chinese, filled with East Asian nostalgia...\n\nPerhaps this is what you'd get if you brought danmaku battles into a place like that?"
+comment_jp = "３面のテーマです。\n\n三途の川を渡ったら、その先は死者の世界です。\n\n東方らしいあの世を表現しました。和風とも中華風とも付かない\n\n東アジア風のノスタルジーに満ちた幻想的な死後の世界に、\n\n弾幕戦闘を持ち込むとこういう感じなのかなぁ。"
+name_en = "Everlasting Red Spider Lily"
+filename = "th17_07.wav"
+ 
+[07]
+name_jp = "セラフィックチキン"
+position = "0x07D60808, 0x001A1F50, 0x01850670"
+comment_en = "This is Kutaka Niwatari's theme.\n\nA chicken god. Chickens tend to either be food or the targets of insult in both reality and fiction, but in this world, she seems to be a considerably honored god.\n\nI took a \"rushing forth\" feeling reminiscent of a chicken's walk, mixed it with the feeling of a formidable mid-game boss that brings a sudden difficulty spike, and whipped them together in a style fitting for this game. Bon appetit."
+comment_jp = "庭渡 久侘歌 （にわたり　くたか） のテーマです。\n\n鶏の神様です。現実でもフィクションでも、食材か悪口にしかなら\n\nない事が多い鶏ですが、この世界ではかなり高貴な神様のようです。\n\n鶏の歩き方っぽい突っかかり感と、急に強くなる中盤の大ボス感を\n\n混ぜて、このゲームっぽく仕上げをしました。どうぞ召し上がれ。"
+name_en = "Seraphic Chicken"
+filename = "th17_08.wav"
+
+[08]
+name_jp = "アンロケイテッドヘル"
+position = "0x095B0E78, 0x00411600, 0x020AF680"
+comment_en = "This is the Stage 4 theme.\n\nI started composing this with the stereotypical idea of \"Hell means heavy metal,\nmusically speaking!\", but I'm not well-versed in metal in the first place, so it\nended up being a business-as-usual song with just a bit of a metallic component.\nIt really gives a sense of how effortlessly strong the enemies are, which feels great."
+comment_jp = "４面のテーマです。\n\n音楽的に地獄と言えばヘビーメタル！というステレオタイプな\n発想で曲を作り始めましたが、そもそもメタルに造詣が深くないので\nいつも通りの曲にちょい金属分が多い程度になりました。\n敵の余裕さと手強さを感じる曲になっていて気持ちいいです。"
+name_en = "Unlocated Hell"
+filename = "th17_09.wav"
+
+[09]
+name_jp = "トータスドラゴン　～　幸運と不運"
+position = "0x0B6604F8, 0x00059A80, 0x01C5AFC0"
+comment_en = "This is Yachie Kicchou's theme.\n\nShe's a legendary creature that's like a cross between a dragon and a tortoise.\nThis one turned out as a mysterious song that can give you both a cool impression\nor a cute impression, a lighthearted one or a heavy one. Since she's one of the game's\nkey characters, I added a bit of flair to it despite her midgame position."
+comment_jp = "吉弔 八千慧のテーマです。\n\n龍と亀の中間みたいな伝説的な生物です。\n格好良さと可愛らしさ、軽快さと重厚さのどっちも\n感じられるような不思議な曲になりました。\nこのゲームのキーマンの一人ですので中盤だけどちょい盛りました。"
+name_en = "Tortoise Dragon ~ Fortune and Misfortune"
+filename = "th17_10.wav"
+
+[10]
+name_jp = "ビーストメトロポリス"
+position = "0x0D2BB4B8, 0x000DA380, 0x01A15F00"
+comment_en = "This is the Stage 5 theme.\n\nThe Animal Realm, where survival of the fittest is the one and only law.\nEconomic success reigns supreme, and individual thought isn't valued one bit.\nPersonal feelings are nothing but an obstruction in such a streamlined society.\nIt's one nightmare vision of urban society, where talk of \"self-responsiblity\" runs rampant."
+comment_jp = "５面のテーマです。\n\n弱肉強食こそが唯一の理の畜生界です。\n経済的成功こそ至上であり、そこでは個人の思考は尊重されません。\n個人の感情など、合理化された社会では邪魔でしかないのです。\n畜生界は自己責任論渦巻く都市社会の、悪夢の一つです。"
+name_en = "Beast Metropolis"
+filename = "th17_11.wav"
+
+[11]
+name_jp = "セラミックスの杖刀人"
+position = "0x0ECD13B8, 0x00415E84, 0x0178D4F4"
+comment_en = "This is Mayumi Joutouguu's theme.\n\nShe's a haniwa soldier. I loved that NHK program with the haniwa costume\n\nback in the day; I can remember it so clearly. I wanted to make a cool haniwa\n\nthis time, but \"oi, Hanimaru! ♪ Prince Hanimaru\" kept playing in my head the\n\nwhole time. The song is the usual midboss-ey fare, but it goes pretty hard."
+comment_jp = "杖刀偶 磨弓のテーマです。\n\n埴輪兵士です。昔、ＮＨＫで放送されていた埴輪の着ぐるみ番組が\n好きでよく覚えています。今回は格好良い埴輪を作りたかったのに\n頭の中ではずっと「おーい、はにまる♪はにまるおうじー」が流れ\nていました。曲はいつもの中ボスっぽいけど割と攻めてます。"
+name_en = "Joutoujin of Ceramics"
+filename = "th17_12.wav"
+
+[12]
+name_jp = "エレクトリックヘリテージ"
+position = "0x1045E8AC, 0x0062D900, 0x013E1980"
+comment_en = "This is the final stage theme.\n\nNow we're inside the Garden of Humanity.\nEmperor Nintoku's kofun became a World Heritage Site, yeah? But they can't\ninvestigate inside of it without the Imperial Household Agency's permission, so technically\nwe don't actually know whose grave it is. What a sense of adventure that gives."
+comment_jp = "最終面のテーマです。\n\n霊長園内部です。\n仁徳天皇陵古墳が世界遺産になりましたね。でも、内部の調査は\n宮内庁の許可が無いと出来ないので、実際には誰の墳墓かすら\n判っていないんですよねぇ。ロマン有ります。"
+name_en = "Electric Heritage"
+filename = "th17_14.wav"
+
+[13]
+name_jp = "偶像に世界を委ねて　～ Idoratrize World"
+position = "0x1184022C, 0x00508980, 0x02759E00"
+comment_en = "This is Keiki Haniyasushin's theme.\n\nShe's a genius sculptor. My only theme for this one was \"how cool can I make this boss\neven though she's fighting in a work apron while holding sculpting tools?\" (Lol)\nSince you end up fighting her without either the player or protagonist knowing who the\nreal bad guy is, it's a refreshing and somewhat-somber song with no feeling of hostility."
+comment_jp = "埴安神 袿姫のテーマです。\n\n天才造形師です。彫刻刀片手に作業着エプロンで戦うボスを、\n如何にして格好良く見せるのかだけが今回のテーマでした（笑）\n本当の敵が誰なのか主人公にもプレイヤーにも不確定なまま戦う\n為、悪意の感じない少し切なさもある爽やかな曲になりました。"
+name_en = "Entrusting this World to Idols ~ Idolatrize World"
+filename = "th17_13.wav"
+
+[14]
+name_jp = "輝かしき弱肉強食の掟"
+position = "0x13F9A02C, 0x00455080, 0x01EECC00"
+comment_en = "This is the Extra Stage theme.\n\nThe product of a 42-year-old man trying his hardest to unleash his inner chuunibyou.\nEverything I make feels somehow nostalgic, which is probably a side effect of my age...\nI'd like to refine my sensitivity together with my children from here on out.\nI think this whole song has a really handsome-sounding melody throughout, though."
+comment_jp = "エキストラステージのテーマです。\n\n四十ニの男が中二病全開を目指して作った曲です。\n何を作っても懐かしさを感じてしまうのは、年のせいなんだろ\nうなぁ。これから子供と一緒に感性を磨いていこうと思います。\nでも、この曲、全体的にイケメンなメロディだと思います。"
+name_en = "The Shining Law of the Strong Eating the Weak"
+filename = "th17_17.wav"
+
+[15]
+name_jp = "聖徳太子のペガサス　～ Dark Pegasus"
+position = "0x15E86C2C, 0x00455BC0, 0x02688B00"
+comment_en = "This is Saki Kurokoma's theme.\n\nShe's Kurokoma. Since she's apparently a total meathead, her personality doesn't\nseem all that bad. She exudes the most sense of security in the whole Animal Realm.\nI tried to give her a cowgirl-esque outfit since she's a horse, but when you give it a\ngood, long think (or even just a short one), that's what her rider should be wearing."
+comment_jp = "驪駒 早鬼のテーマです。\n\n驪駒（くろこま）です。筋肉馬鹿らしいので、性格は悪くなさ\nそうです。畜生界では一番安心感があります。\n馬という事でカウガール風の服装にしたんですが、よく考えたら\nそれは乗る側の服装ですよね。よく考えなくても。"
+name_en = "Prince Shoutoku's Pegasus ~ Dark Pegasus"
+filename = "th17_18.wav"
+
+[16]
+name_jp = "畜生達の休息"
+position = "0x1850F72C, 0x0042F900, 0x00945F00"
+comment_en = "This is the ending theme.\n\nIt's got a swingin' vibe for some reason.\nNo real meaning behind it, though."
+comment_jp = "エンディングのテーマです。\n\n何故かスイングしてます。\n特に意味はありません。"
+name_en = "The Animals' Rest"
+filename = "th17_15.wav"
+
+[17]
+name_jp = "地下からの帰還"
+position = "0x18E5562C, 0x00F57300, 0x01396600"
+comment_en = "This is the Staff Roll theme.\n\nIt's an arrangement of the Stage 4 theme."
+comment_jp = "スタッフロールのテーマです。\n\n４面の曲の編曲です。"
+name_en = "Returning Home from the Underground"
+filename = "th17_16.wav"
+
+[18]
+name_jp = "プレイヤーズスコア"
+position = "0x1A1EBC2C, 0x001CACC8, 0x0066DCC0"
+name_en = "Player's Score"
+filename = "th128_08.wav"

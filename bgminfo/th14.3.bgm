@@ -1,0 +1,100 @@
+﻿# Music Room Interface Info
+# TH14.3 music extraction file made by ZDP123 (TS666 on MotK) <tracescarlet666@live.com> <zebesiano.alfa.123@gmail.com>
+# Info and music data obviously token from Touhou Wiki <en.touhouwiki.net>, lot of thanks to the translators.
+# Also special thanks to the users that helped me at MotK :) http://www.shrinemaiden.org/forum/index.php/topic,16863.0.html
+
+[game]
+name = "弾幕アマノジャク　～ Impossible Spell Card"
+name_en = "Danmaku Amanojaku ~ Impossible Spell Card"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2014
+gamenum = "14.3"
+
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x30
+zwavid_09 = 0x14
+
+tracks = 9
+
+[thvorbis]
+patchclass = "slow"
+
+[update]
+wikipage = "Impossible_Spell_Card/Music"
+wikirev = 334198
+
+[01]
+name_jp = "反則の狼煙を上げろ"
+position = "0x000010, 0x2c1f40, 0x13fbec0"
+frequency = 44100
+name_en = "Raise the Signal Fire of Cheating"
+comment_jp = "タイトル画面のテーマです。\n\n　タイトル画面率の高いゲームなので少しだけノリノリにしています。\n　タイトル画面というか、ステージ選択の曲だね、割合から言って。"
+comment_en = "This is the theme of the title screen.\nSince this game spends so much time at title screen,\nthis one is a bit more energetic.\nBased on its usage, it should probably be called \"stage select theme\". "
+
+[02]
+name_jp = "不可能弾幕には反則を"
+position = "0x13fbed0, 0x271200, 0x1553180"
+frequency = 44100
+name_en = "Cheat Against the Impossible Danmaku"
+comment_jp = "最序盤のテーマです。\n\nキャラと曲が結びつかないゲームなので、\n一般的な戦闘曲みたいなのになりました。\nステージの長さと曲の長さが釣り合い取れないのは\n何度もリトライすることが前提だからです。"
+comment_en = "Earliest stages theme.\n\nBecause the music in this game is\nnot related to the characters,\nit feels more like generic combat music.\nI couldn't make track lengths fit stage lengths,\nbecause they're meant to be endlessly retried. "
+
+[03]
+name_jp = "ミッドナイトスペルカード"
+position = "0x294f050, 0x14b034, 0xf6c980"
+frequency = 44100
+name_en = "Midnight Spell Card"
+comment_jp = "序盤のテーマです。\n\n舞台を夜にして、夜っぽい感じの曲にしました。\n疾走感のある曲なのでここらで停滞しない様に。"
+comment_en = "Early stages theme.\n\nI gave this track a nightly feel since the stages take place at night.\nIt has a rushing feel, so try not to linger in these stages for too long."
+
+[04]
+name_jp = "ロマンチック逃飛行 "
+position = "0x38bb9d0, 0x254d10, 0x1573c60"
+frequency = 44100
+name_en = "Romantic Escape Flight"
+comment_jp = "中盤のテーマです。\n\nうってかわって開けた感じになりました。\nこの辺までくると簡単にはステージを\nクリアできないかな？"
+comment_en = "Middle stages theme.\n\nThis one is completely different and cheerful.\nAt this point you can't beat the stages\nso easily, can you?"
+this one is completely different and cheerful.\nat this point you can't beat the stages\nso easily, can you?"
+
+[05]
+name_jp = "永遠の三日天下"
+position = "0x4e2f630, 0x0c2b40, 0x2177968"
+frequency = 44100
+name_en = "Eternal Short-Lived Reign"
+comment_jp = "終盤のテーマです。\n\n　最後は大人しい感じの曲で。\n　でも弾幕は地獄です。むしろ曲が絶望感を煽ってます。\n\n　本当に不可能なのでしょうか？"
+comment_en = "Last stages theme.\n\nWent with a moderate theme for the end.\nBut these danmaku are hell.\nMaybe this theme invokes desperation instead.\nMaybe these cards really are impossible?"
+
+[06]
+name_jp = "秘境のマーメイド"
+position = "0x6fa6f98, 0x065180, 0xf13000"
+frequency = 44100
+name_en = "Mermaid from the Uncharted Land"
+comment_jp = "東方輝針城から再録です。"
+comment_en = "Previously used in Double Dealing Character."
+
+[07]
+name_jp = "リバースイデオロギー"
+position = "0x7eb9f98, 0x0e2140, 0x1614750"
+frequency = 44100
+name_en = "Reverse Ideology"
+comment_jp = "東方輝針城から再録です。"
+comment_en = "Previously used in Double Dealing Character."
+
+[08]
+name_jp = "幻想浄瑠璃"
+position = "0x94ce6e8, 0x5240e0, 0x1833240"
+frequency = 44100
+name_en = "Illusionary Joururi"
+comment_jp = "東方輝針城から再録です。"
+comment_en = "Previously used in Double Dealing Character."
+
+[09]
+name_jp = "妖怪の山　～ Mysterious Mountain"
+position = "0xad01928, 0x205aa0, 0xe84e20"
+frequency = 44100
+name_en = "The Youkai Mountain ~ Mysterious Mountain"
+comment_jp = "東方風神録から再録です。"
+comment_en = "Previously used in Mountain of Faith."
