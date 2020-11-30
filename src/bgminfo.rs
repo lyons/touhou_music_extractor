@@ -97,13 +97,13 @@ impl BgmInfo {
     BgmInfo::try_from(data.as_ref())
   }
 
-  pub fn print_to_console(&self, track_number: Option<usize>) {
+  pub fn print_to_console(&self, track_number: Option<u32>) {
     print!("{}", self.game);
 
     let tracks = self
       .tracks
       .iter()
-      .filter(|track| track_number.map_or(true, |n| track.track_number as usize == n));
+      .filter(|track| track_number.map_or(true, |n| track.track_number == n));
     for track in tracks {
       println!("");
       print!("{}", track);

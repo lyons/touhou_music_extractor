@@ -35,7 +35,7 @@ struct Options {
     help = "When provided, extracts a specified single track; otherwise, all tracks are extracted",
     long_help = "When provided, extracts a specified single track; otherwise, all tracks are extracted."
   )]
-  track_number: Option<usize>,
+  track_number: Option<u32>,
   
   #[structopt(
     long = "--fadeout-length",
@@ -226,7 +226,7 @@ fn main() -> Result<()> {
     fadeout_duration,
   };
 
-  bgminfo::print_bgminfo(&bgm, options.track_number);
+  bgm.print_to_console(options.track_number);
   //bgmstore::print_command_line_help();
   Ok(())
   //core::extract(&bgm, options.track_number, source_path, &opts)

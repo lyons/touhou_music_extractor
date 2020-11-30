@@ -122,12 +122,12 @@ pub fn process_track<W: Write>
 }
 
 pub fn extract(bgm_info: &BgmInfo,
-               track_number: Option<usize>,
+               track_number: Option<u32>,
                source: PathBuf,
                opts: &OutputOptions) -> Result<()> {
   match track_number {
     Some(n) => {
-      if let Some(track) = bgm_info.tracks.get(n - 1) {
+      if let Some(track) = bgm_info.tracks.iter().find(|&track| track.track_number == n) {
         extract_track(track, bgm_info, source, opts)
       }
       else {
