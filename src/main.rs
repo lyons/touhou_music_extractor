@@ -1,6 +1,7 @@
 #![forbid(unsafe_code)]
 
 use std::{
+  convert::TryFrom,
   error::Error,
   path::{PathBuf},
   time::Duration,
@@ -8,11 +9,13 @@ use std::{
 use structopt::StructOpt;
 
 mod bgminfo;
+mod bgmstore;
 mod core;
 mod wavheader;
 
 use crate::{
   bgminfo::BgmInfo,
+  bgmstore::BgmStore,
   core::{OutputOptions, OutputMode, FadeMode},
 };
 
@@ -195,7 +198,12 @@ fn main() -> Result<()> {
     },
   };
 
-  let bgm = BgmInfo::load_from_file(bgm_path)?;
+  let bgm = if let Some(data) = BgmStore::get_from_token(&bgm_path.to_string_lossy()) {
+    BgmInfo::try_from(data.as_ref())
+  }
+  else {
+    BgmInfo::load_from_file(bgm_path)
+  }?;
 
   // We have these parameters as optional in the Options struct and provide them with default values
   // here rather than setting a `default_value` field in structopt to prevent structopt from always
@@ -218,9 +226,8 @@ fn main() -> Result<()> {
     fadeout_duration,
   };
 
-  let foo = PathBuf::from("EoSD");
-  println!("foo: {:?}", foo.extension());
-
+  bgminfo::print_bgminfo(&bgm, options.track_number);
+  //bgmstore::print_command_line_help();
   Ok(())
   //core::extract(&bgm, options.track_number, source_path, &opts)
 }
