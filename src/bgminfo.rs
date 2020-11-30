@@ -1,8 +1,10 @@
+use colored::*;
 use regex::Regex;
 use serde::{Serialize, Deserialize};
 use std::{
   convert::TryFrom,
   error::Error,
+  fmt::{self, Display},
   path::PathBuf,
 };
 
@@ -26,6 +28,18 @@ pub struct Game {
   pub artist: String,
   pub pack_method: PackMethod,
   pub tracks: u32,
+}
+
+impl Display for Game {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    writeln!(f, "{}", "[[ Game ]]".green())?;
+    writeln!(f, "{}", self.name_jp.magenta())?;
+    writeln!(f, "{}", self.name_en.magenta())?;
+    writeln!(f, "{:16}{}", "Artist: ".blue(), self.artist.cyan())?;
+    writeln!(f, "{:16}{}", "Game number:".blue(), self.game_number.cyan())?;
+    writeln!(f, "{:16}{}", "Year:".blue(), format!("{}", self.year).cyan())?; // 😑
+    writeln!(f, "{:16}{}", "Tracks:".blue(), format!("{}", self.tracks).cyan())
+  }
 }
 
 #[allow(dead_code)]
@@ -60,6 +74,22 @@ pub struct Track {
   pub filename: Option<String>, // Not used with pack method 2
 }
 
+impl Display for Track {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    let num = format!("{:02}", self.track_number).green();
+    let freq = format!("{} Hz", self.sample_rate).cyan();
+    let offsets = format!("[0x{:08X}, 0x{:08X}, 0x{:08X}]",
+                          self.start_offset,
+                          self.relative_loop_offset,
+                          self.relative_end_offset).cyan();
+    writeln!(f, "{}{}{}", "[[ Track ".green(), num, " ]]".green())?;
+    if let Some(name_jp) = self.name_jp.as_ref() { writeln!(f, "{}", name_jp.magenta())?; }
+    if let Some(name_en) = self.name_en.as_ref() { writeln!(f, "{}", name_en.magenta())?; }
+    writeln!(f, "{:16}{}", "Sample rate:".blue(), freq)?;
+    writeln!(f, "{:16}{}", "Offsets:".blue(), offsets)
+  }
+}
+
 impl BgmInfo {
   pub fn load_from_file(path: PathBuf) -> Result<BgmInfo> {
     let data = std::fs::read_to_string(path)?;
@@ -81,6 +111,19 @@ impl TryFrom<&str> for BgmInfo {
     let result = BgmInfo {game, tracks};
 
     Ok(result)
+  }
+}
+
+pub fn print_bgminfo(bgm_info: &BgmInfo, track_number: Option<usize>) {
+  print!("{}", bgm_info.game);
+
+  let tracks = bgm_info
+    .tracks
+    .iter()
+    .filter(|track| track_number.map_or(true, |n| track.track_number as usize == n));
+  for track in tracks {
+    println!("");
+    print!("{}", track);
   }
 }
 
