@@ -131,7 +131,7 @@ pub fn extract(bgm_info: &BgmInfo,
         extract_track(track, bgm_info, source, opts)
       }
       else {
-        Err(format!("Track number `{}` does not exist.", n).into())
+        Err(format!("Track number `{}` could not be found.", n).into())
       }
     },
     None => extract_all(bgm_info, source, opts),
