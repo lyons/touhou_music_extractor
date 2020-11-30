@@ -96,6 +96,19 @@ impl BgmInfo {
     
     BgmInfo::try_from(data.as_ref())
   }
+
+  pub fn print_to_console(&self, track_number: Option<usize>) {
+    print!("{}", self.game);
+
+    let tracks = self
+      .tracks
+      .iter()
+      .filter(|track| track_number.map_or(true, |n| track.track_number as usize == n));
+    for track in tracks {
+      println!("");
+      print!("{}", track);
+    }
+  }
 }
 
 impl TryFrom<&str> for BgmInfo {
@@ -105,25 +118,14 @@ impl TryFrom<&str> for BgmInfo {
     let rewritten_data = rewrite_bgm_info(value);
     let raw_bgm: RawBgmInfo = toml::from_str(&rewritten_data)?;
 
-    let game = bar(raw_bgm.game)?;
-    let tracks = raw_bgm.tracks.into_iter().map(|x| foo(x, &game)).collect::<Result<Vec<Track>>>()?;
+    let game = try_raw_game_to_game(raw_bgm.game)?;
+    let tracks = raw_bgm.tracks.into_iter().map(|x|
+      try_raw_track_to_track(x, &game)
+    ).collect::<Result<Vec<Track>>>()?;
 
     let result = BgmInfo {game, tracks};
 
     Ok(result)
-  }
-}
-
-pub fn print_bgminfo(bgm_info: &BgmInfo, track_number: Option<usize>) {
-  print!("{}", bgm_info.game);
-
-  let tracks = bgm_info
-    .tracks
-    .iter()
-    .filter(|track| track_number.map_or(true, |n| track.track_number as usize == n));
-  for track in tracks {
-    println!("");
-    print!("{}", track);
   }
 }
 
@@ -190,7 +192,7 @@ struct RawTrack {
   frequency: u32,
 }
 
-fn bar(game: RawGame) -> Result<Game> {
+fn try_raw_game_to_game(game: RawGame) -> Result<Game> {
   let pack_method = match game.packmethod {
     1 => {
       if !game.bgmdir.is_some() { Err("Missing required field `bgmdir`") }
@@ -222,7 +224,7 @@ fn bar(game: RawGame) -> Result<Game> {
   Ok(result)
 }
 
-fn foo(track: RawTrack, game: &Game) -> Result<Track> {
+fn try_raw_track_to_track(track: RawTrack, game: &Game) -> Result<Track> {
   let start = if let Some(position) = track.position.clone() {
     position.get(0).map(|&n| n)
   }
