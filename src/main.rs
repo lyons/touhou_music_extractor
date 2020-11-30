@@ -21,7 +21,6 @@ use crate::{
 
 pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
-/// Foo bar baz
 #[derive(StructOpt)]
 struct Options {
   #[structopt(subcommand)]
@@ -103,9 +102,22 @@ Default value: `{{track_number}} - {{name_jp}}`",
   
 }
 
-/// Does anything show up here?
 #[derive(StructOpt)]
 enum Command {
+  /// Display a list of built-in BGM info files
+  #[structopt(name = "bgm")]
+  List,
+
+  /// Show the contents of a BGM info file
+  Show {
+    #[structopt(
+      parse(from_os_str),
+      help = "The name of a built-in BGM file or the path to an external BGM file containing sound data offsets and game and track information. To display a list of built-in BGM files, run `thme bgm`.",
+      long_help = "The name of a built-in BGM file or the path to an external BGM file containing sound data offsets and game and track information. This is the same BGM format as used by Touhou Music Room. For more information, see `https://en.touhouwiki.net/wiki/Game_Tools_and_Modifications#Bgm_files`.\n\nTo display a list of built-in BGM files, run `thme bgm`.",
+    )]
+    bgminfo: PathBuf,
+  },
+
   /// Generate tracks with a specified duration
   Length {
     #[structopt(
@@ -125,8 +137,8 @@ e.g. `10h`   -> 10 hours
     
     #[structopt(
       parse(from_os_str),
-      help = "Path to BGM file containing sound data offsets and game and track information",
-      long_help = "Path to the BGM file containing sound data offsets and game and track information. This is the same BGM format as used by Touhou Music Room. For more information, see `https://en.touhouwiki.net/wiki/Game_Tools_and_Modifications#Bgm_files`.",
+      help = "The name of a built-in BGM file or the path to an external BGM file containing sound data offsets and game and track information. To display a list of built-in BGM files, run `thme bgm`.",
+      long_help = "The name of a built-in BGM file or the path to an external BGM file containing sound data offsets and game and track information. This is the same BGM format as used by Touhou Music Room. For more information, see `https://en.touhouwiki.net/wiki/Game_Tools_and_Modifications#Bgm_files`.\n\nTo display a list of built-in BGM files, run `thme bgm`.",
     )]
     bgminfo: PathBuf,
     
@@ -150,8 +162,8 @@ e.g. `10h`   -> 10 hours
     
     #[structopt(
       parse(from_os_str),
-      help = "Path to BGM file containing sound data offsets and game and track information",
-      long_help = "Path to the BGM file containing sound data offsets and game and track information. This is the same BGM format as used by Touhou Music Room. For more information, see `https://en.touhouwiki.net/wiki/Game_Tools_and_Modifications#Bgm_files`.",
+      help = "The name of a built-in BGM file or the path to an external BGM file containing sound data offsets and game and track information. To display a list of built-in BGM files, run `thme bgm`.",
+      long_help = "The name of a built-in BGM file or the path to an external BGM file containing sound data offsets and game and track information. This is the same BGM format as used by Touhou Music Room. For more information, see `https://en.touhouwiki.net/wiki/Game_Tools_and_Modifications#Bgm_files`.\n\nTo display a list of built-in BGM files, run `thme bgm`.",
     )]
     bgminfo: PathBuf,
     
@@ -174,60 +186,75 @@ e.g. `10h`   -> 10 hours
 fn main() -> Result<()> {
   let options = Options::from_args();
   
-  let (output_mode, bgm_path, source_path) = match &options.mode {
-    Command::Length {length, bgminfo, source} => {
-      (
-        OutputMode::FixedDuration(length.as_secs() as usize),
-        bgminfo.to_path_buf(),
-        source.to_path_buf(),
-      )
-    },
-    Command::Looped {loop_count, bgminfo, source, fade_before_loop} => {
-      let fade_mode = if *fade_before_loop {
-        FadeMode::BeforeLoopPoint
-      }
-      else {
-        FadeMode::AfterLoopPoint
-      };
+  if let Command::Show {bgminfo} = options.mode {
+    let bgm = if let Some(data) = BgmStore::get_from_token(&bgminfo.to_string_lossy()) {
+      BgmInfo::try_from(data.as_ref())
+    }
+    else {
+      BgmInfo::load_from_file(bgminfo)
+    }?;
 
-      (
-        OutputMode::FixedLoops(*loop_count, fade_mode),
-        bgminfo.to_path_buf(),
-        source.to_path_buf(),
-      )
-    },
-  };
-
-  let bgm = if let Some(data) = BgmStore::get_from_token(&bgm_path.to_string_lossy()) {
-    BgmInfo::try_from(data.as_ref())
+    bgm.print_to_console(options.track_number);
+  }
+  else if let Command::List = options.mode {
+    bgmstore::print_command_line_help();
   }
   else {
-    BgmInfo::load_from_file(bgm_path)
-  }?;
+    let (output_mode, bgm_path, source_path) = match &options.mode {
+      Command::Length {length, bgminfo, source} => {
+        (
+          OutputMode::FixedDuration(length.as_secs() as usize),
+          bgminfo.to_path_buf(),
+          source.to_path_buf(),
+        )
+      },
+      Command::Looped {loop_count, bgminfo, source, fade_before_loop} => {
+        let fade_mode = if *fade_before_loop {
+          FadeMode::BeforeLoopPoint
+        }
+        else {
+          FadeMode::AfterLoopPoint
+        };
 
-  // We have these parameters as optional in the Options struct and provide them with default values
-  // here rather than setting a `default_value` field in structopt to prevent structopt from always
-  // displaying them in the usage string for commands.
-  let directory_format = options
-                           .output_dir
-                           .unwrap_or_else(|| "{{name_jp}}".to_owned());
-  let filename_format = options
-                          .filename_format
-                          .unwrap_or_else(|| "{{track_number}} - {{name_jp}}".to_owned());
-  let fadeout_duration = options
-                           .fadeout_length
-                           .map(|d| d.as_secs() as usize)
-                           .unwrap_or(10);
+        (
+          OutputMode::FixedLoops(*loop_count, fade_mode),
+          bgminfo.to_path_buf(),
+          source.to_path_buf(),
+        )
+      },
+      _ => panic!("This line should be unreachable"),
+    };
 
-  let opts = OutputOptions {
-    directory_format,
-    filename_format,
-    output_mode: output_mode,
-    fadeout_duration,
-  };
+    let bgm = if let Some(data) = BgmStore::get_from_token(&bgm_path.to_string_lossy()) {
+      BgmInfo::try_from(data.as_ref())
+    }
+    else {
+      BgmInfo::load_from_file(bgm_path)
+    }?;
 
-  bgm.print_to_console(options.track_number);
-  //bgmstore::print_command_line_help();
-  Ok(())
-  //core::extract(&bgm, options.track_number, source_path, &opts)
+    // We have these parameters as optional in the Options struct and provide them with default values
+    // here rather than setting a `default_value` field in structopt to prevent structopt from always
+    // displaying them in the usage string for commands.
+    let directory_format = options
+                            .output_dir
+                            .unwrap_or_else(|| "{{name_jp}}".to_owned());
+    let filename_format = options
+                            .filename_format
+                            .unwrap_or_else(|| "{{track_number}} - {{name_jp}}".to_owned());
+    let fadeout_duration = options
+                            .fadeout_length
+                            .map(|d| d.as_secs() as usize)
+                            .unwrap_or(10);
+
+    let opts = OutputOptions {
+      directory_format,
+      filename_format,
+      output_mode: output_mode,
+      fadeout_duration,
+    };
+
+    core::extract(&bgm, options.track_number, source_path, &opts)?;
+  }
+
+  Ok(())  
 }

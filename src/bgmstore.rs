@@ -48,6 +48,7 @@ impl BgmStore {
 }
 
 pub fn print_command_line_help() {
+  println!("Built-in BGM data can be accessed with the following names:");
   line("TH6",   "TH06",    "EoSD",  "\"Embodiment of Scarlet Devil\"");
   line("TH7",   "TH07",    "PCB",   "\"Perfect Cherry Blossom\"");
   line("TH8",   "TH08",    "IN",    "\"Imperishable Night\"");
