@@ -100,13 +100,19 @@ impl BgmInfo {
   pub fn print_to_console(&self, track_number: Option<u32>) {
     print!("{}", self.game);
 
-    let tracks = self
-      .tracks
-      .iter()
-      .filter(|track| track_number.map_or(true, |n| track.track_number == n));
-    for track in tracks {
-      println!("");
-      print!("{}", track);
+    if let Some(n) = track_number {
+      if let Some(track) = self.tracks.iter().find(|&track| track.track_number == n) {
+        print!("\n{}", track);
+      }
+      else {
+        let err_msg = format!("Track number `{}` could not be found.", n).red();
+        println!("\n{}", err_msg);
+      }
+    }
+    else {
+      for track in self.tracks.iter() {
+        print!("\n{}", track);
+      }
     }
   }
 }
