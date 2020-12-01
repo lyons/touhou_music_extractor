@@ -2,7 +2,6 @@
 
 use std::{
   convert::TryFrom,
-  error::Error,
   path::{PathBuf},
   time::Duration,
 };
@@ -16,12 +15,13 @@ mod wavheader;
 use crate::{
   bgminfo::BgmInfo,
   bgmstore::BgmStore,
-  core::{OutputOptions, OutputMode, FadeMode},
+  core::{OutputOptions, OutputMode, FadeMode, Result},
 };
 
-pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
-
 #[derive(StructOpt)]
+#[structopt(
+  name = "Touhou Music Extractor",
+)]
 struct Options {
   #[structopt(subcommand)]
   mode: Command,
@@ -109,6 +109,17 @@ enum Command {
   List,
 
   /// Show the contents of a BGM info file
+  #[structopt(
+    after_help = r#"USAGE EXAMPLES:
+    `thme show "Embodiment of Scarlet Devil"`
+    Show contents of a built-in BGM file.
+
+    `thme show /path/to/bgmfile/th18.bgm`
+    Show contents of an external BGM file.
+    
+    `thme show TH08 --track 18`
+    Show game info and contents of a single track from BGM file."#
+  )]
   Show {
     #[structopt(
       parse(from_os_str),
@@ -119,6 +130,17 @@ enum Command {
   },
 
   /// Generate tracks with a specified duration
+  #[structopt(
+    after_help = r"USAGE EXAMPLES:
+    `thme length 10m MoF /path/to/th10/thbgm.dat`
+    Extract all tracks wtih 10 minute playback duration, using a built-in BGM file.
+
+    `thme length 10m /path/to/bgmfile/th18.bgm /path/to/th18/thbgm.dat`
+    Extract all tracks with 10 minute playback duration, using an external BGM file.
+
+    `thme length 180 TH13 /path/to/th13/thbgm.dat --track 24`
+    Extract a single track with 180 second playback duration."
+  )]
   Length {
     #[structopt(
       value_name = "duration",
@@ -152,6 +174,17 @@ e.g. `10h`   -> 10 hours
   },
 
   /// Generate tracks looped a specified number of times, with varying duration
+  #[structopt(
+    after_help = r"USAGE EXAMPLES:
+    `thme looped 1 MoF /path/to/th10/thbgm.dat --fadeout-length 0`
+    Extract all tracks wtih a single loop, no fadeout, using a built-in BGM file.
+
+    `thme looped 2 /path/to/bgmfile/th18.bgm /path/to/th18/thbgm.dat`
+    Extract all tracks looped twice, using an external BGM file.
+
+    `thme looped 2 TH13 /path/to/th13/thbgm.dat --track 24`
+    Extract a single track, looped twice."
+  )]
   Looped {
     #[structopt(
       value_name = "loops",
