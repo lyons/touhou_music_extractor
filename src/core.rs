@@ -2,15 +2,17 @@ use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use std::{
   cmp::min,
   collections::HashMap,
+  error::Error,
   fs::File,
   io::{BufReader, BufWriter, Cursor, Read, Seek, Write},
   path::{PathBuf},
 };
 use string_template::Template;
 
-use crate::Result;
 use crate::bgminfo::{BgmInfo, Game, PackMethod, Track};
 use crate::wavheader::WavHeader;
+
+pub type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
 pub enum FadeMode {
   BeforeLoopPoint,
