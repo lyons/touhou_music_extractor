@@ -1,8 +1,8 @@
+use anyhow::{anyhow, Result};
 use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use std::{
   cmp::min,
   collections::HashMap,
-  error::Error,
   fs::File,
   io::{BufReader, BufWriter, Cursor, Read, Seek, Write},
   path::{PathBuf},
@@ -11,8 +11,6 @@ use string_template::Template;
 
 use crate::bgminfo::{BgmInfo, Game, PackMethod, Track};
 use crate::wavheader::WavHeader;
-
-pub type Result<T> = std::result::Result<T, Box<dyn Error + Send + Sync>>;
 
 pub enum FadeMode {
   BeforeLoopPoint,
@@ -133,7 +131,7 @@ pub fn extract(bgm_info: &BgmInfo,
         extract_track(track, bgm_info, source, opts)
       }
       else {
-        Err(format!("Track number `{}` could not be found.", n).into())
+        Err(anyhow!("Track number `{}` could not be found.", n))
       }
     },
     None => extract_all(bgm_info, source, opts),
@@ -149,7 +147,7 @@ fn extract_track
     PackMethod::Two(_, _, _) => {
       extract_track_to_file(track, bgm_info, source, opts)
     },
-    _ => Err("Unsupported pack method.".into()),
+    _ => Err(anyhow!("Unsupported pack method.")),
   }
 }
 
@@ -162,7 +160,7 @@ fn extract_all
     PackMethod::Two(_, _, _) => {
       extract_all_to_files_2(bgm_info, source, opts)
     },
-    _ => Err("Unsupported pack method.".into()),
+    _ => Err(anyhow!("Unsupported pack method.")),
   }
 }
 
@@ -173,7 +171,7 @@ fn extract_track_to_file
     std::fs::create_dir_all(dest_dir.clone())?;
   }
   else if !dest_dir.is_dir() {
-    return Err(format!("Destination path {:?} exists and is not a directory", dest_dir).into())
+    return Err(anyhow!("Destination path {:?} exists and is not a directory", dest_dir))
   }
 
   let infile = File::open(source)?;
@@ -196,10 +194,10 @@ fn extract_track_to_file
 fn extract_track_1
 (track: &Track, bgm_info: &BgmInfo, source_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
-    return Err(format!("Source path {:?} is not a directory", source_dir).into())
+    return Err(anyhow!("Source path {:?} is not a directory", source_dir))
   }
   let filename = track.filename.clone().ok_or_else(
-    || format!("Track {} is missing required field `filename`", track.track_number)
+    || anyhow!("Track {} is missing required field `filename`", track.track_number)
   )?;
   let filepath = source_dir.join(filename);
 
@@ -209,11 +207,11 @@ fn extract_track_1
 fn extract_all_to_files_1
 (bgm_info: &BgmInfo, source_dir: PathBuf, opts: &OutputOptions) -> Result<()> {
   if !source_dir.is_dir() {
-    return Err(format!("Source path {:?} is not a directory", source_dir).into())
+    return Err(anyhow!("Source path {:?} is not a directory", source_dir))
   }
   for track in &bgm_info.tracks {
     let filename = track.filename.clone().ok_or_else(
-      || format!("Track {} is missing required field `filename`", track.track_number)
+      || anyhow!("Track {} is missing required field `filename`", track.track_number)
     )?;
     let filepath = source_dir.join(filename);
 
@@ -230,7 +228,7 @@ fn extract_all_to_files_2
     std::fs::create_dir_all(dest_dir.clone())?;
   }
   else if !dest_dir.is_dir() {
-    return Err(format!("Destination path {:?} exists and is not a directory", dest_dir).into())
+    return Err(anyhow!("Destination path {:?} exists and is not a directory", dest_dir))
   }
 
   let infile = File::open(source)?;

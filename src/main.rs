@@ -1,5 +1,6 @@
 #![forbid(unsafe_code)]
 
+use anyhow::Result;
 use std::{
   convert::TryFrom,
   path::{PathBuf},
@@ -15,7 +16,7 @@ mod wavheader;
 use crate::{
   bgminfo::BgmInfo,
   bgmstore::BgmStore,
-  core::{OutputOptions, OutputMode, FadeMode, Result},
+  core::{OutputOptions, OutputMode, FadeMode},
 };
 
 #[derive(StructOpt)]

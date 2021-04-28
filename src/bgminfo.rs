@@ -1,14 +1,12 @@
+use anyhow::{anyhow, Result};
 use colored::*;
 use regex::Regex;
 use serde::{Serialize, Deserialize};
 use std::{
   convert::TryFrom,
-  error::Error,
   fmt::{self, Display},
   path::PathBuf,
 };
-
-use crate::Result;
 
 // ---------------------------------------------------------------------------------------------------
 // PUBLIC
@@ -118,7 +116,7 @@ impl BgmInfo {
 }
 
 impl TryFrom<&str> for BgmInfo {
-  type Error = Box<dyn Error + Send + Sync>;
+  type Error = anyhow::Error;
 
   fn try_from(value: &str) -> Result<Self> {
     let rewritten_data = rewrite_bgm_info(value);
@@ -201,19 +199,19 @@ struct RawTrack {
 fn try_raw_game_to_game(game: RawGame) -> Result<Game> {
   let pack_method = match game.packmethod {
     1 => {
-      if !game.bgmdir.is_some() { Err("Missing required field `bgmdir`") }
+      if !game.bgmdir.is_some() { Err(anyhow!("Missing required field `bgmdir`")) }
       else { Ok(PackMethod::One(game.bgmdir.unwrap(), game.headersize)) }
     },
     2 => {
-      if !game.bgmfile.is_some() { Err("Missing required field `bgmfile`") }
-      else if !game.zwavid_08.is_some() { Err("Missing required field `zwavid_08`") }
-      else if !game.zwavid_09.is_some() { Err("Missing required field `zwavid_09`") }
+      if !game.bgmfile.is_some() { Err(anyhow!("Missing required field `bgmfile`")) }
+      else if !game.zwavid_08.is_some() { Err(anyhow!("Missing required field `zwavid_08`")) }
+      else if !game.zwavid_09.is_some() { Err(anyhow!("Missing required field `zwavid_09`")) }
       else {
         Ok(PackMethod::Two(game.bgmfile.unwrap(), game.zwavid_08.unwrap(), game.zwavid_09.unwrap()))
       }
     },
     _ => {
-      Err("Unsupported pack method")
+      Err(anyhow!("Unsupported pack method"))
     },
   }?;
 
@@ -239,7 +237,7 @@ fn try_raw_track_to_track(track: RawTrack, game: &Game) -> Result<Track> {
   }
   else {
     track.start
-  }.ok_or_else(|| format!("Incomplete position data for track {}", track.track_number))?;
+  }.ok_or_else(|| anyhow!("Incomplete position data for track {}", track.track_number))?;
 
   let rel_loop = if let Some(position) = track.position.clone() {
     position.get(1).map(|&n| n)
@@ -248,7 +246,7 @@ fn try_raw_track_to_track(track: RawTrack, game: &Game) -> Result<Track> {
     if let Some(offset) = track.rel_loop { Some(offset) }
     else if let Some(offset) = track.abs_loop { Some(offset - start) }
     else { None }
-  }.ok_or_else(|| format!("Incomplete position data for track {}", track.track_number))?;
+  }.ok_or_else(|| anyhow!("Incomplete position data for track {}", track.track_number))?;
 
   let rel_end = if let Some(position) = track.position.clone() {
     position.get(2).map(|&n| n)
@@ -257,7 +255,7 @@ fn try_raw_track_to_track(track: RawTrack, game: &Game) -> Result<Track> {
     if let Some(offset) = track.rel_end { Some(offset) }
     else if let Some(offset) = track.abs_end { Some(offset - start) }
     else { None }
-  }.ok_or_else(|| format!("Incomplete position data for track {}", track.track_number))?;
+  }.ok_or_else(|| anyhow!("Incomplete position data for track {}", track.track_number))?;
 
   let result = Track {
     track_number: track.track_number,
