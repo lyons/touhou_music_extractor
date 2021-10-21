@@ -1,0 +1,149 @@
+# Music Room Interface Info
+
+[game]
+name = "東方虹龍洞　～ Unconnected Marketeers"
+name_en = "Touhou Kouryuudou ~ Unconnected Marketeers"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2021
+gamenum = "18"
+
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x00
+zwavid_09 = 0x18
+
+tracks = 18
+
+[thvorbis]
+patchclass = "generic"
+
+[update]
+wikipage = "Unconnected_Marketeers/Music"
+wikirev = 0
+
+[01]
+name_jp = "虹の架かる幻想郷"
+position = "0x00000010, 0x000786A0, 0x01281220"
+comment_en = "This is the title screen theme.\n\nA track that's refreshing, but still leaves a slightly lazy feeling. The rain may have lifted, but that doesn't make it any easier to get up and start being active, does it?"
+comment_jp = "タイトル画面のテーマです。\n\n爽やかだけど少し気怠さの残る感じの曲です。雨が上がったからと言って、すぐには活動的になれないもんですよね。"
+name_en = "A Rainbow Spanning Gensokyo"
+
+[02]
+name_jp = "妖異達の通り雨"
+position = "0x01281230, 0x00423D80, 0x013BBDC0"
+comment_en = "This is the Stage 1 theme.\n\nA track for flying over a forest in a downpour. When it comes to rainy music, the impression it gives flips by 180 degrees based on whether you make it feel damp, or give it a sense of speed. This track is in the latter category, befitting of Stage 1."
+comment_jp = "１面のテーマです。\n\n大雨降る森の上の曲です。雨の曲って、しっとりにさせるか疾走感を持たせるかで１８０度イメージが変わりますよね。この曲は１面らしく後者です。"
+name_en = "A Shower of Strange Occurrences"
+
+[03]
+name_jp = "大吉キトゥン"
+position = "0x0263CFF0, 0x00062400, 0x0100F400"
+comment_en = "This is Mike Goutokuji's theme.\n\nWhen you think of floods of customers and prosperous business, you think of the maneki-neko. I think this track's melody feels sort of Japanese, or sort of Chinese-- it's got an Oriental vibe of sorts. A bouncing, cat-like track. Cute, don't you think?"
+comment_jp = "豪徳寺 ミケ（ごうとくじ みけ）のテーマです。\n\n千客万来、商売繁盛と言えば招き猫ですね。和風というか中華風というか、何処かしら東洋の感じがするメロディになっていると思います。猫っぽい跳ねる感じの曲で、かわいらしいと思いません？"
+name_en = "Kitten of Great Fortune"
+
+[04]
+name_jp = "深緑に隠された断崖"
+position = "0x0364C3F0, 0x0025E8C0, 0x0113A200"
+comment_en = "This is the Stage 2 theme.\n\nA track with a strong otherworldly feel to it right off the bat. The far reaches of a mountain are an Otherworld from a human's perspective, you know? Even with satellite photography showing us the whole world nowadays, mountain crags covered in deep forest are as alien as ever."
+comment_jp = "２面のテーマです。\n\nはなっから異界っぽさが強い曲です。深い山の中って人間にとっては異界なんですよね。それは衛星写真で世界中見られる今になっても深い森に包まれた山の中は異界のままなのです。"
+name_en = "The Cliff Hidden in Deep Green"
+
+[05]
+name_jp = "バンデットリィテクノロジー"
+position = "0x047865F0, 0x00118400, 0x012D9C00"
+comment_en = "This is Takane Yamashiro's theme.\n\nShe's one of the yamawaro, the mountain youkai that serve as counterparts to the kappa. As befits an intellectually-leaning youkai(?), this track came out with the feeling that she's fighting you as if playing a game. It's an interesting track, with a nostalgic mood to it somewhere."
+comment_jp = "山城 たかね（やましろ たかね)のテーマです。\n\n河童と対を成す山の妖怪、山童です。頭脳派妖怪（？）らしく、遊び感覚で戦闘している感じの曲になりました。何処か懐かしさもあって面白い曲です。"
+name_en = "Banditry Technology"
+
+[06]
+name_jp = "駒草咲くパーペチュアルスノー"
+position = "0x05A601F0, 0x00194000, 0x01D52400"
+comment_en = "This is the Stage 3 theme.\n\nI pictured a high, just slightly broad plateau atop a mountain. Since these kinds of flat plateaus are hard to reach, people long ago often called them hidden villages for the Taira or ninjas, didn't they? I don't think there's any truth to it, of course, but it's certainly romantic."
+comment_jp = "３面のテーマです。\n\n山の上の少しだけ開けた高地をイメージしました。辿り着くのが難しいこういう高地の平原は、昔は平家や忍者などの隠れ里と呼ばれる事がよくあったようですね。流石に事実ではないと思いますが、ロマンがあります。"
+name_en = "The Perpetual Snow of Komakusa Blossoms"
+
+[07]
+name_jp = "スモーキングドラゴン"
+position = "0x077B25F0, 0x00114D00, 0x0163AC00"
+comment_en = "This is Sannyo Komakusa's theme.\n\nShe's called Komakusa-dayuu thanks to how she dresses, and the pipe she holds in one hand. I composed a track with a strong, straightforward sense of individuality to it. I did try to make something more yakuza-ish, though. What's up with this \"midboss\" feeling...? Well, she is just serving as the gatekeeper; she's a midboss through and through."
+comment_jp = "駒草 山如（こまくさ さんにょ）のテーマです。\n\n煙管片手のその出で立ちから駒草太夫と呼ばれている彼女です。ストレートに癖の強い曲を作りました。もっとヤクザっぽいのを目指したんですけどね、なんだろうこの中ボス感……。まあやってることは門番だし、紛うこと無き中ボスなんですが。"
+name_en = "Smoking Dragon"
+
+[08]
+name_jp = "廃れゆく産業遺構"
+position = "0x08DED1F0, 0x0050BCA0, 0x02344020"
+comment_en = "This is the Stage 4 theme.\n\nIn the past, mining was such a big industry that towns were built around it. Roads and railroads were developed to transport ores, and they supported Japanese industries. However, most of the mines have now been closed. This theme was inspired by nostalgia for the mine ruins."
+comment_jp = "４面のテーマです。\n\nかつては鉱山というと周辺に街が出来るくらいの一大産業でした。運搬のために道や鉄道も発達し、日本の産業を支えていました。しかし、現在は殆ど閉山しています。 この曲は鉱山跡にノスタルジアを感じてこんな感じになりました。"
+name_en = "The Obsolescent Industrial Remains"
+
+[09]
+name_jp = "神代鉱石"
+position = "0x0B131210, 0x00205800, 0x019698FC"
+comment_en = "This is Misumaru Tamatsukuri's theme.\n\nI composed this theme with the image of confronting a mysterious person deep in a dungeon, who you can't identify as an enemy or ally. And that's exactly what happens (haha). Now, the Izanagi Objects that suddenly appeared also appear in the music CD of the same name that I made, so be sure to check that out as well. At the end of the day, they're still mysterious objects."
+comment_jp = "玉造 魅須丸（たまつくり みすまる）のテーマです。\n\nダンジョンの奥で敵か味方か判らない謎の人物と対峙するイメージで作曲しました。そのまんまですね（笑） さて、突如現れた伊弉諾物質ですが、僕が作った同名の音楽CDに出てきますのでそちらも是非。結局、謎の物質です。"
+name_en = "Ore from the Age of the Gods"
+
+[10]
+name_jp = "待ちわびた逢魔が時"
+position = "0x0CA9AB0C, 0x000AC6A0, 0x01D4D760"
+comment_en = "This is the Stage 5 theme.\n\nThe initial image is that of a fantastic view from the mountains, followed by the world suddenly becoming more familiar once a tengu appears. As the world becomes narrower, your heart becomes lighter... that's the sort of feeling this track has. As a nice contrast to the suffocating feeling of Stage 4's Rainbow Dragon Cave, this stage is lighthearted and fun, with a boss who's easy to understand."
+comment_jp = "５面のテーマです。\n\n幻想的な山からの展望のイメージから、天狗が出て世界が急に身近になり、世界が狭くなると心が軽くなる……そんな感じの曲です。４面の虹龍洞が息苦しい感じだったのに対し、軽快で楽しい、そしてボスが判りやすい奴、というのが気持ちいいです。"
+name_en = "The Long-Awaited Oumagatoki"
+
+[11]
+name_jp = "星降る天魔の山"
+position = "0x0E7E826C, 0x0009DEE0, 0x01864940"
+comment_en = "This is Megumu Iizunamaru's theme.\n\nAs befits an important tengu, this theme is melancholic while still retaining a jokey feel. The main phrase of the theme is nostalgic for me personally, and for some reason it makes my eyes tear up. I wonder if it's because we rarely see themes with game-like phrases like this anymore."
+comment_jp = "飯綱丸 龍（いいずなまる めぐむ）のテーマです。\n\n大物の天狗らしく、おどけた感じを残しつつも哀愁のある曲になりました。メインフレーズは個人的に懐かしい感じがして、何故か目頭が熱くなります。なんかこういうゲームらしいフレーズの曲って殆ど見かけなくなったからですかねぇ。"
+name_en = "Starry Mountain of Tenma"
+
+[12]
+name_jp = "ルナレインボー"
+position = "0x1004CBAC, 0x000B1040, 0x01BBA240"
+comment_en = "This is the Final Stage theme.\n\nI set a light rhythm to the fantastical night sky. Come to think of it, when I was a child, I used to see my shadow cast clearly onto the ground by moonlight. Have I stopped seeing it because everything around you is so bright nowadays? Or had it been a youkai's doing?"
+comment_jp = "最終面のテーマです。\n\n幻想的な夜空に軽快なリズムを合わせました。そういえば子供の頃って、月明りで自分の影がくっきりと地面に落ちていた気がします。今は周りが明るくなったから見えなくなったのか、それともあれは妖怪の仕業だったのか。"
+name_en = "Lunar Rainbow"
+
+[13]
+name_jp = "あの賑やかな市場は今どこに　～ Immemorial Marketeers"
+position = "0x11C06DEC, 0x00458BA0, 0x029EB920"
+comment_en = "This is Chimata Tenkyuu's theme.\n\nShe's a market god. A rainbow is a place where Otherworlds intersect with ours. Those very places where different things cross paths are her territory. Her theme likewise became one where two sections intersect: a fun and lively section with a light rhythm to it, and a powerful section that might somehow sound like wailing."
+comment_jp = "天弓 千亦（てんきゅう ちまた）のテーマです。\n\n市場の神です。虹というのは異界と交錯する場所です。異なる物が交わる場所こそ、彼女のテリトリーなのです。曲の方も軽いリズムで楽しく賑やかなパートと、パワフルでどこか悲鳴のようにも聞こえるパートが交錯する曲になりました。"
+name_en = "Where Is That Bustling Marketplace Now ~ Immemorial Marketeers"
+
+[14]
+name_jp = "幻想の地下大線路網"
+position = "0x15C50F8C, 0x000D5E00, 0x01CD3400"
+comment_en = "This is the Extra Stage theme.\n\nI envisioned Reimu and co. heading out on their mine-exploring journey with no reservations, thanks to the magatama (oxygen tank) they've obtained. They've been yanked back and forth all over the place up until now, but now their counterattack begins... or at least, it was supposed to. Who would've thought that they'd get yanked around even more?"
+comment_jp = "エキストラステージのテーマです。\n\n勾玉（酸素ボンベ）を手に入れて心置きなく、坑道探検に行く霊夢達をイメージしました。振り回されっぱなしだった彼女達の逆襲が始まる……筈だったのに。まさかさらに振り回される事になるとは"
+name_en = "The Great Fantastic Underground Railway Network"
+
+[15]
+name_jp = "龍王殺しのプリンセス"
+position = "0x1792438C, 0x000F30C0, 0x01A994A0"
+comment_en = "This is Momoyo Himemushi's theme.\n\nShe's a centipede princess. Y'know, no matter how much I like insects, centipedes are... yikes. They're hideous, poisonous, fairly familiar, and low-rarity. They're packed with nothing but detestable qualities, and yet, I still hate them. Her theme, however, turned out to be supremely fun, and just as cool as centipedes are. Maybe I do like them after all."
+comment_jp = "姫虫 百々世（ひめむし ももよ）のテーマです。\n\nムカデの姫です。いやー、いくら昆虫好きでもムカデはちょっとねぇ……。醜悪、毒がある、割と身近でレア度も低い、と嫌われる要素しかないムカデですが、やっぱり嫌いです。でも曲は最高に楽しくムカデみたいに格好いい物になりました。やっぱり好きかも。"
+name_en = "The Princess Who Slays Dragon Kings"
+
+[16]
+name_jp = "嵐の後の日曜日"
+position = "0x145F270C, 0x00392000, 0x009D0C00"
+comment_en = "This is the ending theme.\n\nI long for Sundays where I can relax and do nothing with a beer in my hand."
+comment_jp = "エンディングのテーマです。\n\nお酒を手に、のんびりと何にもしない日曜日に憧れます。"
+name_en = "The Sunday After the Storm"
+
+[17]
+name_jp = "虹色の世界"
+position = "0x14FC330C, 0x00891600, 0x00C8DC80"
+comment_en = "This is the staff roll theme.\n\nI dream of the day when the world's markets will be smiling and bustling again."
+comment_jp = "スタッフロールのテーマです。\n\n世界の市場に笑顔と賑やかさが戻る日を夢見て。"
+name_en = "The Rainbow-Colored World"
+
+[18]
+name_jp = "プレイヤーズスコア"
+position = "0x193BD82C, 0x001CACC8, 0x0066DCC0"
+name_en = "Player's Score"
+frequency = 44100
