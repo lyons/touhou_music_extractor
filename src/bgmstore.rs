@@ -29,6 +29,7 @@ impl BgmStore {
                "th16"   | "hsifs" | "hidden star in four seasons"     => "th16.bgm",
                "th16.5" | "vd"    | "violet detector"                 => "th16.5.bgm",
                "th17"   | "wbawc" | "wily beast and weakest creature" => "th17.bgm",
+               "th18"   | "um"    | "unconnected marketeers"          => "th18.bgm",
       _ => "",
     };
 
@@ -66,6 +67,7 @@ pub fn print_command_line_help() {
   line("",       "TH16",   "HSiFS", "\"Hidden Star in Four Seasons\"");
   line("",       "TH16.5", "VD",    "\"Violet Detector\"");
   line("",       "TH17",   "WBaWC", "\"Wily Beast and Weakest Creature\"");
+  line("",       "TH18",   "UM",    "\"Unconnected Marketeers\"");
 }
 
 fn line(a: &str, b: &str, c: &str, d: &str) {
