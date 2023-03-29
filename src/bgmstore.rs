@@ -30,6 +30,7 @@ impl BgmStore {
                "th16.5" | "vd"    | "violet detector"                 => "th16.5.bgm",
                "th17"   | "wbawc" | "wily beast and weakest creature" => "th17.bgm",
                "th18"   | "um"    | "unconnected marketeers"          => "th18.bgm",
+               "th18.5" | "bm"    | "black market of bulletphilia"    => "th18.5.bgm",
       _ => "",
     };
 
@@ -68,6 +69,7 @@ pub fn print_command_line_help() {
   line("",       "TH16.5", "VD",    "\"Violet Detector\"");
   line("",       "TH17",   "WBaWC", "\"Wily Beast and Weakest Creature\"");
   line("",       "TH18",   "UM",    "\"Unconnected Marketeers\"");
+  line("",       "TH18.5", "BM",    "\"Black Market of Bulletphilia\"");
 }
 
 fn line(a: &str, b: &str, c: &str, d: &str) {

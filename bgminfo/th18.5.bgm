@@ -1,0 +1,100 @@
+# Music Room Interface Info
+[game]
+name = "バレットフィリア達の闇市場　〜 100th Black Market"
+name_en = "Black Market of Bulletphilia ~ 100th Black Market"
+artist = "ZUN"
+circle = "上海アリス幻樂団"
+circle_en = "Team Shanghai Alice"
+year = 2022
+gamenum = "18.5"
+
+packmethod = 2
+bgmfile = "thbgm.dat"
+zwavid_08 = 0x50
+zwavid_09 = 0x18
+
+tracks = 10
+
+[update]
+wikipage = "100th_Black_Market/Music"
+wikirev = 0
+
+[01]
+name_jp = "コレクターの憂鬱な午後"
+name_en = "The Collector's Melancholy Afternoon"
+position = "0x000010, 0x0a0b00, 0x14ad000"
+frequency = 44100
+comment_en = "This is the title screen theme.\n\n\"We're off to battle!\"\n...Instead of something like that, I pictured a lazy, everyday \"laying on the floor\" feeling.\nIt feels a little bit rainy, too."
+comment_jp = "タイトル画面のテーマです。\n\n戦いに行くぞー！\nという感じではなくゴロゴロしている日常をイメージしました。\n少し雨っぽい感じがしますね。"
+
+[02]
+name_jp = "ワクワクする見慣れた幻想郷"
+name_en = "An Exciting and Familiar Gensokyo"
+position = "0x21a7790, 0x046400, 0x1f867a0"
+frequency = 44100
+comment_en = "This is the theme of the early stages.\n\nI composed it with a bright and cheerful feeling, first of all.\nRather than \"reluctantly getting up and setting off to deal with an incident,\" my mental image was of Marisa running off to stick her neck into something because she felt like it."
+comment_jp = "序盤ステージのテーマです。\n\nとにかく明るく楽しげに作りました。\n異変に対して重い腰を上げて出撃、と言うわけではなく、\nとにかく首を突っ込みたくて突っ込んでいる魔理沙を\nイメージしました。"
+
+[03]
+name_jp = "妖怪フックオン"
+name_en = "Youkai Hook On"
+position = "0x14ad010, 0x04f500, 0xcfa780"
+frequency = 44100
+comment_en = "This is the theme for bosses in the game's first half.\n\nI composed it while picturing youkai cheerfully leaping around, first of all.\nThe new tracks in this game aren't tied to particular characters, but since it plays during your first fight with Mike in the tutorial, I think it's largely pulled along by Mike's cat-like image."
+comment_jp = "前半ボスのテーマです。\n\nとにかく楽しげに跳ねるような妖怪をイメージして作りました。\nこのゲームの曲はキャラと結びつけていないのですが、\n最初にチュートリアルでミケと対峙する時に流れるので、\n大分ミケの猫っぽいイメージに引きずられている気もします。"
+
+[04]
+name_jp = "闇市場は場所を選ばない"
+name_en = "Black Markets Can Happen Anywhere, Anytime"
+position = "0x412df30, 0x434a00, 0x1e7d880"
+frequency = 44100
+comment_en = "This is the theme of the mid-game stages.\n\nSince it plays at the Sai no Kawara, it starts off feeling somewhat heavy, but altogether, it's an exceptionally speedy and nice-feeling song.\nI pictured Marisa having lighthearted fun no matter what location she's in.\nThis time, there's some very exotic melodies scattered throughout."
+comment_jp = "中盤ステージのテーマです。\n\n賽の河原で使われているのでちょっと重そうな感じで始まりますが、\n全体的にはスピード感抜群の気持ちいい曲です。\nどんな場所でも気軽に楽しんでいる魔理沙をイメージしています。\n今回は随所にエキゾチックなメロディが散りばめられています。"
+
+[05]
+name_jp = "弾幕を持て、パレッドフィリア達よ"
+name_en = "Take Thy Danmaku In Hand, Bulletphiles"
+position = "0x5fab7b0, 0x09b200, 0x132ba00"
+frequency = 44100
+comment_en = "This is the theme for strong enemies.\n\nIt's used for lots of different enemies, human and youkai alike, so I made a mysterious-sounding song that isn't dominated by one simple emotion.\nEveryone in Gensokyo probably thinks that it's cool to show off how they're having fun at the black markets, so their battle theme is somehow cheerful as well."
+comment_jp = "強敵のテーマです。\n\n人間も妖怪も混じって色んな敵に使われているので、単純な\n感情に支配されない、不思議な曲にしました。\n幻想郷の皆は、闇市場を楽しんでいる姿を見せる事は格好良い事だ、\nと思っているのでしょう。なので戦闘曲も何処か楽しげです。"
+
+[06]
+name_jp = "100回目のブラックマーケット"
+name_en = "The Hundredth Black Market"
+position = "0x72d71b0, 0x0850c0, 0x1a97160"
+frequency = 44100
+comment_en = "This is the theme for the final stages.\n\nI wrote this to be a slightly stylish yet powerful song.\nThis song isn't connected to any single character or stage, so I tried to give a \"Sounds like Touhou Project!\" feel to it.\nDoing what you love to the best of your abilities is healthy, isn't it."
+comment_jp = "終盤ステージのテーマです。\n\nちょっとお洒落だけど力強い曲を目指して作りました。\n今回は曲がキャラやステージに結びついていないので、\n全体的に\"いかにも東方Project!\"って感じの曲にしています。\n思いっきり好きなことをするって、健康的ですよね。"
+
+[07]
+name_jp = "ルナティックドリマー"
+name_en = "Lunatic Dreamer"
+position = "0xdfa1af0, 0x1eb2c0, 0x13dcc40"
+frequency = 44100
+comment_en = "Re-recorded from Violet Detector.\n\nI used it for the game's test version, but it ended up matching way too well,\nso I just used it for the tutorial as-is (LOL)"
+comment_jp = "『秘封ナイトメアダイアリー』からの再収録です。\n\nパイロット版で使っていたら余りにもマッチしてしまったので、\nチュートリアルにそのまま使いました(笑)"
+
+[08]
+name_jp = "ルナレインボー"
+name_en = "Lunar Rainbow"
+position = "0x8d6e310, 0x0b1040, 0x1bba240"
+frequency = 44100
+comment_en = "Re-recorded from Unconnected Marketeers."
+comment_jp = "『東方虹能洞』からの再収録です。"
+
+[09]
+name_jp = "あの賑やかな市場は今どこに　～ Immemorial Marketeers"
+name_en = "Where Is That Bustling Marketplace Now ~ Immemorial Marketeers"
+position = "0xa928550, 0x458ba0, 0x29eb920"
+frequency = 44100
+comment_en = "Re-recorded from Unconnected Marketeers."
+comment_jp = "『東方虹能洞』からの再収録です。"
+
+[10]
+name_jp = "虹色の世界"
+name_en = "A Rainbow-Colored World"
+position = "0xd313e70, 0x891600, 0xc8dc80"
+frequency = 44100
+comment_en = "Re-recorded from Unconnected Marketeers."
+comment_jp = "『東方虹能洞』からの再収録です。"
