@@ -1,7 +1,6 @@
 ﻿# Music Room Interface Info
 # TH14.3 music extraction file made by ZDP123 (TS666 on MotK) <tracescarlet666@live.com> <zebesiano.alfa.123@gmail.com>
 # Info and music data obviously token from Touhou Wiki <en.touhouwiki.net>, lot of thanks to the translators.
-# Also special thanks to the users that helped me at MotK :) http://www.shrinemaiden.org/forum/index.php/topic,16863.0.html
 
 [game]
 name = "弾幕アマノジャク　～ Impossible Spell Card"
@@ -24,7 +23,7 @@ patchclass = "slow"
 
 [update]
 wikipage = "Impossible_Spell_Card/Music"
-wikirev = 334198
+wikirev = 320516
 
 [01]
 name_jp = "反則の狼煙を上げろ"
@@ -57,7 +56,6 @@ frequency = 44100
 name_en = "Romantic Escape Flight"
 comment_jp = "中盤のテーマです。\n\nうってかわって開けた感じになりました。\nこの辺までくると簡単にはステージを\nクリアできないかな？"
 comment_en = "Middle stages theme.\n\nThis one is completely different and cheerful.\nAt this point you can't beat the stages\nso easily, can you?"
-this one is completely different and cheerful.\nat this point you can't beat the stages\nso easily, can you?"
 
 [05]
 name_jp = "永遠の三日天下"
